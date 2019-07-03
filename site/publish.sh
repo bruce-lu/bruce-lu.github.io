@@ -2,5 +2,5 @@
 
 # Author: Bruce Lu
 
-cd .. && git add . && git commit -m "updating.." && git push && cd -
+cd .. && pwd &&  git add . && git commit -m "updating.." && git push && cd -
 
