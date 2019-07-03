@@ -1,6 +1,6 @@
 [
     {
-        "ref": "https://example.com/blog/markdown-syntax/",
+        "ref": "https://bruce-lu.github.io/blog/markdown-syntax/",
         "title": "Markdown Syntax Guide",
         "section": "blog",
         "date" : "2019.03.11",
@@ -8,7 +8,7 @@
     }
 ,
     {
-        "ref": "https://example.com/blog/placeholder-text/",
+        "ref": "https://bruce-lu.github.io/blog/placeholder-text/",
         "title": "Placeholder Text",
         "section": "blog",
         "date" : "2019.03.09",
@@ -16,7 +16,7 @@
     }
 ,
     {
-        "ref": "https://example.com/blog/math-typesetting/",
+        "ref": "https://bruce-lu.github.io/blog/math-typesetting/",
         "title": "Math Typesetting",
         "section": "blog",
         "date" : "2019.03.08",
@@ -24,7 +24,7 @@
     }
 ,
     {
-        "ref": "https://example.com/blog/emoji-support/",
+        "ref": "https://bruce-lu.github.io/blog/emoji-support/",
         "title": "Emoji Support",
         "section": "blog",
         "date" : "2019.03.05",
@@ -32,7 +32,7 @@
     }
 ,
     {
-        "ref": "https://example.com/blog/second/",
+        "ref": "https://bruce-lu.github.io/blog/second/",
         "title": "second",
         "section": "blog",
         "date" : "0001.01.01",
