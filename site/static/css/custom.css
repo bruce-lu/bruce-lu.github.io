@@ -21,3 +21,7 @@ header a.author:active {
 .date {
     color: #869D38;
 }
+
+body {
+  background-color: #fff;
+}
