@@ -1,8 +1,12 @@
 ---
-title: How I built a Web Site on Github by Using Hugo within an hour
+title: How I Built This Web Site within an hour
 date: 2019-07-03
 draft: false
 ---
+
+## Objective
+
+Build a web site like this within an hour.
 
 ## Local env.
 
