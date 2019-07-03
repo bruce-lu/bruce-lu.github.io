@@ -16,11 +16,14 @@
       <pubDate>Wed, 03 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://bruce-lu.github.io/blog/build-web-site-by-hugo-within-hour/</guid>
-      <description>Local env.  macOS Mojave Hugo v0.55.6 for Mac git version 2.20.1 (client)  Prepare local env.  Install Hugo   brew install hugo
- Install git client  brew install git
-On Github  Log on Github Create a public repository named bruce-lu.github.io
+      <description>Local env.  macOS Mojave Hugo v0.55.6 for Mac git version 2.20.1 (client)  Prepare local env.  Install Hugo
+brew install hugo
+ Install git client
+brew install git
+  On Github  Log on Github Create a public repository named bruce-lu.github.io
 Where bruce-lu is my Github account name. I create a new repository bruce-lu.github.io on Github.
-  On local env.  Create workspace   mkdir ~/ws &amp;amp;&amp;amp; cd ~/ws</description>
+  On local env.  Create workspace
+mkdir ~/ws &amp;amp;&amp;amp; cd ~/ws</description>
     </item>
     
     <item>

@@ -15,8 +15,9 @@ hasCJKLanguage = true
     avatar = "avatar.jpg"
     favicon = "favicon.ico"
     description = """
-        Hey thanks for paying attention. I'm still working on the site building
-        Profiles, backgrounds, favorite things etc would be coming soon..
+        Hey welcome to Bruce's pages. I'm currently working on the way of Cloud Native: 
+        Microservices, DevOps, Containers, Kubernetes etc..
+        Please feel free to click the links below for more. 
     """
     publicationYear = "2019"
     # listPageDateFormat = "January, 2006" # See https://gohugo.io/functions/format/
@@ -35,22 +36,22 @@ hasCJKLanguage = true
     weight = 10
 
 [[menu.main]]
-    identifier = "twitter"
-    # name = "Twitter"
-    pre = "<i class='fab fa-twitter fa-lg'></i>"
-    url = "https://twitter.com/username"
+    identifier = "linkedin"
+    # name = "Linkedin"
+    pre = "<i class='fab fa-linkedin fa-lg'></i>"
+    url = "https://www.linkedin.com/in/bruce-lu-in/"
     weight = 20
 
 [[menu.main]]
     identifier = "github"
     # name = "GitHub"
     pre = "<i class='fab fa-github fa-lg'></i>"
-    url = "https://github.com/username"
+    url = "https://github.com/bruce-lu"
     weight = 30
 
 [[menu.main]]
     identifier = "email"
     # name = "Email"
     pre = "<i class='fa fa-envelope fa-lg'></i>"
-    url = "mailto:username@example.com"
+    url = "mailto:bruce.lu.g@gmail.com"
     weight = 40
