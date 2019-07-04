@@ -1,10 +1,10 @@
 [
     {
         "ref": "https://bruce-lu.github.io/blog/coding-nodejs/",
-        "title": "Coding Node.js",
+        "title": "Coding with Node.js",
         "section": "blog",
         "date" : "2019.07.04",
-        "body": " Async/await ``` Javascript async function f() { try { let response = await fetch('/no-user-here'); let user = await response.json(); } catch(err) { // catches errors both in fetch and response.json alert(err); } } f(); // reference: https://javascript.info/async-await // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function ```  "
+        "body": " Async/await async function f() { try { let response = await fetch('/no-user-here'); let user = await response.json(); } catch(err) { // catches errors both in fetch and response.json alert(err); } } f(); // reference: https://javascript.info/async-await // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function  "
     }
 ,
     {
@@ -12,7 +12,7 @@
         "title": "Coding with Python",
         "section": "blog",
         "date" : "2019.07.04",
-        "body": " yield ``` Python #!/usr/bin/env python # Author Bruce 12/14/17 import sys def greppattern(pattern, fullfilename): with open(fullfilename) as handle: for line in handle: if pattern in line: yield line.rstrip(\u0026quot;\\n\u0026quot;) if __name__ == \u0026quot;__main__\u0026quot;: # python blueutils.py \u0026quot;30 15\u0026quot; dbcontrace.log ''' usage: python blueutils.py \u0026quot;17-12\u0026quot; dbcontrace.log ''' pattern, fullfilename = sys.argv[1], sys.argv[2] for line in greppattern(pattern, fullfilename): print(line) ```  "
+        "body": " yield #!/usr/bin/env python # Author Bruce 12/14/17 import sys def greppattern(pattern, fullfilename): with open(fullfilename) as handle: for line in handle: if pattern in line: yield line.rstrip(\u0026quot;\\n\u0026quot;) if __name__ == \u0026quot;__main__\u0026quot;: # python blueutils.py \u0026quot;30 15\u0026quot; dbcontrace.log ''' usage: python blueutils.py \u0026quot;17-12\u0026quot; dbcontrace.log ''' pattern, fullfilename = sys.argv[1], sys.argv[2] for line in greppattern(pattern, fullfilename): print(line)  "
     }
 ,
     {
@@ -20,7 +20,7 @@
         "title": "Docker Commands",
         "section": "blog",
         "date" : "2019.07.04",
-        "body": " Get help // Get help docker -h\n// Get help for a command docker image prune \u0026ndash;help\nContainer // Show all containers, including both running and stopped docker ps -a\n// Get container logs docker logs $container\n// Attach std in/out/error to a running container docker attach $container // Run a command in a running container interactively docker exec -it $container /bin/sh\n// Show detail of a container docker inspect $container\n// Stats docker stats $container\n// Start/stop a container docker start / stop $container\n// Remove a container docker rm $container\nImage docker image ls docker image history $image docker rmi $image\n// Remove all unused images, not just dangling ones docker image prune -a\nnetwork // List docker networks docker network ls\n"
+        "body": " Get help  Get help\ndocker -h\n Get help for a command\ndocker image prune \u0026ndash;help\n  Container  Show all containers, including both running and stopped\ndocker ps -a\n Get container logs\ndocker logs $container\n Attach std in/out/error to a running container\ndocker attach $container\n Run a command in a running container interactively\ndocker exec -it $container /bin/sh\n Show detail of a container\ndocker inspect $container\n Stats\ndocker stats $container\n Start/stop a container\ndocker start / stop $container\n Remove a container\ndocker rm $container\n  Image  basic actions\ndocker image ls docker image history $image docker rmi $image\n Remove all unused images, not just dangling ones\ndocker image prune -a\n  Networking  List docker networks\ndocker network ls\n  "
     }
 ,
     {
@@ -28,7 +28,7 @@
         "title": "Kubernetes Commands",
         "section": "blog",
         "date" : "2019.07.04",
-        "body": " Create/run kubectl run busybox \u0026ndash;rm -it \u0026ndash;image=busybox /bin/sh kubectl run nginx \u0026ndash;image=nginx \u0026ndash;replicas=2 kubectl create -f a-file.yml\n// dry-run kubectl run nginx \u0026ndash;image=nginx \u0026ndash;dry-run\nGet info kubectl -h or \u0026ndash;help kubectl $command \u0026ndash;help kubectl cluster-info\nkubectl get nodes kubectl get pods -o wide \u0026ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=\u0026lsquo;{.items[0].metadata.name}\u0026rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets\nkubectl describe resName kubectl explain resName\nTrouble shooting kubectl logs -p $pod -c $container kubectl logs \u0026ndash;since=1h nginx\nkubectl exec -it myPodName -c containerNameInMyPod /bin/sh\nApply changes kubectl apply -f a-file.yml kubectl delete -f a-file.yml\nkubectl scale \u0026ndash;replicas=3 deployment/nginx\n"
+        "body": " Create/run  kubectl run busybox \u0026ndash;rm -it \u0026ndash;image=busybox /bin/sh kubectl run nginx \u0026ndash;image=nginx \u0026ndash;replicas=2 kubectl create -f a-file.yml kubectl run nginx \u0026ndash;image=nginx \u0026ndash;dry-run  Get info  kubectl -h or \u0026ndash;help kubectl $command \u0026ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide \u0026ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=\u0026lsquo;{.items[0].metadata.name}\u0026rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs \u0026ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file.yml kubectl delete -f a-file.yml kubectl scale \u0026ndash;replicas=3 deployment/nginx  "
     }
 ,
     {
@@ -36,7 +36,7 @@
         "title": "Linux Shells",
         "section": "blog",
         "date" : "2019.07.03",
-        "body": " for ```Bash for i in {1..10}; do echo $i;done ```  if ```Bash ```  "
+        "body": " for for i in {1..10}; do echo $i;done  if # admin@~/ws/shell$cat weight-check.sh #!/bin/bash # Author: Bruce #if [ ! $# -eq 2 ]; then if [ $# -lt 2 ]; then echo \u0026quot;Not enough parameters. Usage: $0 weight-in-kilos lengh-in-centimeters\u0026quot; exit elif [ $# -gt 2 ]; then echo \u0026quot;Too many parameters. Usage: $0 weight-in-kilos lengh-in-centimeters\u0026quot; exit else # \u0026quot;\u0026quot; -\u0026gt; true; \u0026quot; \u0026quot; -\u0026gt; false if [ -z \u0026quot;$1\u0026quot; ]; then echo \u0026quot;1st parameter empty\u0026quot; exit fi if [ -n \u0026quot;$2\u0026quot; ]; then echo \u0026quot;2nd parameter not empty\u0026quot; fi echo -n \u0026quot;You entered: \u0026quot; for p in \u0026quot;$1\u0026quot; \u0026quot;$2\u0026quot;;do echo -n \u0026quot;$p \u0026quot; done echo \u0026quot;\u0026quot; fi if [ -f lock ]; then echo \u0026quot;Already run\u0026quot; fi # Adding lock if not yet echo \u0026quot;lock\u0026quot; \u0026gt; lock weight=\u0026quot;$1\u0026quot; height=\u0026quot;$2\u0026quot; ideal=$[height - 110] if [ $weight -gt $ideal ]; then echo \u0026quot;Less yummy food please\u0026quot; elif [ $weight -eq $ideal ]; then echo \u0026quot;Goodness, you are perfect!\u0026quot; else echo \u0026quot;More food please\u0026quot; fi rm -f lock  TODO "
     }
 ,
     {
@@ -52,7 +52,7 @@
         "title": "Linux Cool Commands",
         "section": "blog",
         "date" : "2019.07.03",
-        "body": " Editing  vim\n# Remove trailing spaces :%s/\\s\\+$//   sed -r \u0026rsquo;s/\\s+//g\u0026rsquo; afile sort afile|uniq sed  # sed [options] 'row-range+action' file # Actions: i, a, d, c, p, s # +g, +i # In place replacement, original copy with .bk suffix is created sed -i.bk 's/Z/1/g' afile # Remove lines from 3 to end sed '3,$d' # Print line 1 and line 2 only sed -n '1,2p' afile # Print lines match pattern sed -n '/A/p' afile  awk\n# awk 'pattern{action}' filenames last -n 5 | awk '{print $1}' cat /etc/passwd |awk -F ':' 'BEGIN {print \u0026quot;name,shell\u0026quot;} {print $1\u0026quot;,\u0026quot;$7} END {print \u0026quot;blue,/bin/nosh\u0026quot;}' awk -F: '/^root/{print $7}' /etc/passwd   cut  # Print 1st field, each field separated by : cut -d: -f 1 /etc/passwd   Searching  find\nfind /etc -name passwd find . -name \u0026quot;*.txt\u0026quot; -exec echo {} \\; -exec grep banana {} \\; find ./ -type d |xargs ls -l # -I replace_str; -0 take cares of file names with blank space find . -name \u0026quot;*.bak\u0026quot; -print0 | xargs -0 -I {} mv {} ~/old.files # {} could be customized as whatever, like file in the example find /path/to/dir -iname \u0026quot;*.c\u0026quot; -print0 | xargs -0 -I file mv file ~/old.src   ls  # List one column ls -1   Logging  dmesg // kernel message, equals to journalctl -k journalctl -a /var/log  Resources  ps -ef|grep java top vmstat sar  Networking  netstat -anp|grep 80 lsof -i :80 tcpdump   Storage  lsblk fdisk -l iotop  Kernel Performance  time ls watch -n 2 free  "
+        "body": " Editing  vim  # Remove trailing spaces :%s/\\s\\+$//   sed -r \u0026rsquo;s/\\s+//g\u0026rsquo; afile sort afile|uniq sed  # sed [options] 'row-range+action' file # Actions: i, a, d, c, p, s # +g, +i # In place replacement, original copy with .bk suffix is created sed -i.bk 's/Z/1/g' afile # Remove lines from 3 to end sed '3,$d' # Print line 1 and line 2 only sed -n '1,2p' afile # Print lines match pattern sed -n '/A/p' afile   awk  # awk 'pattern{action}' filenames last -n 5 | awk '{print $1}' cat /etc/passwd |awk -F ':' 'BEGIN {print \u0026quot;name,shell\u0026quot;} {print $1\u0026quot;,\u0026quot;$7} END {print \u0026quot;blue,/bin/nosh\u0026quot;}' awk -F: '/^root/{print $7}' /etc/passwd   cut  # Print 1st field, each field separated by : cut -d: -f 1 /etc/passwd  Searching  find  find /etc -name passwd find . -name \u0026quot;*.txt\u0026quot; -exec echo {} \\; -exec grep banana {} \\; find ./ -type d |xargs ls -l # -I replace_str; -0 take cares of file names with blank space find . -name \u0026quot;*.bak\u0026quot; -print0 | xargs -0 -I {} mv {} ~/old.files # {} could be customized as whatever, like file in the example find /path/to/dir -iname \u0026quot;*.c\u0026quot; -print0 | xargs -0 -I file mv file ~/old.src   ls  # List one column ls -1  Logging  dmesg // kernel message, equals to journalctl -k journalctl -a /var/log  Resources  ps -ef|grep java top vmstat sar  Networking  netstat -anp|grep 80 lsof -i :80 tcpdump   Storage  lsblk fdisk -l iotop  Kernel Performance  time ls watch -n 2 free  "
     }
 ,
     {

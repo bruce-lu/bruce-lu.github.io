@@ -11,12 +11,12 @@
     
     
     <item>
-      <title>Coding Node.js</title>
+      <title>Coding with Node.js</title>
       <link>https://bruce-lu.github.io/blog/coding-nodejs/</link>
       <pubDate>Thu, 04 Jul 2019 15:55:42 +0800</pubDate>
       
       <guid>https://bruce-lu.github.io/blog/coding-nodejs/</guid>
-      <description> Async/await ``` Javascript async function f() { try { let response = await fetch(&#39;/no-user-here&#39;); let user = await response.json(); } catch(err) { // catches errors both in fetch and response.json alert(err); } } f(); // reference: https://javascript.info/async-await // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function ```  </description>
+      <description> Async/await async function f() { try { let response = await fetch(&#39;/no-user-here&#39;); let user = await response.json(); } catch(err) { // catches errors both in fetch and response.json alert(err); } } f(); // reference: https://javascript.info/async-await // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function  </description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@
       <pubDate>Thu, 04 Jul 2019 15:37:13 +0800</pubDate>
       
       <guid>https://bruce-lu.github.io/blog/coding-python/</guid>
-      <description> yield ``` Python #!/usr/bin/env python # Author Bruce 12/14/17 import sys def greppattern(pattern, fullfilename): with open(fullfilename) as handle: for line in handle: if pattern in line: yield line.rstrip(&amp;quot;\n&amp;quot;) if __name__ == &amp;quot;__main__&amp;quot;: # python blueutils.py &amp;quot;30 15&amp;quot; dbcontrace.log &#39;&#39;&#39; usage: python blueutils.py &amp;quot;17-12&amp;quot; dbcontrace.log &#39;&#39;&#39; pattern, fullfilename = sys.argv[1], sys.argv[2] for line in greppattern(pattern, fullfilename): print(line) ```  </description>
+      <description> yield #!/usr/bin/env python # Author Bruce 12/14/17 import sys def greppattern(pattern, fullfilename): with open(fullfilename) as handle: for line in handle: if pattern in line: yield line.rstrip(&amp;quot;\n&amp;quot;) if __name__ == &amp;quot;__main__&amp;quot;: # python blueutils.py &amp;quot;30 15&amp;quot; dbcontrace.log &#39;&#39;&#39; usage: python blueutils.py &amp;quot;17-12&amp;quot; dbcontrace.log &#39;&#39;&#39; pattern, fullfilename = sys.argv[1], sys.argv[2] for line in greppattern(pattern, fullfilename): print(line)  </description>
     </item>
     
     <item>
@@ -34,12 +34,19 @@
       <pubDate>Thu, 04 Jul 2019 15:28:09 +0800</pubDate>
       
       <guid>https://bruce-lu.github.io/blog/docker-cmds/</guid>
-      <description>Get help // Get help docker -h
-// Get help for a command docker image prune &amp;ndash;help
-Container // Show all containers, including both running and stopped docker ps -a
-// Get container logs docker logs $container
-// Attach std in/out/error to a running container docker attach $container // Run a command in a running container interactively docker exec -it $container /bin/sh
-// Show detail of a container docker inspect $container</description>
+      <description>Get help  Get help
+docker -h
+ Get help for a command
+docker image prune &amp;ndash;help
+  Container  Show all containers, including both running and stopped
+docker ps -a
+ Get container logs
+docker logs $container
+ Attach std in/out/error to a running container
+docker attach $container
+ Run a command in a running container interactively
+docker exec -it $container /bin/sh
+ Show detail of a container</description>
     </item>
     
     <item>
@@ -48,10 +55,7 @@ Container // Show all containers, including both running and stopped docker ps -
       <pubDate>Thu, 04 Jul 2019 15:23:27 +0800</pubDate>
       
       <guid>https://bruce-lu.github.io/blog/kubernetes-cmds/</guid>
-      <description>Create/run kubectl run busybox &amp;ndash;rm -it &amp;ndash;image=busybox /bin/sh kubectl run nginx &amp;ndash;image=nginx &amp;ndash;replicas=2 kubectl create -f a-file.yml
-// dry-run kubectl run nginx &amp;ndash;image=nginx &amp;ndash;dry-run
-Get info kubectl -h or &amp;ndash;help kubectl $command &amp;ndash;help kubectl cluster-info
-kubectl get nodes kubectl get pods -o wide &amp;ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&amp;lsquo;{.items[0].metadata.name}&amp;rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets</description>
+      <description>Create/run  kubectl run busybox &amp;ndash;rm -it &amp;ndash;image=busybox /bin/sh kubectl run nginx &amp;ndash;image=nginx &amp;ndash;replicas=2 kubectl create -f a-file.yml kubectl run nginx &amp;ndash;image=nginx &amp;ndash;dry-run  Get info  kubectl -h or &amp;ndash;help kubectl $command &amp;ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &amp;ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&amp;lsquo;{.items[0].metadata.name}&amp;rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &amp;ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file.</description>
     </item>
     
     <item>
@@ -60,7 +64,7 @@ kubectl get nodes kubectl get pods -o wide &amp;ndash;all-namespaces kubectl get
       <pubDate>Wed, 03 Jul 2019 21:38:59 +0800</pubDate>
       
       <guid>https://bruce-lu.github.io/blog/linux-shells/</guid>
-      <description> for ```Bash for i in {1..10}; do echo $i;done ```  if ```Bash ```  </description>
+      <description>for for i in {1..10}; do echo $i;done  if # admin@~/ws/shell$cat weight-check.sh #!/bin/bash # Author: Bruce #if [ ! $# -eq 2 ]; then if [ $# -lt 2 ]; then echo &amp;quot;Not enough parameters. Usage: $0 weight-in-kilos lengh-in-centimeters&amp;quot; exit elif [ $# -gt 2 ]; then echo &amp;quot;Too many parameters. Usage: $0 weight-in-kilos lengh-in-centimeters&amp;quot; exit else # &amp;quot;&amp;quot; -&amp;gt; true; &amp;quot; &amp;quot; -&amp;gt; false if [ -z &amp;quot;$1&amp;quot; ]; then echo &amp;quot;1st parameter empty&amp;quot; exit fi if [ -n &amp;quot;$2&amp;quot; ]; then echo &amp;quot;2nd parameter not empty&amp;quot; fi echo -n &amp;quot;You entered: &amp;quot; for p in &amp;quot;$1&amp;quot; &amp;quot;$2&amp;quot;;do echo -n &amp;quot;$p &amp;quot; done echo &amp;quot;&amp;quot; fi if [ -f lock ]; then echo &amp;quot;Already run&amp;quot; fi # Adding lock if not yet echo &amp;quot;lock&amp;quot; &amp;gt; lock weight=&amp;quot;$1&amp;quot; height=&amp;quot;$2&amp;quot; ideal=$[height - 110] if [ $weight -gt $ideal ]; then echo &amp;quot;Less yummy food please&amp;quot; elif [ $weight -eq $ideal ]; then echo &amp;quot;Goodness, you are perfect!</description>
     </item>
     
     <item>
@@ -78,8 +82,7 @@ kubectl get nodes kubectl get pods -o wide &amp;ndash;all-namespaces kubectl get
       <pubDate>Wed, 03 Jul 2019 21:36:34 +0800</pubDate>
       
       <guid>https://bruce-lu.github.io/blog/linux-cool-cmd/</guid>
-      <description>Editing  vim
-# Remove trailing spaces :%s/\s\+$//   sed -r &amp;rsquo;s/\s+//g&amp;rsquo; afile sort afile|uniq sed  # sed [options] &#39;row-range+action&#39; file # Actions: i, a, d, c, p, s # +g, +i # In place replacement, original copy with .bk suffix is created sed -i.bk &#39;s/Z/1/g&#39; afile # Remove lines from 3 to end sed &#39;3,$d&#39; # Print line 1 and line 2 only sed -n &#39;1,2p&#39; afile # Print lines match pattern sed -n &#39;/A/p&#39; afile  awk</description>
+      <description>Editing  vim  # Remove trailing spaces :%s/\s\+$//   sed -r &amp;rsquo;s/\s+//g&amp;rsquo; afile sort afile|uniq sed  # sed [options] &#39;row-range+action&#39; file # Actions: i, a, d, c, p, s # +g, +i # In place replacement, original copy with .bk suffix is created sed -i.bk &#39;s/Z/1/g&#39; afile # Remove lines from 3 to end sed &#39;3,$d&#39; # Print line 1 and line 2 only sed -n &#39;1,2p&#39; afile # Print lines match pattern sed -n &#39;/A/p&#39; afile   awk  # awk &#39;pattern{action}&#39; filenames last -n 5 | awk &#39;{print $1}&#39; cat /etc/passwd |awk -F &#39;:&#39; &#39;BEGIN {print &amp;quot;name,shell&amp;quot;} {print $1&amp;quot;,&amp;quot;$7} END {print &amp;quot;blue,/bin/nosh&amp;quot;}&#39; awk -F: &#39;/^root/{print $7}&#39; /etc/passwd   cut  # Print 1st field, each field separated by : cut -d: -f 1 /etc/passwd  Searching  find  find /etc -name passwd find .</description>
     </item>
     
     <item>

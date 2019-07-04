@@ -24,26 +24,26 @@
   
 
   <meta property="og:title" content="Coding with Python" />
-<meta property="og:description" content=" yield ``` Python #!/usr/bin/env python # Author Bruce 12/14/17 import sys def greppattern(pattern, fullfilename): with open(fullfilename) as handle: for line in handle: if pattern in line: yield line.rstrip(&quot;\n&quot;) if __name__ == &quot;__main__&quot;: # python blueutils.py &quot;30 15&quot; dbcontrace.log &#39;&#39;&#39; usage: python blueutils.py &quot;17-12&quot; dbcontrace.log &#39;&#39;&#39; pattern, fullfilename = sys.argv[1], sys.argv[2] for line in greppattern(pattern, fullfilename): print(line) ```  " />
+<meta property="og:description" content=" yield #!/usr/bin/env python # Author Bruce 12/14/17 import sys def greppattern(pattern, fullfilename): with open(fullfilename) as handle: for line in handle: if pattern in line: yield line.rstrip(&quot;\n&quot;) if __name__ == &quot;__main__&quot;: # python blueutils.py &quot;30 15&quot; dbcontrace.log &#39;&#39;&#39; usage: python blueutils.py &quot;17-12&quot; dbcontrace.log &#39;&#39;&#39; pattern, fullfilename = sys.argv[1], sys.argv[2] for line in greppattern(pattern, fullfilename): print(line)  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://bruce-lu.github.io/blog/coding-python/" />
 <meta property="article:published_time" content="2019-07-04T15:37:13&#43;08:00"/>
 <meta property="article:modified_time" content="2019-07-04T15:37:13&#43;08:00"/>
 
 <meta itemprop="name" content="Coding with Python">
-<meta itemprop="description" content=" yield ``` Python #!/usr/bin/env python # Author Bruce 12/14/17 import sys def greppattern(pattern, fullfilename): with open(fullfilename) as handle: for line in handle: if pattern in line: yield line.rstrip(&quot;\n&quot;) if __name__ == &quot;__main__&quot;: # python blueutils.py &quot;30 15&quot; dbcontrace.log &#39;&#39;&#39; usage: python blueutils.py &quot;17-12&quot; dbcontrace.log &#39;&#39;&#39; pattern, fullfilename = sys.argv[1], sys.argv[2] for line in greppattern(pattern, fullfilename): print(line) ```  ">
+<meta itemprop="description" content=" yield #!/usr/bin/env python # Author Bruce 12/14/17 import sys def greppattern(pattern, fullfilename): with open(fullfilename) as handle: for line in handle: if pattern in line: yield line.rstrip(&quot;\n&quot;) if __name__ == &quot;__main__&quot;: # python blueutils.py &quot;30 15&quot; dbcontrace.log &#39;&#39;&#39; usage: python blueutils.py &quot;17-12&quot; dbcontrace.log &#39;&#39;&#39; pattern, fullfilename = sys.argv[1], sys.argv[2] for line in greppattern(pattern, fullfilename): print(line)  ">
 
 
 <meta itemprop="datePublished" content="2019-07-04T15:37:13&#43;08:00" />
 <meta itemprop="dateModified" content="2019-07-04T15:37:13&#43;08:00" />
-<meta itemprop="wordCount" content="57">
+<meta itemprop="wordCount" content="54">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Coding with Python"/>
-<meta name="twitter:description" content=" yield ``` Python #!/usr/bin/env python # Author Bruce 12/14/17 import sys def greppattern(pattern, fullfilename): with open(fullfilename) as handle: for line in handle: if pattern in line: yield line.rstrip(&quot;\n&quot;) if __name__ == &quot;__main__&quot;: # python blueutils.py &quot;30 15&quot; dbcontrace.log &#39;&#39;&#39; usage: python blueutils.py &quot;17-12&quot; dbcontrace.log &#39;&#39;&#39; pattern, fullfilename = sys.argv[1], sys.argv[2] for line in greppattern(pattern, fullfilename): print(line) ```  "/>
+<meta name="twitter:description" content=" yield #!/usr/bin/env python # Author Bruce 12/14/17 import sys def greppattern(pattern, fullfilename): with open(fullfilename) as handle: for line in handle: if pattern in line: yield line.rstrip(&quot;\n&quot;) if __name__ == &quot;__main__&quot;: # python blueutils.py &quot;30 15&quot; dbcontrace.log &#39;&#39;&#39; usage: python blueutils.py &quot;17-12&quot; dbcontrace.log &#39;&#39;&#39; pattern, fullfilename = sys.argv[1], sys.argv[2] for line in greppattern(pattern, fullfilename): print(line)  "/>
 
   <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -78,30 +78,28 @@
 
 <h2 id="yield">yield</h2>
 
-<pre><code>``` Python
-#!/usr/bin/env python
+<pre><code class="language-Python">  #!/usr/bin/env python
 
-# Author Bruce 12/14/17
+  # Author Bruce 12/14/17
 
-import sys
+  import sys
 
-def greppattern(pattern, fullfilename):
-    with open(fullfilename) as handle:
-        for line in handle:
-            if pattern in line:
-                yield line.rstrip(&quot;\n&quot;)
+  def greppattern(pattern, fullfilename):
+      with open(fullfilename) as handle:
+          for line in handle:
+              if pattern in line:
+                  yield line.rstrip(&quot;\n&quot;)
 
-if __name__ == &quot;__main__&quot;:
-    # python blueutils.py &quot;30 15&quot; dbcontrace.log
-    '''
-    usage: 
-    python blueutils.py &quot;17-12&quot; dbcontrace.log
-    '''
-    pattern, fullfilename = sys.argv[1], sys.argv[2]
-    for line in greppattern(pattern, fullfilename):
-        print(line)
+  if __name__ == &quot;__main__&quot;:
+      # python blueutils.py &quot;30 15&quot; dbcontrace.log
+      '''
+      usage: 
+      python blueutils.py &quot;17-12&quot; dbcontrace.log
+      '''
+      pattern, fullfilename = sys.argv[1], sys.argv[2]
+      for line in greppattern(pattern, fullfilename):
+          print(line)
 
-```
 </code></pre>
 
   </div>

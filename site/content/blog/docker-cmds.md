@@ -7,49 +7,63 @@ images: []
 
 ## Get help
 
-// Get help
-docker -h
+- Get help
 
-// Get help for a command
-docker image prune --help
+    docker -h
+
+- Get help for a command
+
+    docker image prune --help
 
 
 ## Container
 
-// Show all containers, including both running and stopped
-docker ps -a
+- Show all containers, including both running and stopped
 
-// Get container logs
-docker logs $container
+    docker ps -a
 
-// Attach std in/out/error to a running container
-docker attach $container 
+- Get container logs
 
-// Run a command in a running container interactively
-docker exec -it $container /bin/sh
+    docker logs $container
 
-// Show detail of a container
-docker inspect $container
+- Attach std in/out/error to a running container
 
-// Stats
-docker stats $container
+    docker attach $container
 
-// Start/stop a container
-docker start / stop $container
+- Run a command in a running container interactively
 
-// Remove a container
-docker rm $container
+    docker exec -it $container /bin/sh
+
+- Show detail of a container
+
+    docker inspect $container
+
+- Stats
+
+    docker stats $container
+
+- Start/stop a container
+
+    docker start / stop $container
+
+- Remove a container
+
+    docker rm $container
 
 ## Image
 
-docker image ls
-docker image history $image
-docker rmi $image
+- basic actions
 
-// Remove all unused images, not just dangling ones
-docker image prune -a
+    docker image ls
+    docker image history $image
+    docker rmi $image
 
-## network
+- Remove all unused images, not just dangling ones
 
-// List docker networks
-docker network ls
+    docker image prune -a
+
+## Networking
+
+- List docker networks
+
+    docker network ls

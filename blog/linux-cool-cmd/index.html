@@ -24,16 +24,14 @@
   
 
   <meta property="og:title" content="Linux Cool Commands" />
-<meta property="og:description" content="Editing  vim
-# Remove trailing spaces :%s/\s\&#43;$//   sed -r &rsquo;s/\s&#43;//g&rsquo; afile sort afile|uniq sed  # sed [options] &#39;row-range&#43;action&#39; file # Actions: i, a, d, c, p, s # &#43;g, &#43;i # In place replacement, original copy with .bk suffix is created sed -i.bk &#39;s/Z/1/g&#39; afile # Remove lines from 3 to end sed &#39;3,$d&#39; # Print line 1 and line 2 only sed -n &#39;1,2p&#39; afile # Print lines match pattern sed -n &#39;/A/p&#39; afile  awk" />
+<meta property="og:description" content="Editing  vim  # Remove trailing spaces :%s/\s\&#43;$//   sed -r &rsquo;s/\s&#43;//g&rsquo; afile sort afile|uniq sed  # sed [options] &#39;row-range&#43;action&#39; file # Actions: i, a, d, c, p, s # &#43;g, &#43;i # In place replacement, original copy with .bk suffix is created sed -i.bk &#39;s/Z/1/g&#39; afile # Remove lines from 3 to end sed &#39;3,$d&#39; # Print line 1 and line 2 only sed -n &#39;1,2p&#39; afile # Print lines match pattern sed -n &#39;/A/p&#39; afile   awk  # awk &#39;pattern{action}&#39; filenames last -n 5 | awk &#39;{print $1}&#39; cat /etc/passwd |awk -F &#39;:&#39; &#39;BEGIN {print &quot;name,shell&quot;} {print $1&quot;,&quot;$7} END {print &quot;blue,/bin/nosh&quot;}&#39; awk -F: &#39;/^root/{print $7}&#39; /etc/passwd   cut  # Print 1st field, each field separated by : cut -d: -f 1 /etc/passwd  Searching  find  find /etc -name passwd find ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://bruce-lu.github.io/blog/linux-cool-cmd/" />
 <meta property="article:published_time" content="2019-07-03T21:36:34&#43;08:00"/>
 <meta property="article:modified_time" content="2019-07-03T21:36:34&#43;08:00"/>
 
 <meta itemprop="name" content="Linux Cool Commands">
-<meta itemprop="description" content="Editing  vim
-# Remove trailing spaces :%s/\s\&#43;$//   sed -r &rsquo;s/\s&#43;//g&rsquo; afile sort afile|uniq sed  # sed [options] &#39;row-range&#43;action&#39; file # Actions: i, a, d, c, p, s # &#43;g, &#43;i # In place replacement, original copy with .bk suffix is created sed -i.bk &#39;s/Z/1/g&#39; afile # Remove lines from 3 to end sed &#39;3,$d&#39; # Print line 1 and line 2 only sed -n &#39;1,2p&#39; afile # Print lines match pattern sed -n &#39;/A/p&#39; afile  awk">
+<meta itemprop="description" content="Editing  vim  # Remove trailing spaces :%s/\s\&#43;$//   sed -r &rsquo;s/\s&#43;//g&rsquo; afile sort afile|uniq sed  # sed [options] &#39;row-range&#43;action&#39; file # Actions: i, a, d, c, p, s # &#43;g, &#43;i # In place replacement, original copy with .bk suffix is created sed -i.bk &#39;s/Z/1/g&#39; afile # Remove lines from 3 to end sed &#39;3,$d&#39; # Print line 1 and line 2 only sed -n &#39;1,2p&#39; afile # Print lines match pattern sed -n &#39;/A/p&#39; afile   awk  # awk &#39;pattern{action}&#39; filenames last -n 5 | awk &#39;{print $1}&#39; cat /etc/passwd |awk -F &#39;:&#39; &#39;BEGIN {print &quot;name,shell&quot;} {print $1&quot;,&quot;$7} END {print &quot;blue,/bin/nosh&quot;}&#39; awk -F: &#39;/^root/{print $7}&#39; /etc/passwd   cut  # Print 1st field, each field separated by : cut -d: -f 1 /etc/passwd  Searching  find  find /etc -name passwd find .">
 
 
 <meta itemprop="datePublished" content="2019-07-03T21:36:34&#43;08:00" />
@@ -45,8 +43,7 @@
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux Cool Commands"/>
-<meta name="twitter:description" content="Editing  vim
-# Remove trailing spaces :%s/\s\&#43;$//   sed -r &rsquo;s/\s&#43;//g&rsquo; afile sort afile|uniq sed  # sed [options] &#39;row-range&#43;action&#39; file # Actions: i, a, d, c, p, s # &#43;g, &#43;i # In place replacement, original copy with .bk suffix is created sed -i.bk &#39;s/Z/1/g&#39; afile # Remove lines from 3 to end sed &#39;3,$d&#39; # Print line 1 and line 2 only sed -n &#39;1,2p&#39; afile # Print lines match pattern sed -n &#39;/A/p&#39; afile  awk"/>
+<meta name="twitter:description" content="Editing  vim  # Remove trailing spaces :%s/\s\&#43;$//   sed -r &rsquo;s/\s&#43;//g&rsquo; afile sort afile|uniq sed  # sed [options] &#39;row-range&#43;action&#39; file # Actions: i, a, d, c, p, s # &#43;g, &#43;i # In place replacement, original copy with .bk suffix is created sed -i.bk &#39;s/Z/1/g&#39; afile # Remove lines from 3 to end sed &#39;3,$d&#39; # Print line 1 and line 2 only sed -n &#39;1,2p&#39; afile # Print lines match pattern sed -n &#39;/A/p&#39; afile   awk  # awk &#39;pattern{action}&#39; filenames last -n 5 | awk &#39;{print $1}&#39; cat /etc/passwd |awk -F &#39;:&#39; &#39;BEGIN {print &quot;name,shell&quot;} {print $1&quot;,&quot;$7} END {print &quot;blue,/bin/nosh&quot;}&#39; awk -F: &#39;/^root/{print $7}&#39; /etc/passwd   cut  # Print 1st field, each field separated by : cut -d: -f 1 /etc/passwd  Searching  find  find /etc -name passwd find ."/>
 
   <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -82,10 +79,11 @@
 <h2 id="editing">Editing</h2>
 
 <ul>
-<li><p>vim</p>
+<li>vim</li>
+</ul>
 
-<pre><code class="language-Bash"># Remove trailing spaces
-:%s/\s\+$//
+<pre><code class="language-Bash">  # Remove trailing spaces
+  :%s/\s\+$//
 
 </code></pre>
 
@@ -95,67 +93,68 @@
 <li>sed</li>
 </ul>
 
-<pre><code class="language-Bash"># sed [options] 'row-range+action'  file
-# Actions: i, a, d, c, p, s
-# +g, +i
+<pre><code class="language-Bash">  # sed [options] 'row-range+action'  file
+  # Actions: i, a, d, c, p, s
+  # +g, +i
 
-# In place replacement, original copy with .bk suffix is created
-sed -i.bk  's/Z/1/g' afile
+  # In place replacement, original copy with .bk suffix is created
+  sed -i.bk  's/Z/1/g' afile
 
-# Remove lines from 3 to end
-sed '3,$d'
+  # Remove lines from 3 to end
+  sed '3,$d'
 
-# Print line 1 and line 2 only
-sed -n '1,2p' afile
+  # Print line 1 and line 2 only
+  sed -n '1,2p' afile
 
-# Print lines match pattern
-sed -n '/A/p' afile
+  # Print lines match pattern
+  sed -n '/A/p' afile
 
-</code></pre></li>
+</code></pre>
 
-<li><p>awk</p>
+<ul>
+<li>awk</li>
+</ul>
 
-<pre><code class="language-Bash"># awk 'pattern{action}' filenames
-last -n 5 | awk '{print $1}'
+<pre><code class="language-Bash">  # awk 'pattern{action}' filenames
+  last -n 5 | awk '{print $1}'
 
-cat /etc/passwd |awk  -F ':'  'BEGIN {print &quot;name,shell&quot;}  {print $1&quot;,&quot;$7} END {print &quot;blue,/bin/nosh&quot;}'
+  cat /etc/passwd |awk  -F ':'  'BEGIN {print &quot;name,shell&quot;}  {print $1&quot;,&quot;$7} END {print &quot;blue,/bin/nosh&quot;}'
 
-awk -F: '/^root/{print $7}' /etc/passwd
+  awk -F: '/^root/{print $7}' /etc/passwd
 </code></pre>
 
 <ul>
 <li>cut</li>
 </ul>
 
-<pre><code class="language-Bash"># Print 1st field, each field separated by :
-cut -d: -f 1 /etc/passwd
-</code></pre></li>
-</ul>
+<pre><code class="language-Bash">  # Print 1st field, each field separated by :
+  cut -d: -f 1 /etc/passwd
+</code></pre>
 
 <h2 id="searching">Searching</h2>
 
 <ul>
-<li><p>find</p>
+<li>find</li>
+</ul>
 
-<pre><code class="language-Bash">find /etc -name passwd
-find . -name &quot;*.txt&quot; -exec echo {} \; -exec grep banana {} \;
-find ./ -type d |xargs ls -l
+<pre><code class="language-Bash">  find /etc -name passwd
+  find . -name &quot;*.txt&quot; -exec echo {} \; -exec grep banana {} \;
+  find ./ -type d |xargs ls -l
 
-# -I replace_str; -0 take cares of file names with blank space
-find . -name &quot;*.bak&quot; -print0 | xargs -0 -I {} mv {} ~/old.files
-# {} could be customized as whatever, like file in the example
-find /path/to/dir -iname &quot;*.c&quot; -print0 | xargs -0 -I file mv file ~/old.src
+  # -I replace_str; -0 take cares of file names with blank space
+  find . -name &quot;*.bak&quot; -print0 | xargs -0 -I {} mv {} ~/old.files
+  # {} could be customized as whatever, like file in the example
+  find /path/to/dir -iname &quot;*.c&quot; -print0 | xargs -0 -I file mv file ~/old.src
 </code></pre>
 
 <ul>
 <li>ls</li>
 </ul>
 
-<pre><code class="language-Bash"># List one column
-ls -1
+<pre><code class="language-Bash">  # List one column
+  ls -1
 
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h2 id="logging">Logging</h2>
 
