@@ -5,10 +5,82 @@
     <link>https://bruce-lu.github.io/</link>
     <description>Recent content on Bruce Lu&#39;s pages</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 04 Jul 2019 15:55:42 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jul 2019 21:46:34 +0800</lastBuildDate>
     
 	<atom:link href="https://bruce-lu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JVM tuning</title>
+      <link>https://bruce-lu.github.io/blog/jvm-tuning/</link>
+      <pubDate>Thu, 04 Jul 2019 21:46:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/jvm-tuning/</guid>
+      <description>Tags jvm tuning jstat jhat jmap gc  Env  Spring Cloud Greenwich Spring Boot 2.1.5 Java HotSpot&amp;trade; 64-Bit Server VM (build 25.181-b13, mixed mode) STS (Spring Tool Suite) 4.1.1 MackBook Pro Mojave  Objective  Minimize Full GC, down to 0 if possible  Prerequisites  Build a jar  mvn -B -DskipTests clean package  Baseline - default jvm settings  Run  java -jar discovery-center-0.0.1-SNAPSHOT.jar   jstat -gc  S0C S1C S0U S1U EC EU OC OU MC MU CCSC CCSU YGC YGCT FGC FGCT GCT 7168.</description>
+    </item>
+    
+    <item>
+      <title>Automation with Ansible</title>
+      <link>https://bruce-lu.github.io/blog/automation-ansible/</link>
+      <pubDate>Thu, 04 Jul 2019 21:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/automation-ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Automation with Terraform</title>
+      <link>https://bruce-lu.github.io/blog/automation-terraform/</link>
+      <pubDate>Thu, 04 Jul 2019 21:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/automation-terraform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coding with Go</title>
+      <link>https://bruce-lu.github.io/blog/coding-go/</link>
+      <pubDate>Thu, 04 Jul 2019 21:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/coding-go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coding with Java</title>
+      <link>https://bruce-lu.github.io/blog/coding-java/</link>
+      <pubDate>Thu, 04 Jul 2019 21:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/coding-java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microservices Architecture</title>
+      <link>https://bruce-lu.github.io/blog/ms-architecture/</link>
+      <pubDate>Thu, 04 Jul 2019 21:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/ms-architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microservices principles</title>
+      <link>https://bruce-lu.github.io/blog/ms-principles/</link>
+      <pubDate>Thu, 04 Jul 2019 21:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/ms-principles/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microservices with Spring Cloud</title>
+      <link>https://bruce-lu.github.io/blog/ms-spring-cloud/</link>
+      <pubDate>Thu, 04 Jul 2019 21:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/ms-spring-cloud/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Coding with Node.js</title>
@@ -65,15 +137,6 @@ docker exec -it $container /bin/sh
       
       <guid>https://bruce-lu.github.io/blog/linux-shells/</guid>
       <description>for for i in {1..10}; do echo $i;done  if # admin@~/ws/shell$cat weight-check.sh #!/bin/bash # Author: Bruce #if [ ! $# -eq 2 ]; then if [ $# -lt 2 ]; then echo &amp;quot;Not enough parameters. Usage: $0 weight-in-kilos lengh-in-centimeters&amp;quot; exit elif [ $# -gt 2 ]; then echo &amp;quot;Too many parameters. Usage: $0 weight-in-kilos lengh-in-centimeters&amp;quot; exit else # &amp;quot;&amp;quot; -&amp;gt; true; &amp;quot; &amp;quot; -&amp;gt; false if [ -z &amp;quot;$1&amp;quot; ]; then echo &amp;quot;1st parameter empty&amp;quot; exit fi if [ -n &amp;quot;$2&amp;quot; ]; then echo &amp;quot;2nd parameter not empty&amp;quot; fi echo -n &amp;quot;You entered: &amp;quot; for p in &amp;quot;$1&amp;quot; &amp;quot;$2&amp;quot;;do echo -n &amp;quot;$p &amp;quot; done echo &amp;quot;&amp;quot; fi if [ -f lock ]; then echo &amp;quot;Already run&amp;quot; fi # Adding lock if not yet echo &amp;quot;lock&amp;quot; &amp;gt; lock weight=&amp;quot;$1&amp;quot; height=&amp;quot;$2&amp;quot; ideal=$[height - 110] if [ $weight -gt $ideal ]; then echo &amp;quot;Less yummy food please&amp;quot; elif [ $weight -eq $ideal ]; then echo &amp;quot;Goodness, you are perfect!</description>
-    </item>
-    
-    <item>
-      <title>Linux Cool Commands</title>
-      <link>https://bruce-lu.github.io/blog/jvm/</link>
-      <pubDate>Wed, 03 Jul 2019 21:36:34 +0800</pubDate>
-      
-      <guid>https://bruce-lu.github.io/blog/jvm/</guid>
-      <description></description>
     </item>
     
     <item>
