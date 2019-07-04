@@ -4,14 +4,49 @@
   
   <url>
     <loc>https://bruce-lu.github.io/blog/</loc>
-    <lastmod>2019-07-03T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-04T15:55:42+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://bruce-lu.github.io/</loc>
-    <lastmod>2019-07-03T00:00:00+00:00</lastmod>
+    <lastmod>2019-07-04T15:55:42+08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bruce-lu.github.io/blog/coding-nodejs/</loc>
+    <lastmod>2019-07-04T15:55:42+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bruce-lu.github.io/blog/coding-python/</loc>
+    <lastmod>2019-07-04T15:37:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bruce-lu.github.io/blog/docker-cmds/</loc>
+    <lastmod>2019-07-04T15:28:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bruce-lu.github.io/blog/kubernetes-cmds/</loc>
+    <lastmod>2019-07-04T15:23:27+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bruce-lu.github.io/blog/linux-shells/</loc>
+    <lastmod>2019-07-03T21:38:59+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bruce-lu.github.io/blog/jvm/</loc>
+    <lastmod>2019-07-03T21:36:34+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bruce-lu.github.io/blog/linux-cool-cmd/</loc>
+    <lastmod>2019-07-03T21:36:34+08:00</lastmod>
   </url>
   
   <url>

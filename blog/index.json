@@ -1,5 +1,61 @@
 [
     {
+        "ref": "https://bruce-lu.github.io/blog/coding-nodejs/",
+        "title": "Coding Node.js",
+        "section": "blog",
+        "date" : "2019.07.04",
+        "body": " Async/await ``` Javascript async function f() { try { let response = await fetch('/no-user-here'); let user = await response.json(); } catch(err) { // catches errors both in fetch and response.json alert(err); } } f(); // reference: https://javascript.info/async-await // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function ```  "
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/coding-python/",
+        "title": "Coding with Python",
+        "section": "blog",
+        "date" : "2019.07.04",
+        "body": " yield ``` Python #!/usr/bin/env python # Author Bruce 12/14/17 import sys def greppattern(pattern, fullfilename): with open(fullfilename) as handle: for line in handle: if pattern in line: yield line.rstrip(\u0026quot;\\n\u0026quot;) if __name__ == \u0026quot;__main__\u0026quot;: # python blueutils.py \u0026quot;30 15\u0026quot; dbcontrace.log ''' usage: python blueutils.py \u0026quot;17-12\u0026quot; dbcontrace.log ''' pattern, fullfilename = sys.argv[1], sys.argv[2] for line in greppattern(pattern, fullfilename): print(line) ```  "
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/docker-cmds/",
+        "title": "Docker Commands",
+        "section": "blog",
+        "date" : "2019.07.04",
+        "body": " Get help // Get help docker -h\n// Get help for a command docker image prune \u0026ndash;help\nContainer // Show all containers, including both running and stopped docker ps -a\n// Get container logs docker logs $container\n// Attach std in/out/error to a running container docker attach $container // Run a command in a running container interactively docker exec -it $container /bin/sh\n// Show detail of a container docker inspect $container\n// Stats docker stats $container\n// Start/stop a container docker start / stop $container\n// Remove a container docker rm $container\nImage docker image ls docker image history $image docker rmi $image\n// Remove all unused images, not just dangling ones docker image prune -a\nnetwork // List docker networks docker network ls\n"
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/kubernetes-cmds/",
+        "title": "Kubernetes Commands",
+        "section": "blog",
+        "date" : "2019.07.04",
+        "body": " Create/run kubectl run busybox \u0026ndash;rm -it \u0026ndash;image=busybox /bin/sh kubectl run nginx \u0026ndash;image=nginx \u0026ndash;replicas=2 kubectl create -f a-file.yml\n// dry-run kubectl run nginx \u0026ndash;image=nginx \u0026ndash;dry-run\nGet info kubectl -h or \u0026ndash;help kubectl $command \u0026ndash;help kubectl cluster-info\nkubectl get nodes kubectl get pods -o wide \u0026ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=\u0026lsquo;{.items[0].metadata.name}\u0026rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets\nkubectl describe resName kubectl explain resName\nTrouble shooting kubectl logs -p $pod -c $container kubectl logs \u0026ndash;since=1h nginx\nkubectl exec -it myPodName -c containerNameInMyPod /bin/sh\nApply changes kubectl apply -f a-file.yml kubectl delete -f a-file.yml\nkubectl scale \u0026ndash;replicas=3 deployment/nginx\n"
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/linux-shells/",
+        "title": "Linux Shells",
+        "section": "blog",
+        "date" : "2019.07.03",
+        "body": " for ```Bash for i in {1..10}; do echo $i;done ```  if ```Bash ```  "
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/jvm/",
+        "title": "Linux Cool Commands",
+        "section": "blog",
+        "date" : "2019.07.03",
+        "body": ""
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/linux-cool-cmd/",
+        "title": "Linux Cool Commands",
+        "section": "blog",
+        "date" : "2019.07.03",
+        "body": " Editing  vim\n# Remove trailing spaces :%s/\\s\\+$//   sed -r \u0026rsquo;s/\\s+//g\u0026rsquo; afile sort afile|uniq sed  # sed [options] 'row-range+action' file # Actions: i, a, d, c, p, s # +g, +i # In place replacement, original copy with .bk suffix is created sed -i.bk 's/Z/1/g' afile # Remove lines from 3 to end sed '3,$d' # Print line 1 and line 2 only sed -n '1,2p' afile # Print lines match pattern sed -n '/A/p' afile  awk\n# awk 'pattern{action}' filenames last -n 5 | awk '{print $1}' cat /etc/passwd |awk -F ':' 'BEGIN {print \u0026quot;name,shell\u0026quot;} {print $1\u0026quot;,\u0026quot;$7} END {print \u0026quot;blue,/bin/nosh\u0026quot;}' awk -F: '/^root/{print $7}' /etc/passwd   cut  # Print 1st field, each field separated by : cut -d: -f 1 /etc/passwd   Searching  find\nfind /etc -name passwd find . -name \u0026quot;*.txt\u0026quot; -exec echo {} \\; -exec grep banana {} \\; find ./ -type d |xargs ls -l # -I replace_str; -0 take cares of file names with blank space find . -name \u0026quot;*.bak\u0026quot; -print0 | xargs -0 -I {} mv {} ~/old.files # {} could be customized as whatever, like file in the example find /path/to/dir -iname \u0026quot;*.c\u0026quot; -print0 | xargs -0 -I file mv file ~/old.src   ls  # List one column ls -1   Logging  dmesg // kernel message, equals to journalctl -k journalctl -a /var/log  Resources  ps -ef|grep java top vmstat sar  Networking  netstat -anp|grep 80 lsof -i :80 tcpdump   Storage  lsblk fdisk -l iotop  Kernel Performance  time ls watch -n 2 free  "
+    }
+,
+    {
         "ref": "https://bruce-lu.github.io/blog/build-web-site-by-hugo-within-hour/",
         "title": "How I Built This Web Site within an hour",
         "section": "blog",

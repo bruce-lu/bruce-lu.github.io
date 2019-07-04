@@ -168,9 +168,9 @@ Build a web site like this within an hour.
 
 ## Feel free to add more blogs and enjoy
 
-    ``` Bash
-    ;-)
-    ```
+  ``` Bash
+  ;-)
+  ```
 
 ## Reference
 

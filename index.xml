@@ -5,10 +5,82 @@
     <link>https://bruce-lu.github.io/</link>
     <description>Recent content on Bruce Lu&#39;s pages</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 03 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jul 2019 15:55:42 +0800</lastBuildDate>
     
 	<atom:link href="https://bruce-lu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Coding Node.js</title>
+      <link>https://bruce-lu.github.io/blog/coding-nodejs/</link>
+      <pubDate>Thu, 04 Jul 2019 15:55:42 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/coding-nodejs/</guid>
+      <description> Async/await ``` Javascript async function f() { try { let response = await fetch(&#39;/no-user-here&#39;); let user = await response.json(); } catch(err) { // catches errors both in fetch and response.json alert(err); } } f(); // reference: https://javascript.info/async-await // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function ```  </description>
+    </item>
+    
+    <item>
+      <title>Coding with Python</title>
+      <link>https://bruce-lu.github.io/blog/coding-python/</link>
+      <pubDate>Thu, 04 Jul 2019 15:37:13 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/coding-python/</guid>
+      <description> yield ``` Python #!/usr/bin/env python # Author Bruce 12/14/17 import sys def greppattern(pattern, fullfilename): with open(fullfilename) as handle: for line in handle: if pattern in line: yield line.rstrip(&amp;quot;\n&amp;quot;) if __name__ == &amp;quot;__main__&amp;quot;: # python blueutils.py &amp;quot;30 15&amp;quot; dbcontrace.log &#39;&#39;&#39; usage: python blueutils.py &amp;quot;17-12&amp;quot; dbcontrace.log &#39;&#39;&#39; pattern, fullfilename = sys.argv[1], sys.argv[2] for line in greppattern(pattern, fullfilename): print(line) ```  </description>
+    </item>
+    
+    <item>
+      <title>Docker Commands</title>
+      <link>https://bruce-lu.github.io/blog/docker-cmds/</link>
+      <pubDate>Thu, 04 Jul 2019 15:28:09 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/docker-cmds/</guid>
+      <description>Get help // Get help docker -h
+// Get help for a command docker image prune &amp;ndash;help
+Container // Show all containers, including both running and stopped docker ps -a
+// Get container logs docker logs $container
+// Attach std in/out/error to a running container docker attach $container // Run a command in a running container interactively docker exec -it $container /bin/sh
+// Show detail of a container docker inspect $container</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes Commands</title>
+      <link>https://bruce-lu.github.io/blog/kubernetes-cmds/</link>
+      <pubDate>Thu, 04 Jul 2019 15:23:27 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/kubernetes-cmds/</guid>
+      <description>Create/run kubectl run busybox &amp;ndash;rm -it &amp;ndash;image=busybox /bin/sh kubectl run nginx &amp;ndash;image=nginx &amp;ndash;replicas=2 kubectl create -f a-file.yml
+// dry-run kubectl run nginx &amp;ndash;image=nginx &amp;ndash;dry-run
+Get info kubectl -h or &amp;ndash;help kubectl $command &amp;ndash;help kubectl cluster-info
+kubectl get nodes kubectl get pods -o wide &amp;ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&amp;lsquo;{.items[0].metadata.name}&amp;rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets</description>
+    </item>
+    
+    <item>
+      <title>Linux Shells</title>
+      <link>https://bruce-lu.github.io/blog/linux-shells/</link>
+      <pubDate>Wed, 03 Jul 2019 21:38:59 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/linux-shells/</guid>
+      <description> for ```Bash for i in {1..10}; do echo $i;done ```  if ```Bash ```  </description>
+    </item>
+    
+    <item>
+      <title>Linux Cool Commands</title>
+      <link>https://bruce-lu.github.io/blog/jvm/</link>
+      <pubDate>Wed, 03 Jul 2019 21:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/jvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux Cool Commands</title>
+      <link>https://bruce-lu.github.io/blog/linux-cool-cmd/</link>
+      <pubDate>Wed, 03 Jul 2019 21:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/linux-cool-cmd/</guid>
+      <description>Editing  vim
+# Remove trailing spaces :%s/\s\+$//   sed -r &amp;rsquo;s/\s+//g&amp;rsquo; afile sort afile|uniq sed  # sed [options] &#39;row-range+action&#39; file # Actions: i, a, d, c, p, s # +g, +i # In place replacement, original copy with .bk suffix is created sed -i.bk &#39;s/Z/1/g&#39; afile # Remove lines from 3 to end sed &#39;3,$d&#39; # Print line 1 and line 2 only sed -n &#39;1,2p&#39; afile # Print lines match pattern sed -n &#39;/A/p&#39; afile  awk</description>
+    </item>
     
     <item>
       <title>How I Built This Web Site within an hour</title>
