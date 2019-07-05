@@ -172,6 +172,19 @@ Build a web site like this within an hour.
   ;-)
   ```
 
+## Analysis
+
+- Add Google Analysis support
+
+  Edit bruce-lu.github.io/site/config.toml
+
+  ``` Bash
+  # Put your tracking id here and rebuild & publish the site.
+  googleAnalytics = "MyGoogleAnalyticsTrackingID"
+
+  # Visit Google Analytics console:	https://analytics.google.com/ for real time metrics
+  ```
+
 ## Reference
 
 - [Hugo quick-start guide](https://gohugo.io/getting-started/quick-start/)

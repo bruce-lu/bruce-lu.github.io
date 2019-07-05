@@ -5,10 +5,19 @@
     <link>https://bruce-lu.github.io/</link>
     <description>Recent content on Bruce Lu&#39;s pages</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 05 Jul 2019 12:04:14 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jul 2019 21:33:42 +0800</lastBuildDate>
     
 	<atom:link href="https://bruce-lu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bruce&#39;s Cloud Native Skillset Map</title>
+      <link>https://bruce-lu.github.io/blog/bruce-cloud-native-map/</link>
+      <pubDate>Fri, 05 Jul 2019 21:33:42 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/bruce-cloud-native-map/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Microservices with Spring Cloud</title>
@@ -120,10 +129,10 @@ docker exec -it $container /bin/sh
     
     <item>
       <title>How I Built This Web Site within an hour</title>
-      <link>https://bruce-lu.github.io/blog/build-web-site-by-hugo-within-hour/</link>
+      <link>https://bruce-lu.github.io/blog/how-i-build-this-web-site/</link>
       <pubDate>Wed, 03 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://bruce-lu.github.io/blog/build-web-site-by-hugo-within-hour/</guid>
+      <guid>https://bruce-lu.github.io/blog/how-i-build-this-web-site/</guid>
       <description>Objective Build a web site like this within an hour.
 Local env.  macOS Mojave Hugo v0.55.6 for Mac git version 2.20.1 (client)  Prepare local env.  Install Hugo
 brew install hugo
