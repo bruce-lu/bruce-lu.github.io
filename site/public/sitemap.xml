@@ -20,32 +20,12 @@
   </url>
   
   <url>
-    <loc>https://bruce-lu.github.io/blog/automation-ansible/</loc>
+    <loc>https://bruce-lu.github.io/blog/go-build-a-web-api/</loc>
     <lastmod>2019-07-04T21:36:34+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bruce-lu.github.io/blog/automation-terraform/</loc>
-    <lastmod>2019-07-04T21:36:34+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bruce-lu.github.io/blog/coding-go/</loc>
-    <lastmod>2019-07-04T21:36:34+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bruce-lu.github.io/blog/coding-java/</loc>
-    <lastmod>2019-07-04T21:36:34+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bruce-lu.github.io/blog/ms-architecture/</loc>
-    <lastmod>2019-07-04T21:36:34+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bruce-lu.github.io/blog/ms-principles/</loc>
+    <loc>https://bruce-lu.github.io/blog/ms-pattern-theory/</loc>
     <lastmod>2019-07-04T21:36:34+08:00</lastmod>
   </url>
   
@@ -55,7 +35,7 @@
   </url>
   
   <url>
-    <loc>https://bruce-lu.github.io/blog/coding-nodejs/</loc>
+    <loc>https://bruce-lu.github.io/blog/coding-nodejs-async-await/</loc>
     <lastmod>2019-07-04T15:55:42+08:00</lastmod>
   </url>
   
