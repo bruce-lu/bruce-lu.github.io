@@ -5,7 +5,7 @@ canonifyurls = true
 hasCJKLanguage = true
 # pygmentsCodefences = true
 # pygmentsUseClasses = true
-# googleAnalytics = "{your tracking code}"
+googleAnalytics = "UA-124907735-1"
 
 [taxonomies]
   series = "series"
