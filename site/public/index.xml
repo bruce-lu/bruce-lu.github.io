@@ -5,10 +5,21 @@
     <link>https://bruce-lu.github.io/</link>
     <description>Recent content on Bruce Lu&#39;s pages</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 05 Jul 2019 21:33:42 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jul 2019 21:44:34 +0800</lastBuildDate>
     
 	<atom:link href="https://bruce-lu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Goroutine &amp; bufferred channel&#39;s quick performance taste: TPS from 28k to 16m</title>
+      <link>https://bruce-lu.github.io/blog/a-quick-taste-of-go-channel-performance/</link>
+      <pubDate>Sat, 13 Jul 2019 21:44:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/a-quick-taste-of-go-channel-performance/</guid>
+      <description>Objective To get TPS (Transaction Per Second) as high as possible by using goroutine &amp;amp; bufferred channel (CSP pattern)
+Environment  2.3 GHz Intel Core i5; 8 GB 2133 MHz LPDDR3 macOS Mojave 10.14.4 Go 1.12.6  Setup Go If you are new to Golang, for Go&amp;rsquo;s setup, please refer to my blog: Go - Build a web API
+Create a Go project mkdir -p ~/ws/golang/src/blue/demo cd ~/ws/golang/src/blue/demo vim demo.</description>
+    </item>
     
     <item>
       <title>Bruce&#39;s Cloud Native Skillset Map</title>
