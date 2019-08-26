@@ -24,26 +24,41 @@
   
 
   <meta property="og:title" content="Automation with Ansible" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="Playbook Plays -&gt; Tasks -&gt; Modules -&gt; Handlers
+Modules more than 450 modules provided by Ansible common modules: yum, ping
+How to  yum install ansible Ad-Hoc: ansible $inventory -m ping Playbook: ansible-playbook mybook.yml Ansible Tower: Options, Dry-run, -C mode ansible-doc ansible-galaxy ansible-config ansible-inventory ansible-pull ansible-vault ansible-console  Configuration /etc/ansible/ansible.cfg /etc/ansible/hosts /etc/ansible/roles/
+Inventory  Host 192.168.0.2 www.example.com www[01:50].example.com
+ Host var www.example.com k1=v1 k2=v2
+ Group [group name] www.example.com k1=v1 k2=v2 192." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://bruce-lu.github.io/blog/automation-ansible/" />
-<meta property="article:published_time" content="2019-07-04T21:36:34&#43;08:00"/>
-<meta property="article:modified_time" content="2019-07-04T21:36:34&#43;08:00"/>
+<meta property="article:published_time" content="2019-07-05T21:36:34&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-05T21:36:34&#43;08:00"/>
 
 <meta itemprop="name" content="Automation with Ansible">
-<meta itemprop="description" content="">
+<meta itemprop="description" content="Playbook Plays -&gt; Tasks -&gt; Modules -&gt; Handlers
+Modules more than 450 modules provided by Ansible common modules: yum, ping
+How to  yum install ansible Ad-Hoc: ansible $inventory -m ping Playbook: ansible-playbook mybook.yml Ansible Tower: Options, Dry-run, -C mode ansible-doc ansible-galaxy ansible-config ansible-inventory ansible-pull ansible-vault ansible-console  Configuration /etc/ansible/ansible.cfg /etc/ansible/hosts /etc/ansible/roles/
+Inventory  Host 192.168.0.2 www.example.com www[01:50].example.com
+ Host var www.example.com k1=v1 k2=v2
+ Group [group name] www.example.com k1=v1 k2=v2 192.">
 
 
-<meta itemprop="datePublished" content="2019-07-04T21:36:34&#43;08:00" />
-<meta itemprop="dateModified" content="2019-07-04T21:36:34&#43;08:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="datePublished" content="2019-07-05T21:36:34&#43;08:00" />
+<meta itemprop="dateModified" content="2019-07-05T21:36:34&#43;08:00" />
+<meta itemprop="wordCount" content="90">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Automation with Ansible"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="Playbook Plays -&gt; Tasks -&gt; Modules -&gt; Handlers
+Modules more than 450 modules provided by Ansible common modules: yum, ping
+How to  yum install ansible Ad-Hoc: ansible $inventory -m ping Playbook: ansible-playbook mybook.yml Ansible Tower: Options, Dry-run, -C mode ansible-doc ansible-galaxy ansible-config ansible-inventory ansible-pull ansible-vault ansible-console  Configuration /etc/ansible/ansible.cfg /etc/ansible/hosts /etc/ansible/roles/
+Inventory  Host 192.168.0.2 www.example.com www[01:50].example.com
+ Host var www.example.com k1=v1 k2=v2
+ Group [group name] www.example.com k1=v1 k2=v2 192."/>
 
   <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -54,7 +69,18 @@
   <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
   <![endif]-->
 
-  </head>
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-124907735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
 
   <body>
     
@@ -71,10 +97,77 @@
 
   
   
-  <p class="date">July 4, 2019</p>
+  <p class="date">July 5, 2019</p>
   
   <div id="contentBody">
     
+
+<h2 id="playbook">Playbook</h2>
+
+<p>Plays -&gt; Tasks -&gt; Modules -&gt; Handlers</p>
+
+<h2 id="modules">Modules</h2>
+
+<p>more than 450 modules provided by Ansible
+common modules: yum, ping</p>
+
+<h2 id="how-to">How to</h2>
+
+<ul>
+<li>yum install ansible</li>
+<li>Ad-Hoc: ansible $inventory -m ping</li>
+<li>Playbook: ansible-playbook mybook.yml</li>
+<li>Ansible Tower:</li>
+<li>Options, Dry-run, -C mode</li>
+<li>ansible-doc</li>
+<li>ansible-galaxy</li>
+<li>ansible-config</li>
+<li>ansible-inventory</li>
+<li>ansible-pull</li>
+<li>ansible-vault</li>
+<li>ansible-console</li>
+</ul>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>/etc/ansible/ansible.cfg
+/etc/ansible/hosts
+/etc/ansible/roles/</p>
+
+<h2 id="inventory">Inventory</h2>
+
+<ul>
+<li><p>Host
+192.168.0.2
+www.example.com
+www[01:50].example.com</p></li>
+
+<li><p>Host var
+www.example.com k1=v1 k2=v2</p></li>
+
+<li><p>Group
+[group name]
+www.example.com k1=v1 k2=v2
+192.168.0.2 k1=v1 k2=v2</p></li>
+
+<li><p>Group var
+[GroupName:vars]
+k1=v1
+k2=v2</p></li>
+</ul>
+
+<h2 id="get-hands-dirty">Get hands dirty</h2>
+
+<ul>
+<li>ansible $host-or-group-name -m copy -a &ldquo;content=&lsquo;hello&rsquo; dest=/root/hello.txt&rdquo;</li>
+</ul>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://www.jianshu.com/p/62388a4fcbc6">One hour Ansible CN version</a></li>
+</ul>
+
   </div>
   <footer>
   <p>

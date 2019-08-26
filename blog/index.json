@@ -1,10 +1,74 @@
 [
     {
+        "ref": "https://bruce-lu.github.io/blog/vue-start/",
+        "title": "Get started with Vue",
+        "section": "blog",
+        "date" : "2019.08.06",
+        "body": " Installation  vue.js\n Vue Devtools\n @vue/cli tool npm install -g @vue/cli // installed under /usr/local/lib/node_modules/@vue\n  Create a new Vue project "
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/learning-resources/",
+        "title": "Learning resources",
+        "section": "blog",
+        "date" : "2019.07.31",
+        "body": " Objective Get good learning resources\nKeywords  learning, resource, course  Architecture Reference  Azure AWS Aliyun  Microsoft Azure  skylines-academy-llc courses Services comparison between Azure \u0026amp; AWS  UI  Vue\n Vue2 + Bootstrap4 + Material design Bootstrap + Vue  Flutter\n  Flutter get started\n"
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/azure-notes/",
+        "title": "Microsoft Azure Notes",
+        "section": "blog",
+        "date" : "2019.07.29",
+        "body": " Determine workload requirement  Identifying requirements: Use cases, goals, scopes; Assumptions: Are we gonna use cloud native tools or traditional ones? Use existing licenses? Critical Success Factors: Need to be scalable to meet xyz workload, utilizing existing operation team, no new talent required? Plan for growth Manage cost  Complaince and security requirement  Data protection in EU: GDPR Healthcare: HIPPA Government: FedRAMP  SLA - Service Level Agreement  MTTR: Mean Time To Recovery. Avg time to recover service from outage MTBF: Mean Time Between Failure. Avg time between outages RPO: Recovery Point Objective. Interval of time in which data could be lost during a recovery. E.g. 5 minute RPO means up to 5 minutes of data could be lost RTO: Recovery Time Objective. Time requirement for recovery to be completed in before there is business impact Composite SLA: SQL 99.95% x Web App 99.5% = SLA 99.94%  Domain services  Azure Active Directory: AAD, often the same as O365 directory service Active Directory Domain Services: ADDS, legacy service, with AD installed on windows VM Azure Active Directory Domain Services: Managed domain services  "
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/kafka-cluster/",
+        "title": "Kafka cluster",
+        "section": "blog",
+        "date" : "2019.07.24",
+        "body": " Objective Setup Kafka cluster on three nodes\nEnvironment  Servers  9.98.13.49 9.98.13.50 9.98.13.52\nTODO "
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/using-self-signed-ssl-certificate-for-aws-beanstalk/",
+        "title": "Using self-signed SSL certificate for AWS Elastic Beanstalk",
+        "section": "blog",
+        "date" : "2019.07.24",
+        "body": " Objective There are cases we need run a quick PoC with HTTPS enabled in AWS Elastic Beanstalk. In such cases, one of an efficient way is to use a self-signed certificate. Please note you can use AWS Certificate Manager to generate certificate if it\u0026rsquo;s enabled in your region. I\u0026rsquo;ll demostrate how to generate and use a self-signed certificate in AWS CLI here in this blog.\nKeywords  SSL, HTTPS, x509, Beanstalk, AWS  Environment  macOS in local AWS console in remote  Generating a new self-signed certificate  Generate a private key with length 2048  openssl genrsa 2048 \u0026gt; privatekey.pem   Generate a certificate signing request - csr  openssl req -new -key privatekey.pem -out csr.pem Country Name (2 letter code) []:CT State or Province Name (full name) []:State Locality Name (eg, city) []:City Organization Name (eg, company) []:ON Organizational Unit Name (eg, section) []:OU Common Name (eg, fully qualified host name) []:mypoc.eb.amazonaws.com Email Address []: my@email.com   Self sign the certificate  openssl x509 -req -days 3650 -in csr.pem -signkey privatekey.pem -out server.crt   Generate Access key for AWS CLI  Go to AWS console Users to generate Access key\n Configure AWS CLI  I\u0026rsquo;d use AWS CLI to upload the certificate, so I installed AWS CLI tool on my laptop.\nHere is a Guide to install AWS CLI\nAfter the installation, configure it:\naws configure # Output like this: AWS Access Key ID [****************]: ****** AWS Secret Access Key [****************]: ****** Default region name [None]: ****** Default output format [None]: json  Upload the certificate into AWS  Upload  aws iam upload-server-certificate --server-certificate-name elastic-beanstalk-x509 --certificate-body file://server.crt --private-key file://privatekey.pem # Output like this: { \u0026quot;ServerCertificateMetadata\u0026quot;: { \u0026quot;Path\u0026quot;: \u0026quot;/\u0026quot;, \u0026quot;ServerCertificateName\u0026quot;: \u0026quot;****************\u0026quot;, \u0026quot;ServerCertificateId\u0026quot;: \u0026quot;****************\u0026quot;, \u0026quot;Arn\u0026quot;: \u0026quot;****************\u0026quot;, \u0026quot;UploadDate\u0026quot;: \u0026quot;2019-07-23T10:33:13Z\u0026quot;, \u0026quot;Expiration\u0026quot;: \u0026quot;2029-07-20T10:02:18Z\u0026quot; } }  Use the new self-signed certificate in AWS Elastic Beanstalk (EB)  Enable Load balancer of EB  If EB does not exist, feel free to create one with web server environment tier.\nGo to Elastic Beanstalk Application -\u0026gt; Environment -\u0026gt; Configuration -\u0026gt; Capacity -\u0026gt; Modify -\u0026gt; Environment type -\u0026gt; Load balanced -\u0026gt; Apply\n Add listener  Go to Elastic Beanstalk Application -\u0026gt; Environment -\u0026gt; Configuration -\u0026gt; Load balancer -\u0026gt; Modify -\u0026gt; Add listener -\u0026gt; Listener port: 443, Listener protocol: HTTPS, Instance port: 80, Instance protocol: HTTP -\u0026gt; Add -\u0026gt; Apply the configuration\nVerify  Get the app URL and change the protocol to https on browser. Accept or add exception because it\u0026rsquo;s a self-signed certificate for low level environment testing purpose. It should be secure now.  "
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/open-stack-dive/",
+        "title": "Dive into Openstack",
+        "section": "blog",
+        "date" : "2019.07.22",
+        "body": " Objective Dive into Openstack\nKeywords  KVM, Openstack, Virtualization, Nova, Glance  Environment  Ubuntu 16.04 on Virtualbox for macOS  KVM  Kernel-based Virtual Machine kvm.ko for CPU \u0026amp; RAM mgmt Linux kernel \u0026amp; Qemu for I/O virtualization e.g. Storage \u0026amp; Networking Libvirt for managing Hypervisor like KVM, VirtualBox, Xen; Openstack uses Libvirt at its bottom Libvirt componments: libvirtd as daemon, API, virsh as CLI Virt-manager: GUI tool  TODO "
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/mongodb-sharding/",
+        "title": "MongoDB sharding",
+        "section": "blog",
+        "date" : "2019.07.18",
+        "body": " Objective Setup MongoDB sharding on three nodes\nEnvironment  Servers  9.98.13.49 9.98.13.50 9.98.13.52\nTODO "
+    }
+,
+    {
         "ref": "https://bruce-lu.github.io/blog/a-quick-taste-of-go-channel-performance/",
         "title": "Goroutine \u0026 bufferred channel's quick performance taste: TPS from 28k to 16m",
         "section": "blog",
         "date" : "2019.07.13",
         "body": " Objective To get TPS (Transaction Per Second) as high as possible by using goroutine \u0026amp; bufferred channel (CSP pattern)\nEnvironment  2.3 GHz Intel Core i5; 8 GB 2133 MHz LPDDR3 macOS Mojave 10.14.4 Go 1.12.6  Setup Go If you are new to Golang, for Go\u0026rsquo;s setup, please refer to my blog: Go - Build a web API\nCreate a Go project mkdir -p ~/ws/golang/src/blue/demo cd ~/ws/golang/src/blue/demo vim demo.go  package main import ( \u0026quot;fmt\u0026quot; \u0026quot;time\u0026quot; ) var load = 100000 // CSP Communicating Sequential Processes func consumer(data chan int, done chan bool) { for i := range data { fmt.Println(\u0026quot;Consuming:\u0026quot;, i) } done \u0026lt;- true } func producer(data chan int) { for i := 0; i \u0026lt; load; i++ { fmt.Println(\u0026quot;Producing:\u0026quot;, i) data \u0026lt;- i } close(data) } func demoChannelRoutine() { start := time.Now() data := make(chan int) done := make(chan bool, 1) go consumer(data, done) go producer(data) \u0026lt;-done elapsed := time.Since(start).Seconds() fmt.Printf(\u0026quot;Elapsed: %.3fs\\n\u0026quot;, elapsed) tps := float64(load) / elapsed fmt.Printf(\u0026quot;TPS: %.0f\\n\u0026quot;, tps) }  1st run, TPS 28k go build demo.go ./demo # Output ... Producing: 99998 Producing: 99999 Consuming: 99998 Consuming: 99999 Elapsed: 3.506s Transaction Per Second: 28521 Cleaning up..  Removing printing I/O and 2nd run, TPS boosts from 28k to 3m // Only changed part listed here var load = 100000 func consumer(data chan int, done chan bool) { for i := range data { //fmt.Println(\u0026quot;Consuming:\u0026quot;, i) if i \u0026lt; 0 { } } done \u0026lt;- true } func producer(data chan int) { for i := 0; i \u0026lt; load; i++ { //fmt.Println(\u0026quot;Producing:\u0026quot;, i) data \u0026lt;- i } close(data) }  go build demo.go ./demo # Output ... Elapsed: 0.027s Transaction Per Second: 3738271 Cleaning up..  Bufferred channel \u0026amp; 3rd run, TPS boosts from 3m to 16m // Only changed part listed here var load = 100000000 var chBuf = 10000 ... data := make(chan int, chBuf)  go build demo.go ./demo # Output Elapsed: 6.047s Transaction Per Second: 16537191 Cleaning up..  Conclusion This is a quick test of goroutine + bufferred channel. From introducing heavy I/O (printing) to only RAM I/O. I could boost TPS from 28k to 3m. By introducing bufferred channel, I boosted TPS from 3m to 16m.\n"
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/automation-ansible/",
+        "title": "Automation with Ansible",
+        "section": "blog",
+        "date" : "2019.07.05",
+        "body": " Playbook Plays -\u0026gt; Tasks -\u0026gt; Modules -\u0026gt; Handlers\nModules more than 450 modules provided by Ansible common modules: yum, ping\nHow to  yum install ansible Ad-Hoc: ansible $inventory -m ping Playbook: ansible-playbook mybook.yml Ansible Tower: Options, Dry-run, -C mode ansible-doc ansible-galaxy ansible-config ansible-inventory ansible-pull ansible-vault ansible-console  Configuration /etc/ansible/ansible.cfg /etc/ansible/hosts /etc/ansible/roles/\nInventory  Host 192.168.0.2 www.example.com www[01:50].example.com\n Host var www.example.com k1=v1 k2=v2\n Group [group name] www.example.com k1=v1 k2=v2 192.168.0.2 k1=v1 k2=v2\n Group var [GroupName:vars] k1=v1 k2=v2\n  Get hands dirty  ansible $host-or-group-name -m copy -a \u0026ldquo;content=\u0026lsquo;hello\u0026rsquo; dest=/root/hello.txt\u0026rdquo;  Reference  One hour Ansible CN version  "
     }
 ,
     {
@@ -68,7 +132,7 @@
         "title": "Docker Commands",
         "section": "blog",
         "date" : "2019.07.04",
-        "body": " Get help  Get help\ndocker -h\n Get help for a command\ndocker image prune \u0026ndash;help\n  Container  Show all containers, including both running and stopped\ndocker ps -a\n Get container logs\ndocker logs $container\n Attach std in/out/error to a running container\ndocker attach $container\n Run a command in a running container interactively\ndocker exec -it $container /bin/sh\n Show detail of a container\ndocker inspect $container\n Stats\ndocker stats $container\n Start/stop a container\ndocker start / stop $container\n Remove a container\ndocker rm $container\n  Image  basic actions\ndocker image ls docker image history $image docker rmi $image\n Remove all unused images, not just dangling ones\ndocker image prune -a\n  Networking  List docker networks\ndocker network ls\n  "
+        "body": " Get help  Get help\ndocker -h\n Get help for a command\ndocker image prune \u0026ndash;help\n  Container  Show all containers, including both running and stopped\ndocker ps -a\n Get container logs\ndocker logs $container\n Attach std in/out/error to a running container\ndocker attach $container\n Run a command in a running container interactively\ndocker exec -it $container /bin/sh\n Show detail of a container\ndocker inspect $container\n Stats\ndocker stats $container\n Start/stop a container\ndocker start / stop $container\n Remove a container\ndocker rm $container\n  Image  basic actions\ndocker image ls docker image history $image docker rmi $image\n Remove all unused images, not just dangling ones\ndocker image prune -a\n  Networking  List docker networks\ndocker network ls\n  Run Nginx in Docker  docker run \u0026ndash;name some-nginx -v /some/content:/usr/share/nginx/html:ro -d nginx docker run \u0026ndash;name my-custom-nginx-container -v /host/path/nginx.conf:/etc/nginx/nginx.conf:ro -d nginx docker cp tmp-nginx-container:/etc/nginx/nginx.conf /host/path/nginx.conf  Run PHP in Docker  docker run -d -p 8080:80 \u0026ndash;name my-apache-php-app -v \u0026ldquo;$PWD\u0026rdquo;:/var/www/html php:7.2-apache  "
     }
 ,
     {
@@ -101,6 +165,14 @@
         "section": "blog",
         "date" : "2019.07.03",
         "body": " Objective Build a web site like this within an hour.\nLocal env.  macOS Mojave Hugo v0.55.6 for Mac git version 2.20.1 (client)  Prepare local env.  Install Hugo\nbrew install hugo\n Install git client\nbrew install git\n  On Github  Log on Github Create a public repository named bruce-lu.github.io\nWhere bruce-lu is my Github account name. I create a new repository bruce-lu.github.io on Github.\n  On local env.  Create workspace\nmkdir ~/ws \u0026amp;\u0026amp; cd ~/ws\n Clone the new repository\ngit clone https://github.com/bruce-lu/bruce-lu.github.io.git\n Create a Hugo site and get pulp theme\ncd bruce-lu.github.io\nmkdir site \u0026amp;\u0026amp; cd site \u0026amp;\u0026amp; git submodule add https://github.com/koirand/pulp.git themes/pulp\ncp -r themes/pulp/exampleSite/* ./\n Run the web site locally\nhugo server -D\n The first test\nhttp://localhost:1313\n Make changes in config.toml\nbaseurl = \u0026ldquo;https://bruce-lu.github.io/\u0026quot; title = \u0026ldquo;Bruce Lu\u0026rsquo;s pages\u0026rdquo; theme = \u0026ldquo;pulp\u0026rdquo;\n Add some content\nhugo new blog/first.md vim content/blog/first.md change draft: from true to false\n The second test\nhttp://localhost:1313/blog\n  Publish to Github  Generate static web pages\nhugo\nThere would be a public folder generated.\n copy files in public folder to root folder cp -r public/* ../\nThe folder structure looks like this:\n├── 404.html ├── blog │ ├── emoji-support │ │ └── index.html │ ├── index.html │ ├── index.json │ ├── markdown-syntax │ │ └── index.html │ ├── math-typesetting │ │ └── index.html │ ├── placeholder-text │ │ └── index.html │ ├── rich-content.md.bk │ └── second │ └── index.html ├── bundle.min.87ff415004641d66f3d4fb9cbf76ce073ce8a10dd5b67afca5054b00be4ebc9a.js ├── css │ └── custom.css ├── img │ ├── avatar-border.svg │ ├── avatar.jpg │ ├── clear.png │ ├── favicon.ico │ └── search.png ├── index.html ├── index.xml ├── js │ └── custom.js ├── resources │ └── _gen │ ├── assets │ └── images ├── series │ ├── index.html │ └── index.xml ├── site │ ├── config.toml │ ├── content │ │ └── blog │ ├── public │ │ ├── 404.html │ │ ├── blog │ │ ├── bundle.min.87ff415004641d66f3d4fb9cbf76ce073ce8a10dd5b67afca5054b00be4ebc9a.js │ │ ├── css │ │ ├── img │ │ ├── index.html │ │ ├── index.xml │ │ ├── js │ │ ├── series │ │ ├── sitemap.xml │ │ ├── style.min.60c59e75c5046f0eded1491ec81bdadd4a68c3cb5d8aa97aeaa80d79260917d3.css │ │ └── style.min.a6cab246517742ad1189b209575fc61556550e663cdfe02a0aab0632b39e978b.css │ ├── resources │ │ └── _gen │ ├── series │ │ ├── index.html │ │ └── index.xml │ ├── static │ │ ├── css │ │ ├── img │ │ └── js │ └── themes │ └── pulp ├── sitemap.xml └── style.min.a6cab246517742ad1189b209575fc61556550e663cdfe02a0aab0632b39e978b.css   Push code  cd ~/ws/bruce-lu.github.io git add . git commit -m \u0026ldquo;Initial publish\u0026rdquo; git push\n Validate  Wait for like 1 or 2 minutes, open https://bruce-lu.github.io/\nFeel free to add more blogs and enjoy ;-)   Analysis  Add Google Analysis support  Edit bruce-lu.github.io/site/config.toml\n# Put your tracking id here and rebuild \u0026amp; publish the site. googleAnalytics = \u0026quot;MyGoogleAnalyticsTrackingID\u0026quot; # Visit Google Analytics console:\thttps://analytics.google.com/ for real time metrics  Reference  Hugo quick-start guide Getting Started with GitHub Pages pulp theme guide  "
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/how-to-start-a-speech/",
+        "title": "Note of How to start a speech",
+        "section": "blog",
+        "date" : "2019.05.24",
+        "body": " Thanks to  How to start a speech  Keywords  speech  The 3rd way: With a question that maters to the audience The 2nd way: A fact that shockes (change your thinking) There is more people that is alive today than ever died Every 2 minutes, the energy reaching the earch from the sun is equivalent to the whole annual usage of humanity\nThe best way: Tell stories from own life, talk about people behind the story  The same way we start a story to a child: Once upon a time. When the story coming, people are listening  Conclusion  Start with A Question\n Start with curious \u0026amp; bizarre fact\n Start with a relevant story\n  "
     }
 ,
     {

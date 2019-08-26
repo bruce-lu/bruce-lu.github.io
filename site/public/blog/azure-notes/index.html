@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>
+      
+          Microsoft Azure Notes - Bruce Lu&#39;s pages
+      
+  </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="map[]" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://bruce-lu.github.io/img/favicon.ico">
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.60c59e75c5046f0eded1491ec81bdadd4a68c3cb5d8aa97aeaa80d79260917d3.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  
+  
+
+  <meta property="og:title" content="Microsoft Azure Notes" />
+<meta property="og:description" content="Determine workload requirement  Identifying requirements: Use cases, goals, scopes; Assumptions: Are we gonna use cloud native tools or traditional ones? Use existing licenses? Critical Success Factors: Need to be scalable to meet xyz workload, utilizing existing operation team, no new talent required? Plan for growth Manage cost  Complaince and security requirement  Data protection in EU: GDPR Healthcare: HIPPA Government: FedRAMP  SLA - Service Level Agreement  MTTR: Mean Time To Recovery." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bruce-lu.github.io/blog/azure-notes/" />
+<meta property="article:published_time" content="2019-07-29T10:14:34&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-29T10:14:34&#43;08:00"/>
+
+<meta itemprop="name" content="Microsoft Azure Notes">
+<meta itemprop="description" content="Determine workload requirement  Identifying requirements: Use cases, goals, scopes; Assumptions: Are we gonna use cloud native tools or traditional ones? Use existing licenses? Critical Success Factors: Need to be scalable to meet xyz workload, utilizing existing operation team, no new talent required? Plan for growth Manage cost  Complaince and security requirement  Data protection in EU: GDPR Healthcare: HIPPA Government: FedRAMP  SLA - Service Level Agreement  MTTR: Mean Time To Recovery.">
+
+
+<meta itemprop="datePublished" content="2019-07-29T10:14:34&#43;08:00" />
+<meta itemprop="dateModified" content="2019-07-29T10:14:34&#43;08:00" />
+<meta itemprop="wordCount" content="178">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Microsoft Azure Notes"/>
+<meta name="twitter:description" content="Determine workload requirement  Identifying requirements: Use cases, goals, scopes; Assumptions: Are we gonna use cloud native tools or traditional ones? Use existing licenses? Critical Success Factors: Need to be scalable to meet xyz workload, utilizing existing operation team, no new talent required? Plan for growth Manage cost  Complaince and security requirement  Data protection in EU: GDPR Healthcare: HIPPA Government: FedRAMP  SLA - Service Level Agreement  MTTR: Mean Time To Recovery."/>
+
+  <!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-124907735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+  <body>
+    
+  <h1>Microsoft Azure Notes</h1>
+  <header>
+  
+  <div class="avatar">
+    <img class="avatarMask" src="https://bruce-lu.github.io//img/avatar.jpg">
+    <a href="https://bruce-lu.github.io/"><img src="https://bruce-lu.github.io//img/avatar-border.svg" }}></a>
+  </div>
+  
+  <h2><a class="author" href="https://bruce-lu.github.io/">Bruce Lu</a></h2>
+</header>
+
+  
+  
+  <p class="date">July 29, 2019</p>
+  
+  <div id="contentBody">
+    
+
+<h2 id="determine-workload-requirement">Determine workload requirement</h2>
+
+<ul>
+<li>Identifying requirements: Use cases, goals, scopes;</li>
+<li>Assumptions: Are we gonna use cloud native tools or traditional ones? Use existing licenses?</li>
+<li>Critical Success Factors: Need to be scalable to meet xyz workload, utilizing existing operation team, no new talent required?</li>
+<li>Plan for growth</li>
+<li>Manage cost</li>
+</ul>
+
+<h2 id="complaince-and-security-requirement">Complaince and security requirement</h2>
+
+<ul>
+<li>Data protection in EU: GDPR</li>
+<li>Healthcare: HIPPA</li>
+<li>Government: FedRAMP</li>
+</ul>
+
+<h2 id="sla-service-level-agreement">SLA - Service Level Agreement</h2>
+
+<ul>
+<li>MTTR: Mean Time To Recovery. Avg time to recover service from outage</li>
+<li>MTBF: Mean Time Between Failure. Avg time between outages</li>
+<li>RPO: Recovery Point Objective. Interval of time in which data could be lost during a recovery. E.g. 5 minute RPO means up to 5 minutes of data could be lost</li>
+<li>RTO: Recovery Time Objective. Time requirement for recovery to be completed in before there is business impact</li>
+<li>Composite SLA: SQL 99.95% x Web App 99.5% = SLA 99.94%</li>
+</ul>
+
+<h2 id="domain-services">Domain services</h2>
+
+<ul>
+<li>Azure Active Directory: AAD, often the same as O365 directory service</li>
+<li>Active Directory Domain Services: ADDS, legacy service, with AD installed on windows VM</li>
+<li>Azure Active Directory Domain Services: Managed domain services</li>
+</ul>
+
+  </div>
+  <footer>
+  <p>
+  &copy; 2019 Bruce Lu.
+  Powered by <a href="https://gohugo.io/">Hugo</a>
+  using the <a href="https://github.com/koirand/pulp/">pulp</a> theme.
+  </p>
+</footer>
+
+
+  </body>
+</html>

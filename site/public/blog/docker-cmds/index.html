@@ -60,7 +60,7 @@ docker exec -it $container /bin/sh
 
 <meta itemprop="datePublished" content="2019-07-04T15:28:09&#43;08:00" />
 <meta itemprop="dateModified" content="2019-07-04T15:28:09&#43;08:00" />
-<meta itemprop="wordCount" content="114">
+<meta itemprop="wordCount" content="152">
 
 
 
@@ -191,6 +191,20 @@ docker rmi $image</p></li>
 <li><p>List docker networks</p>
 
 <p>docker network ls</p></li>
+</ul>
+
+<h2 id="run-nginx-in-docker">Run Nginx in Docker</h2>
+
+<ul>
+<li>docker run &ndash;name some-nginx -v /some/content:/usr/share/nginx/html:ro -d nginx</li>
+<li>docker run &ndash;name my-custom-nginx-container -v /host/path/nginx.conf:/etc/nginx/nginx.conf:ro -d nginx</li>
+<li>docker cp tmp-nginx-container:/etc/nginx/nginx.conf /host/path/nginx.conf</li>
+</ul>
+
+<h2 id="run-php-in-docker">Run PHP in Docker</h2>
+
+<ul>
+<li>docker run -d -p 8080:80 &ndash;name my-apache-php-app -v &ldquo;$PWD&rdquo;:/var/www/html php:7.2-apache</li>
 </ul>
 
   </div>

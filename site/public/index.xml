@@ -5,10 +5,85 @@
     <link>https://bruce-lu.github.io/</link>
     <description>Recent content on Bruce Lu&#39;s pages</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 13 Jul 2019 21:44:34 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2019 14:36:34 +0800</lastBuildDate>
     
 	<atom:link href="https://bruce-lu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Get started with Vue</title>
+      <link>https://bruce-lu.github.io/blog/vue-start/</link>
+      <pubDate>Tue, 06 Aug 2019 14:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/vue-start/</guid>
+      <description> Installation  vue.js
+ Vue Devtools
+ @vue/cli tool npm install -g @vue/cli // installed under /usr/local/lib/node_modules/@vue
+  Create a new Vue project </description>
+    </item>
+    
+    <item>
+      <title>Learning resources</title>
+      <link>https://bruce-lu.github.io/blog/learning-resources/</link>
+      <pubDate>Wed, 31 Jul 2019 10:14:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/learning-resources/</guid>
+      <description>Objective Get good learning resources
+Keywords  learning, resource, course  Architecture Reference  Azure AWS Aliyun  Microsoft Azure  skylines-academy-llc courses Services comparison between Azure &amp;amp; AWS  UI  Vue
+ Vue2 + Bootstrap4 + Material design Bootstrap + Vue  Flutter
+  Flutter get started</description>
+    </item>
+    
+    <item>
+      <title>Microsoft Azure Notes</title>
+      <link>https://bruce-lu.github.io/blog/azure-notes/</link>
+      <pubDate>Mon, 29 Jul 2019 10:14:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/azure-notes/</guid>
+      <description>Determine workload requirement  Identifying requirements: Use cases, goals, scopes; Assumptions: Are we gonna use cloud native tools or traditional ones? Use existing licenses? Critical Success Factors: Need to be scalable to meet xyz workload, utilizing existing operation team, no new talent required? Plan for growth Manage cost  Complaince and security requirement  Data protection in EU: GDPR Healthcare: HIPPA Government: FedRAMP  SLA - Service Level Agreement  MTTR: Mean Time To Recovery.</description>
+    </item>
+    
+    <item>
+      <title>Kafka cluster</title>
+      <link>https://bruce-lu.github.io/blog/kafka-cluster/</link>
+      <pubDate>Wed, 24 Jul 2019 13:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/kafka-cluster/</guid>
+      <description> Objective Setup Kafka cluster on three nodes
+Environment  Servers  9.98.13.49 9.98.13.50 9.98.13.52
+TODO </description>
+    </item>
+    
+    <item>
+      <title>Using self-signed SSL certificate for AWS Elastic Beanstalk</title>
+      <link>https://bruce-lu.github.io/blog/using-self-signed-ssl-certificate-for-aws-beanstalk/</link>
+      <pubDate>Wed, 24 Jul 2019 10:14:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/using-self-signed-ssl-certificate-for-aws-beanstalk/</guid>
+      <description>Objective There are cases we need run a quick PoC with HTTPS enabled in AWS Elastic Beanstalk. In such cases, one of an efficient way is to use a self-signed certificate. Please note you can use AWS Certificate Manager to generate certificate if it&amp;rsquo;s enabled in your region. I&amp;rsquo;ll demostrate how to generate and use a self-signed certificate in AWS CLI here in this blog.
+Keywords  SSL, HTTPS, x509, Beanstalk, AWS  Environment  macOS in local AWS console in remote  Generating a new self-signed certificate  Generate a private key with length 2048  openssl genrsa 2048 &amp;gt; privatekey.</description>
+    </item>
+    
+    <item>
+      <title>Dive into Openstack</title>
+      <link>https://bruce-lu.github.io/blog/open-stack-dive/</link>
+      <pubDate>Mon, 22 Jul 2019 09:14:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/open-stack-dive/</guid>
+      <description> Objective Dive into Openstack
+Keywords  KVM, Openstack, Virtualization, Nova, Glance  Environment  Ubuntu 16.04 on Virtualbox for macOS  KVM  Kernel-based Virtual Machine kvm.ko for CPU &amp;amp; RAM mgmt Linux kernel &amp;amp; Qemu for I/O virtualization e.g. Storage &amp;amp; Networking Libvirt for managing Hypervisor like KVM, VirtualBox, Xen; Openstack uses Libvirt at its bottom Libvirt componments: libvirtd as daemon, API, virsh as CLI Virt-manager: GUI tool  TODO </description>
+    </item>
+    
+    <item>
+      <title>MongoDB sharding</title>
+      <link>https://bruce-lu.github.io/blog/mongodb-sharding/</link>
+      <pubDate>Thu, 18 Jul 2019 13:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/mongodb-sharding/</guid>
+      <description> Objective Setup MongoDB sharding on three nodes
+Environment  Servers  9.98.13.49 9.98.13.50 9.98.13.52
+TODO </description>
+    </item>
     
     <item>
       <title>Goroutine &amp; bufferred channel&#39;s quick performance taste: TPS from 28k to 16m</title>
@@ -19,6 +94,20 @@
       <description>Objective To get TPS (Transaction Per Second) as high as possible by using goroutine &amp;amp; bufferred channel (CSP pattern)
 Environment  2.3 GHz Intel Core i5; 8 GB 2133 MHz LPDDR3 macOS Mojave 10.14.4 Go 1.12.6  Setup Go If you are new to Golang, for Go&amp;rsquo;s setup, please refer to my blog: Go - Build a web API
 Create a Go project mkdir -p ~/ws/golang/src/blue/demo cd ~/ws/golang/src/blue/demo vim demo.</description>
+    </item>
+    
+    <item>
+      <title>Automation with Ansible</title>
+      <link>https://bruce-lu.github.io/blog/automation-ansible/</link>
+      <pubDate>Fri, 05 Jul 2019 21:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/automation-ansible/</guid>
+      <description>Playbook Plays -&amp;gt; Tasks -&amp;gt; Modules -&amp;gt; Handlers
+Modules more than 450 modules provided by Ansible common modules: yum, ping
+How to  yum install ansible Ad-Hoc: ansible $inventory -m ping Playbook: ansible-playbook mybook.yml Ansible Tower: Options, Dry-run, -C mode ansible-doc ansible-galaxy ansible-config ansible-inventory ansible-pull ansible-vault ansible-console  Configuration /etc/ansible/ansible.cfg /etc/ansible/hosts /etc/ansible/roles/
+Inventory  Host 192.168.0.2 www.example.com www[01:50].example.com
+ Host var www.example.com k1=v1 k2=v2
+ Group [group name] www.example.com k1=v1 k2=v2 192.</description>
     </item>
     
     <item>
@@ -151,6 +240,16 @@ brew install hugo
 brew install git
   On Github  Log on Github Create a public repository named bruce-lu.github.io
 Where bruce-lu is my Github account name. I create a new repository bruce-lu.github.io on Github.</description>
+    </item>
+    
+    <item>
+      <title>Note of How to start a speech</title>
+      <link>https://bruce-lu.github.io/blog/how-to-start-a-speech/</link>
+      <pubDate>Fri, 24 May 2019 10:12:32 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/how-to-start-a-speech/</guid>
+      <description>Thanks to  How to start a speech  Keywords  speech  The 3rd way: With a question that maters to the audience The 2nd way: A fact that shockes (change your thinking) There is more people that is alive today than ever died Every 2 minutes, the energy reaching the earch from the sun is equivalent to the whole annual usage of humanity
+The best way: Tell stories from own life, talk about people behind the story  The same way we start a story to a child: Once upon a time.</description>
     </item>
     
     <item>
