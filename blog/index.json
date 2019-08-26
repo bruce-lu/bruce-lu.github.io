@@ -1,10 +1,18 @@
 [
     {
+        "ref": "https://bruce-lu.github.io/blog/wordpress-docker-compose/",
+        "title": "Docker Commands",
+        "section": "blog",
+        "date" : "2019.08.26",
+        "body": " docker-compose.yml for wordpress cat docker-compose.yml version: '3.3' services: db: image: mysql:5.7 volumes: - db_data:/var/lib/mysql restart: always environment: MYSQL_ROOT_PASSWORD: somewordpress MYSQL_DATABASE: wordpress MYSQL_USER: wordpress MYSQL_PASSWORD: wordpress wordpress: depends_on: - db image: wordpress:latest volumes: - /Users/admin/ws/klipc/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install ports: - \u0026quot;8000:80\u0026quot; restart: always environment: WORDPRESS_DB_HOST: db:3306 WORDPRESS_DB_USER: wordpress WORDPRESS_DB_PASSWORD: wordpress WORDPRESS_DB_NAME: wordpress volumes: db_data: {}  "
+    }
+,
+    {
         "ref": "https://bruce-lu.github.io/blog/vue-start/",
         "title": "Get started with Vue",
         "section": "blog",
-        "date" : "2019.08.06",
-        "body": " Installation  vue.js\n Vue Devtools\n @vue/cli tool npm install -g @vue/cli // installed under /usr/local/lib/node_modules/@vue\n  Create a new Vue project "
+        "date" : "2019.08.26",
+        "body": " Installation  vue.js\n Vue Devtools\n @vue/cli tool npm install -g @vue/cli // installed under /usr/local/lib/node_modules/@vue\n  Create a new Vue project vue create vue-demo # vue -h for help # preset: default (babel, eslint) # package manager to use when installing dependencies: Yarn cd vue-demo yarn serve # Use \u0026quot;vue ui\u0026quot; to start GUI mgmt console. Very cool!  "
     }
 ,
     {

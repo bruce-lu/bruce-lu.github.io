@@ -1,6 +1,6 @@
 ---
 title: "Get started with Vue"
-date: 2019-08-06T14:36:34+08:00
+date: 2019-08-26T23:13:34+08:00
 draft: false
 images: []
 ---
@@ -17,4 +17,14 @@ images: []
 
 ## Create a new Vue project
 
+``` Bash
+vue create vue-demo
+# vue -h for help
+# preset: default (babel, eslint)
+# package manager to use when installing dependencies: Yarn
 
+cd vue-demo
+yarn serve
+
+# Use "vue ui" to start GUI mgmt console. Very cool!
+```
