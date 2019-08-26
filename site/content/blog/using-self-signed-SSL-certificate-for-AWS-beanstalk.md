@@ -104,15 +104,3 @@ There are cases we need run a quick PoC with HTTPS enabled in AWS Elastic Beanst
 
 - Get the app URL and change the protocol to https on browser. Accept or add exception because it's a self-signed certificate for low level environment testing purpose. It should be secure now.
 
-
-
-
-
-
-
-
-  
-
-
-
-

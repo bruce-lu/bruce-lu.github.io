@@ -67,3 +67,13 @@ images: []
 - List docker networks
 
     docker network ls
+
+## Run Nginx in Docker
+
+- docker run --name some-nginx -v /some/content:/usr/share/nginx/html:ro -d nginx
+- docker run --name my-custom-nginx-container -v /host/path/nginx.conf:/etc/nginx/nginx.conf:ro -d nginx
+- docker cp tmp-nginx-container:/etc/nginx/nginx.conf /host/path/nginx.conf
+
+## Run PHP in Docker
+
+- docker run -d -p 8080:80 --name my-apache-php-app -v "$PWD":/var/www/html php:7.2-apache
