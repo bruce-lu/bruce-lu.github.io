@@ -5,10 +5,19 @@
     <link>https://bruce-lu.github.io/</link>
     <description>Recent content on Bruce Lu&#39;s pages</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 26 Aug 2019 23:38:09 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2019 08:28:09 +0800</lastBuildDate>
     
 	<atom:link href="https://bruce-lu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ubuntu1804_by_Canonical</title>
+      <link>https://bruce-lu.github.io/blog/ubuntu1804_by_canonical/</link>
+      <pubDate>Tue, 27 Aug 2019 08:28:09 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/ubuntu1804_by_canonical/</guid>
+      <description>Package mgmt  dpkg  # dkpg does not install dependencies automatically # See if apache2 is installed dpkg -l | grep apache2 # List all files installed for ufw dpkg -L ufw # Which package installed a file dpkg -S /etc/host.conf # Install a local .deb file sudo dpkg -i zip_3.0-4_i386.deb # Uninstalling a package sudo dpkg -r zip   apt - Ubuntu&amp;rsquo;s Advanced Packaging Tool (APT)  # apt [install | remove | update | upgrade] [$pkg1 $pkg2 .</description>
+    </item>
     
     <item>
       <title>Docker-compose for Wordpress</title>
@@ -16,7 +25,7 @@
       <pubDate>Mon, 26 Aug 2019 23:38:09 +0800</pubDate>
       
       <guid>https://bruce-lu.github.io/blog/wordpress-docker-compose/</guid>
-      <description> docker-compose.yml for wordpress cat docker-compose.yml version: &#39;3.3&#39; services: db: image: mysql:5.7 volumes: - db_data:/var/lib/mysql restart: always environment: MYSQL_ROOT_PASSWORD: somewordpress MYSQL_DATABASE: wordpress MYSQL_USER: wordpress MYSQL_PASSWORD: wordpress wordpress: depends_on: - db image: wordpress:latest volumes: - /Users/admin/ws/klipc/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install ports: - &amp;quot;8000:80&amp;quot; restart: always environment: WORDPRESS_DB_HOST: db:3306 WORDPRESS_DB_USER: wordpress WORDPRESS_DB_PASSWORD: wordpress WORDPRESS_DB_NAME: wordpress volumes: db_data: {}  </description>
+      <description> Get theme bitpal.zip  Bitpal theme  docker-compose.yml for wordpress cat docker-compose.yml version: &#39;3.3&#39; services: db: image: mysql:5.7 volumes: - db_data:/var/lib/mysql restart: always environment: MYSQL_ROOT_PASSWORD: * MYSQL_DATABASE: * MYSQL_USER: * MYSQL_PASSWORD: * wordpress: depends_on: - db image: wordpress:latest volumes: - /ws/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install ports: - &amp;quot;10000:80&amp;quot; restart: always environment: WORDPRESS_DB_HOST: db:3306 WORDPRESS_DB_USER: * WORDPRESS_DB_PASSWORD: * WORDPRESS_DB_NAME: * volumes: db_data: {}  docker-compose up </description>
     </item>
     
     <item>

@@ -5,6 +5,10 @@ draft: false
 images: []
 ---
 
+## Get theme bitpal.zip
+
+- [Bitpal theme](https://themeforest.net/item/bitpal-cryptocurrency-wordpress-theme/22592946)
+
 ## docker-compose.yml for wordpress
 
 ``` Bash
@@ -20,26 +24,28 @@ services:
        - db_data:/var/lib/mysql
      restart: always
      environment:
-       MYSQL_ROOT_PASSWORD: somewordpress
-       MYSQL_DATABASE: wordpress
-       MYSQL_USER: wordpress
-       MYSQL_PASSWORD: wordpress
+       MYSQL_ROOT_PASSWORD: *
+       MYSQL_DATABASE: *
+       MYSQL_USER: *
+       MYSQL_PASSWORD: *
 
    wordpress:
      depends_on:
        - db
      image: wordpress:latest
      volumes:
-       - /Users/admin/ws/klipc/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install
+       - /ws/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install
      ports:
-       - "8000:80"
+       - "10000:80"
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306
-       WORDPRESS_DB_USER: wordpress
-       WORDPRESS_DB_PASSWORD: wordpress
-       WORDPRESS_DB_NAME: wordpress
+       WORDPRESS_DB_USER: *
+       WORDPRESS_DB_PASSWORD: *
+       WORDPRESS_DB_NAME: *
 volumes:
     db_data: {}
 
 ```
+
+## docker-compose up

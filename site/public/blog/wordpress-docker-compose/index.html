@@ -24,26 +24,26 @@
   
 
   <meta property="og:title" content="Docker-compose for Wordpress" />
-<meta property="og:description" content=" docker-compose.yml for wordpress cat docker-compose.yml version: &#39;3.3&#39; services: db: image: mysql:5.7 volumes: - db_data:/var/lib/mysql restart: always environment: MYSQL_ROOT_PASSWORD: somewordpress MYSQL_DATABASE: wordpress MYSQL_USER: wordpress MYSQL_PASSWORD: wordpress wordpress: depends_on: - db image: wordpress:latest volumes: - /Users/admin/ws/klipc/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install ports: - &quot;8000:80&quot; restart: always environment: WORDPRESS_DB_HOST: db:3306 WORDPRESS_DB_USER: wordpress WORDPRESS_DB_PASSWORD: wordpress WORDPRESS_DB_NAME: wordpress volumes: db_data: {}  " />
+<meta property="og:description" content=" Get theme bitpal.zip  Bitpal theme  docker-compose.yml for wordpress cat docker-compose.yml version: &#39;3.3&#39; services: db: image: mysql:5.7 volumes: - db_data:/var/lib/mysql restart: always environment: MYSQL_ROOT_PASSWORD: * MYSQL_DATABASE: * MYSQL_USER: * MYSQL_PASSWORD: * wordpress: depends_on: - db image: wordpress:latest volumes: - /ws/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install ports: - &quot;10000:80&quot; restart: always environment: WORDPRESS_DB_HOST: db:3306 WORDPRESS_DB_USER: * WORDPRESS_DB_PASSWORD: * WORDPRESS_DB_NAME: * volumes: db_data: {}  docker-compose up " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://bruce-lu.github.io/blog/wordpress-docker-compose/" />
 <meta property="article:published_time" content="2019-08-26T23:38:09&#43;08:00"/>
 <meta property="article:modified_time" content="2019-08-26T23:38:09&#43;08:00"/>
 
 <meta itemprop="name" content="Docker-compose for Wordpress">
-<meta itemprop="description" content=" docker-compose.yml for wordpress cat docker-compose.yml version: &#39;3.3&#39; services: db: image: mysql:5.7 volumes: - db_data:/var/lib/mysql restart: always environment: MYSQL_ROOT_PASSWORD: somewordpress MYSQL_DATABASE: wordpress MYSQL_USER: wordpress MYSQL_PASSWORD: wordpress wordpress: depends_on: - db image: wordpress:latest volumes: - /Users/admin/ws/klipc/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install ports: - &quot;8000:80&quot; restart: always environment: WORDPRESS_DB_HOST: db:3306 WORDPRESS_DB_USER: wordpress WORDPRESS_DB_PASSWORD: wordpress WORDPRESS_DB_NAME: wordpress volumes: db_data: {}  ">
+<meta itemprop="description" content=" Get theme bitpal.zip  Bitpal theme  docker-compose.yml for wordpress cat docker-compose.yml version: &#39;3.3&#39; services: db: image: mysql:5.7 volumes: - db_data:/var/lib/mysql restart: always environment: MYSQL_ROOT_PASSWORD: * MYSQL_DATABASE: * MYSQL_USER: * MYSQL_PASSWORD: * wordpress: depends_on: - db image: wordpress:latest volumes: - /ws/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install ports: - &quot;10000:80&quot; restart: always environment: WORDPRESS_DB_HOST: db:3306 WORDPRESS_DB_USER: * WORDPRESS_DB_PASSWORD: * WORDPRESS_DB_NAME: * volumes: db_data: {}  docker-compose up ">
 
 
 <meta itemprop="datePublished" content="2019-08-26T23:38:09&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-26T23:38:09&#43;08:00" />
-<meta itemprop="wordCount" content="55">
+<meta itemprop="wordCount" content="62">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker-compose for Wordpress"/>
-<meta name="twitter:description" content=" docker-compose.yml for wordpress cat docker-compose.yml version: &#39;3.3&#39; services: db: image: mysql:5.7 volumes: - db_data:/var/lib/mysql restart: always environment: MYSQL_ROOT_PASSWORD: somewordpress MYSQL_DATABASE: wordpress MYSQL_USER: wordpress MYSQL_PASSWORD: wordpress wordpress: depends_on: - db image: wordpress:latest volumes: - /Users/admin/ws/klipc/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install ports: - &quot;8000:80&quot; restart: always environment: WORDPRESS_DB_HOST: db:3306 WORDPRESS_DB_USER: wordpress WORDPRESS_DB_PASSWORD: wordpress WORDPRESS_DB_NAME: wordpress volumes: db_data: {}  "/>
+<meta name="twitter:description" content=" Get theme bitpal.zip  Bitpal theme  docker-compose.yml for wordpress cat docker-compose.yml version: &#39;3.3&#39; services: db: image: mysql:5.7 volumes: - db_data:/var/lib/mysql restart: always environment: MYSQL_ROOT_PASSWORD: * MYSQL_DATABASE: * MYSQL_USER: * MYSQL_PASSWORD: * wordpress: depends_on: - db image: wordpress:latest volumes: - /ws/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install ports: - &quot;10000:80&quot; restart: always environment: WORDPRESS_DB_HOST: db:3306 WORDPRESS_DB_USER: * WORDPRESS_DB_PASSWORD: * WORDPRESS_DB_NAME: * volumes: db_data: {}  docker-compose up "/>
 
   <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -87,6 +87,12 @@ if (!doNotTrack) {
   <div id="contentBody">
     
 
+<h2 id="get-theme-bitpal-zip">Get theme bitpal.zip</h2>
+
+<ul>
+<li><a href="https://themeforest.net/item/bitpal-cryptocurrency-wordpress-theme/22592946">Bitpal theme</a></li>
+</ul>
+
 <h2 id="docker-compose-yml-for-wordpress">docker-compose.yml for wordpress</h2>
 
 <pre><code class="language-Bash">
@@ -101,29 +107,31 @@ services:
        - db_data:/var/lib/mysql
      restart: always
      environment:
-       MYSQL_ROOT_PASSWORD: somewordpress
-       MYSQL_DATABASE: wordpress
-       MYSQL_USER: wordpress
-       MYSQL_PASSWORD: wordpress
+       MYSQL_ROOT_PASSWORD: *
+       MYSQL_DATABASE: *
+       MYSQL_USER: *
+       MYSQL_PASSWORD: *
 
    wordpress:
      depends_on:
        - db
      image: wordpress:latest
      volumes:
-       - /Users/admin/ws/klipc/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install
+       - /ws/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install
      ports:
-       - &quot;8000:80&quot;
+       - &quot;10000:80&quot;
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306
-       WORDPRESS_DB_USER: wordpress
-       WORDPRESS_DB_PASSWORD: wordpress
-       WORDPRESS_DB_NAME: wordpress
+       WORDPRESS_DB_USER: *
+       WORDPRESS_DB_PASSWORD: *
+       WORDPRESS_DB_NAME: *
 volumes:
     db_data: {}
 
 </code></pre>
+
+<h2 id="docker-compose-up">docker-compose up</h2>
 
   </div>
   <footer>

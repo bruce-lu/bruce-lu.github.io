@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>
+      
+          Ubuntu1804_by_Canonical - Bruce Lu&#39;s pages
+      
+  </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="map[]" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://bruce-lu.github.io/img/favicon.ico">
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.60c59e75c5046f0eded1491ec81bdadd4a68c3cb5d8aa97aeaa80d79260917d3.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  
+  
+
+  <meta property="og:title" content="Ubuntu1804_by_Canonical" />
+<meta property="og:description" content="Package mgmt  dpkg  # dkpg does not install dependencies automatically # See if apache2 is installed dpkg -l | grep apache2 # List all files installed for ufw dpkg -L ufw # Which package installed a file dpkg -S /etc/host.conf # Install a local .deb file sudo dpkg -i zip_3.0-4_i386.deb # Uninstalling a package sudo dpkg -r zip   apt - Ubuntu&rsquo;s Advanced Packaging Tool (APT)  # apt [install | remove | update | upgrade] [$pkg1 $pkg2 ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bruce-lu.github.io/blog/ubuntu1804_by_canonical/" />
+<meta property="article:published_time" content="2019-08-27T08:28:09&#43;08:00"/>
+<meta property="article:modified_time" content="2019-08-27T08:28:09&#43;08:00"/>
+
+<meta itemprop="name" content="Ubuntu1804_by_Canonical">
+<meta itemprop="description" content="Package mgmt  dpkg  # dkpg does not install dependencies automatically # See if apache2 is installed dpkg -l | grep apache2 # List all files installed for ufw dpkg -L ufw # Which package installed a file dpkg -S /etc/host.conf # Install a local .deb file sudo dpkg -i zip_3.0-4_i386.deb # Uninstalling a package sudo dpkg -r zip   apt - Ubuntu&rsquo;s Advanced Packaging Tool (APT)  # apt [install | remove | update | upgrade] [$pkg1 $pkg2 .">
+
+
+<meta itemprop="datePublished" content="2019-08-27T08:28:09&#43;08:00" />
+<meta itemprop="dateModified" content="2019-08-27T08:28:09&#43;08:00" />
+<meta itemprop="wordCount" content="355">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ubuntu1804_by_Canonical"/>
+<meta name="twitter:description" content="Package mgmt  dpkg  # dkpg does not install dependencies automatically # See if apache2 is installed dpkg -l | grep apache2 # List all files installed for ufw dpkg -L ufw # Which package installed a file dpkg -S /etc/host.conf # Install a local .deb file sudo dpkg -i zip_3.0-4_i386.deb # Uninstalling a package sudo dpkg -r zip   apt - Ubuntu&rsquo;s Advanced Packaging Tool (APT)  # apt [install | remove | update | upgrade] [$pkg1 $pkg2 ."/>
+
+  <!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-124907735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+  <body>
+    
+  <h1>Ubuntu1804_by_Canonical</h1>
+  <header>
+  
+  <div class="avatar">
+    <img class="avatarMask" src="https://bruce-lu.github.io//img/avatar.jpg">
+    <a href="https://bruce-lu.github.io/"><img src="https://bruce-lu.github.io//img/avatar-border.svg" }}></a>
+  </div>
+  
+  <h2><a class="author" href="https://bruce-lu.github.io/">Bruce Lu</a></h2>
+</header>
+
+  
+  
+  <p class="date">August 27, 2019</p>
+  
+  <div id="contentBody">
+    
+
+<h2 id="package-mgmt">Package mgmt</h2>
+
+<ul>
+<li>dpkg</li>
+</ul>
+
+<pre><code class="language-Bash">  # dkpg does not install dependencies automatically
+
+  # See if apache2 is installed
+  dpkg -l | grep apache2
+
+  # List all files installed for ufw
+  dpkg -L ufw 
+
+  # Which package installed a file
+  dpkg -S /etc/host.conf 
+
+  # Install a local .deb file
+  sudo dpkg -i zip_3.0-4_i386.deb
+
+  # Uninstalling a package
+  sudo dpkg -r zip
+</code></pre>
+
+<ul>
+<li>apt - Ubuntu&rsquo;s Advanced Packaging Tool (APT)</li>
+</ul>
+
+<pre><code class="language-Bash">  #
+  apt [install | remove  | update | upgrade] [$pkg1 $pkg2 ..]
+
+  # Update the Package Index: The APT package index is essentially a database of available packages from the repositories defined in the /etc/apt/sources.list file and in the /etc/apt/sources.list.d directory. To update the index:
+  apt update
+
+  # discover to which package a file belongs
+  apt-file search docker
+
+  # Or using dpkg to find package names
+  dpkg -S stdio.h
+
+  # More
+  apt help
+
+  # Most used commands:
+  list - list packages based on package names, [installed | upgradable ..]
+  search - search in package descriptions = apt-cache search
+  show - show package details = apt-cache show
+  install - install packages
+  remove - remove packages
+  autoremove - Remove automatically all unused packages
+  update - update list of available packages
+  upgrade - upgrade the system by installing/upgrading packages
+  full-upgrade - upgrade the system by removing/installing/upgrading packages
+  edit-sources - edit the source information file
+
+  # Diff between apt and apt-get: https://askubuntu.com/questions/445384/what-is-the-difference-between-apt-and-apt-get
+  # apt is higher level of apt-get which is low level, backend of apt, and backwards compatible. apt is better for end-users and doesn't require or contain some extra features in that are present in apt-get.
+
+</code></pre>
+
+<h2 id="kernel-crash-dump">Kernel Crash Dump</h2>
+
+<ul>
+<li>sudo apt install linux-crashdump</li>
+<li>/etc/default/kdump-tools // USE_KDUMP=1</li>
+<li>Remote dump: SSH=&ldquo;ubuntu@kdump-netcrash&rdquo; or NFS=&ldquo;kdump-netcrash:/var/crash&rdquo; in /etc/default/kdump-tools</li>
+<li>Verification</li>
+</ul>
+
+<pre><code class="language-Bash">  cat /proc/cmdline // crashkernel boot parameter should be represented in /proc/cmdline
+</code></pre>
+
+<ul>
+<li>Verify that the kernel has reserved the requested memory area for the kdump kernel</li>
+</ul>
+
+<pre><code class="language-Bash">  dmesg | grep -i crash
+  kdump-config show
+</code></pre>
+
+<ul>
+<li>Testing the Crash Dump Mechanism</li>
+</ul>
+
+<pre><code class="language-Bash">  cat /proc/sys/kernel/sysrq // SysRQ should be 1, if not, sudo sysctl -w kernel.sysrq=1
+  echo c &gt; /proc/sysrq-trigger // to trigger the dump
+  ls /var/crash
+</code></pre>
+
+<h2 id="tools">Tools</h2>
+
+<ul>
+<li><a href="https://cloudinit.readthedocs.io/en/latest/">Cloud-init</a></li>
+<li><a href="https://jaas.ai/docs">Juju</a></li>
+<li><a href="https://maas.io/docs">MaaS</a></li>
+</ul>
+
+<h2 id="getting-help">Getting help</h2>
+
+<ul>
+<li><a href="https://help.ubuntu.com/lts/serverguide/index.html">Ubuntu server guide</a></li>
+<li><a href="https://help.ubuntu.com/lts/ubuntu-help/index.html">Ubuntu desktop guide</a></li>
+<li><a href="http://www.kroah.com/lkn/">Linux Kernel in a Nutshell</a></li>
+</ul>
+
+  </div>
+  <footer>
+  <p>
+  &copy; 2019 Bruce Lu.
+  Powered by <a href="https://gohugo.io/">Hugo</a>
+  using the <a href="https://github.com/koirand/pulp/">pulp</a> theme.
+  </p>
+</footer>
+
+
+  </body>
+</html>
