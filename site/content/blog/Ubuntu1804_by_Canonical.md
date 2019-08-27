@@ -1,5 +1,5 @@
 ---
-title: "Ubuntu1804_by_Canonical"
+title: "Ubuntu1804 by Canonical"
 date: 2019-08-27T08:28:09+08:00
 draft: false
 images: []
