@@ -60,7 +60,7 @@ docker exec -it $container /bin/sh
 
 <meta itemprop="datePublished" content="2019-07-04T15:28:09&#43;08:00" />
 <meta itemprop="dateModified" content="2019-07-04T15:28:09&#43;08:00" />
-<meta itemprop="wordCount" content="152">
+<meta itemprop="wordCount" content="331">
 
 
 
@@ -182,7 +182,8 @@ docker rmi $image</p></li>
 
 <li><p>Remove all unused images, not just dangling ones</p>
 
-<p>docker image prune -a</p></li>
+<p>docker image prune -a
+docker rmi -f $(docker images &ndash;filter &ldquo;dangling=true&rdquo; -q &ndash;no-trunc) // Be very careful!</p></li>
 </ul>
 
 <h2 id="networking">Networking</h2>
@@ -206,6 +207,53 @@ docker rmi $image</p></li>
 <ul>
 <li>docker run -d -p 8080:80 &ndash;name my-apache-php-app -v &ldquo;$PWD&rdquo;:/var/www/html php:7.2-apache</li>
 </ul>
+
+<h2 id="cleanup">Cleanup</h2>
+
+<ul>
+<li><a href="https://gist.github.com/bastman/5b57ddb3c11942094f8d0a97d461b430">Docker - How to cleanup (unused) resources</a></li>
+</ul>
+
+<pre><code class="language-Bash">  Once in a while, you may need to cleanup resources (containers, volumes, images, networks) ...
+  delete volumes
+
+  // see: https://github.com/chadoe/docker-cleanup-volumes
+
+  $ docker volume rm $(docker volume ls -qf dangling=true)
+  $ docker volume ls -qf dangling=true | xargs -r docker volume rm
+
+  delete networks
+
+  $ docker network ls  
+  $ docker network ls | grep &quot;bridge&quot;   
+  $ docker network rm $(docker network ls | grep &quot;bridge&quot; | awk '/ / { print $1 }')
+
+  remove docker images
+
+  // see: http://stackoverflow.com/questions/32723111/how-to-remove-old-and-unused-docker-images
+
+  $ docker images
+  $ docker rmi $(docker images --filter &quot;dangling=true&quot; -q --no-trunc)
+
+  $ docker images | grep &quot;none&quot;
+  $ docker rmi $(docker images | grep &quot;none&quot; | awk '/ / { print $3 }')
+
+  remove docker containers
+
+  // see: http://stackoverflow.com/questions/32723111/how-to-remove-old-and-unused-docker-images
+
+  $ docker ps
+  $ docker ps -a
+  $ docker rm $(docker ps -qa --no-trunc --filter &quot;status=exited&quot;)
+
+  Resize disk space for docker vm
+
+  $ docker-machine create --driver virtualbox --virtualbox-disk-size &quot;40000&quot; default
+</code></pre>
+
+<h2 id="ref">Ref</h2>
+
+<p><a href="https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/">How To Remove Docker Containers, Images, Volumes, and Networks</a></p>
 
   </div>
   <footer>
