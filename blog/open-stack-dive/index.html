@@ -24,29 +24,29 @@
   
 
   <meta property="og:title" content="Dive into Openstack" />
-<meta property="og:description" content=" Objective Dive into Openstack
-Keywords  KVM, Openstack, Virtualization, Nova, Glance  Environment  Ubuntu 16.04 on Virtualbox for macOS  KVM  Kernel-based Virtual Machine kvm.ko for CPU &amp; RAM mgmt Linux kernel &amp; Qemu for I/O virtualization e.g. Storage &amp; Networking Libvirt for managing Hypervisor like KVM, VirtualBox, Xen; Openstack uses Libvirt at its bottom Libvirt componments: libvirtd as daemon, API, virsh as CLI Virt-manager: GUI tool  TODO " />
+<meta property="og:description" content="Objective Dive into Openstack
+Keywords  KVM, Openstack, Virtualization, Nova, Glance  Environment  Ubuntu 16.04 on Virtualbox for macOS  KVM  Kernel-based Virtual Machine kvm.ko for CPU &amp; RAM mgmt Linux kernel &amp; Qemu for I/O virtualization e.g. Storage &amp; Networking Libvirt for managing Hypervisor like KVM, VirtualBox, Xen; Openstack uses Libvirt at its bottom Libvirt componments: libvirtd as daemon, API, virsh as CLI Virt-manager: GUI tool  KVM management  egrep -o &lsquo;(vmx|svm)&rsquo; /proc/cpuinfo service libvirt-bin status virt-manager virsh list // list virtual machines sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan sudo apt-get install xinit gdm kubuntu-desktop  vCPU  Every virtual CPU is a thread of process qemu-kvm vCPU can be overcommit, but need to be tested for performance  Virtual memory  Virtual Addres -&gt; Physical Address on VM -&gt; Machine Address on bare metal vMem can be overcommit, but need to be tested for performance  Stoage virtualization  Virtualization through Storage pool &amp; volume Default storage pool: /var/lib/libvirt/images/ A file is basically a volume  Network virtualization VM0 (vnet0), VM1 (vnet1) &mdash; br0 (Linux bridge) &mdash; eth0 (Physical)" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://bruce-lu.github.io/blog/open-stack-dive/" />
 <meta property="article:published_time" content="2019-07-22T09:14:34&#43;08:00"/>
 <meta property="article:modified_time" content="2019-07-22T09:14:34&#43;08:00"/>
 
 <meta itemprop="name" content="Dive into Openstack">
-<meta itemprop="description" content=" Objective Dive into Openstack
-Keywords  KVM, Openstack, Virtualization, Nova, Glance  Environment  Ubuntu 16.04 on Virtualbox for macOS  KVM  Kernel-based Virtual Machine kvm.ko for CPU &amp; RAM mgmt Linux kernel &amp; Qemu for I/O virtualization e.g. Storage &amp; Networking Libvirt for managing Hypervisor like KVM, VirtualBox, Xen; Openstack uses Libvirt at its bottom Libvirt componments: libvirtd as daemon, API, virsh as CLI Virt-manager: GUI tool  TODO ">
+<meta itemprop="description" content="Objective Dive into Openstack
+Keywords  KVM, Openstack, Virtualization, Nova, Glance  Environment  Ubuntu 16.04 on Virtualbox for macOS  KVM  Kernel-based Virtual Machine kvm.ko for CPU &amp; RAM mgmt Linux kernel &amp; Qemu for I/O virtualization e.g. Storage &amp; Networking Libvirt for managing Hypervisor like KVM, VirtualBox, Xen; Openstack uses Libvirt at its bottom Libvirt componments: libvirtd as daemon, API, virsh as CLI Virt-manager: GUI tool  KVM management  egrep -o &lsquo;(vmx|svm)&rsquo; /proc/cpuinfo service libvirt-bin status virt-manager virsh list // list virtual machines sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan sudo apt-get install xinit gdm kubuntu-desktop  vCPU  Every virtual CPU is a thread of process qemu-kvm vCPU can be overcommit, but need to be tested for performance  Virtual memory  Virtual Addres -&gt; Physical Address on VM -&gt; Machine Address on bare metal vMem can be overcommit, but need to be tested for performance  Stoage virtualization  Virtualization through Storage pool &amp; volume Default storage pool: /var/lib/libvirt/images/ A file is basically a volume  Network virtualization VM0 (vnet0), VM1 (vnet1) &mdash; br0 (Linux bridge) &mdash; eth0 (Physical)">
 
 
 <meta itemprop="datePublished" content="2019-07-22T09:14:34&#43;08:00" />
 <meta itemprop="dateModified" content="2019-07-22T09:14:34&#43;08:00" />
-<meta itemprop="wordCount" content="65">
+<meta itemprop="wordCount" content="328">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Dive into Openstack"/>
-<meta name="twitter:description" content=" Objective Dive into Openstack
-Keywords  KVM, Openstack, Virtualization, Nova, Glance  Environment  Ubuntu 16.04 on Virtualbox for macOS  KVM  Kernel-based Virtual Machine kvm.ko for CPU &amp; RAM mgmt Linux kernel &amp; Qemu for I/O virtualization e.g. Storage &amp; Networking Libvirt for managing Hypervisor like KVM, VirtualBox, Xen; Openstack uses Libvirt at its bottom Libvirt componments: libvirtd as daemon, API, virsh as CLI Virt-manager: GUI tool  TODO "/>
+<meta name="twitter:description" content="Objective Dive into Openstack
+Keywords  KVM, Openstack, Virtualization, Nova, Glance  Environment  Ubuntu 16.04 on Virtualbox for macOS  KVM  Kernel-based Virtual Machine kvm.ko for CPU &amp; RAM mgmt Linux kernel &amp; Qemu for I/O virtualization e.g. Storage &amp; Networking Libvirt for managing Hypervisor like KVM, VirtualBox, Xen; Openstack uses Libvirt at its bottom Libvirt componments: libvirtd as daemon, API, virsh as CLI Virt-manager: GUI tool  KVM management  egrep -o &lsquo;(vmx|svm)&rsquo; /proc/cpuinfo service libvirt-bin status virt-manager virsh list // list virtual machines sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan sudo apt-get install xinit gdm kubuntu-desktop  vCPU  Every virtual CPU is a thread of process qemu-kvm vCPU can be overcommit, but need to be tested for performance  Virtual memory  Virtual Addres -&gt; Physical Address on VM -&gt; Machine Address on bare metal vMem can be overcommit, but need to be tested for performance  Stoage virtualization  Virtualization through Storage pool &amp; volume Default storage pool: /var/lib/libvirt/images/ A file is basically a volume  Network virtualization VM0 (vnet0), VM1 (vnet1) &mdash; br0 (Linux bridge) &mdash; eth0 (Physical)"/>
 
   <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -117,7 +117,86 @@ if (!doNotTrack) {
 <li>Virt-manager: GUI tool</li>
 </ul>
 
-<h2 id="todo">TODO</h2>
+<h2 id="kvm-management">KVM management</h2>
+
+<ul>
+<li>egrep -o &lsquo;(vmx|svm)&rsquo; /proc/cpuinfo</li>
+<li>service libvirt-bin status</li>
+<li>virt-manager</li>
+<li>virsh list // list virtual machines</li>
+<li>sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan</li>
+<li>sudo apt-get install xinit gdm kubuntu-desktop</li>
+</ul>
+
+<h2 id="vcpu">vCPU</h2>
+
+<ul>
+<li>Every virtual CPU is a thread of process qemu-kvm</li>
+<li>vCPU can be overcommit, but need to be tested for performance</li>
+</ul>
+
+<h2 id="virtual-memory">Virtual memory</h2>
+
+<ul>
+<li>Virtual Addres -&gt; Physical Address on VM -&gt; Machine Address on bare metal</li>
+<li>vMem can be overcommit, but need to be tested for performance</li>
+</ul>
+
+<h2 id="stoage-virtualization">Stoage virtualization</h2>
+
+<ul>
+<li>Virtualization through Storage pool &amp; volume</li>
+<li>Default storage pool: /var/lib/libvirt/images/</li>
+<li>A file is basically a volume</li>
+</ul>
+
+<h2 id="network-virtualization">Network virtualization</h2>
+
+<p>VM0 (vnet0), VM1 (vnet1) &mdash; br0 (Linux bridge) &mdash; eth0 (Physical)</p>
+
+<ul>
+<li>Create bridge br0 and mount physical eth0 on br0
+auto lo
+iface lo inet loopback</li>
+</ul>
+
+<p>auto eth0
+iface eth0 inet manual</p>
+
+<p>auto br0
+iface br0 inet dhcp
+  bridge_stp off
+  bridge_waitport 0
+  bridge_fd 0
+  bridge_ports eth0</p>
+
+<ul>
+<li>brctl show</li>
+<li>ps -ef|grep dnsmasq // DHCP service, allocated IP could be found in config file: /var/lib/libvirt/dnsmasq/default.leases</li>
+<li>virsh list -all</li>
+<li>virsh domiflist VM1</li>
+<li>Linux bridge
+Working on TCP/IP 2nd layer, as a hub or switch, to be connected by devices in the network</li>
+
+<li><p>virbr0
+A default bridge created by KVM, to provide NAT services for vnet devices connected to the bridge</p></li>
+
+<li><p>VLAN Virtual Local Area Network</p>
+
+<ul>
+<li>Work on layer 2, meaning arp can not cross the border of LAN, IP on 3rd layer could be communicated using a router</li>
+<li>Switch with VLAN feature is required to implement VLAN. It can provide multiple LANs through its ports</li>
+<li>Two modes of port configuration: Access and Trunk</li>
+</ul></li>
+</ul>
+
+<h2 id="tools">Tools</h2>
+
+<ul>
+<li><p>vmdiff // to compare files</p></li>
+
+<li></li>
+</ul>
 
   </div>
   <footer>

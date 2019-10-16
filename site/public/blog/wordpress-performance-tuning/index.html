@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>
+      
+          Wordpress performance tuning - Bruce Lu&#39;s pages
+      
+  </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="map[]" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://bruce-lu.github.io/img/favicon.ico">
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.60c59e75c5046f0eded1491ec81bdadd4a68c3cb5d8aa97aeaa80d79260917d3.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  
+  
+
+  <meta property="og:title" content="Wordpress performance tuning" />
+<meta property="og:description" content="Disable unused features in theme I&rsquo;m using BitPal them so here is what I did: Appearance -&gt; Customize -&gt; BitPal Performance -&gt; Disable unused features in Icon Packs, Custom Post Types, Shortcodes sections Remove/Deactivate unused pages &amp; plugins Deactivate used plugins Install WP Rocket (license required) This will give us options to - File optimization: Minify &amp; combine css, js files - Media: Lazy loading - Enable OPcache - CDN" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bruce-lu.github.io/blog/wordpress-performance-tuning/" />
+<meta property="article:published_time" content="2019-08-26T23:38:09&#43;08:00"/>
+<meta property="article:modified_time" content="2019-08-26T23:38:09&#43;08:00"/>
+
+<meta itemprop="name" content="Wordpress performance tuning">
+<meta itemprop="description" content="Disable unused features in theme I&rsquo;m using BitPal them so here is what I did: Appearance -&gt; Customize -&gt; BitPal Performance -&gt; Disable unused features in Icon Packs, Custom Post Types, Shortcodes sections Remove/Deactivate unused pages &amp; plugins Deactivate used plugins Install WP Rocket (license required) This will give us options to - File optimization: Minify &amp; combine css, js files - Media: Lazy loading - Enable OPcache - CDN">
+
+
+<meta itemprop="datePublished" content="2019-08-26T23:38:09&#43;08:00" />
+<meta itemprop="dateModified" content="2019-08-26T23:38:09&#43;08:00" />
+<meta itemprop="wordCount" content="188">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Wordpress performance tuning"/>
+<meta name="twitter:description" content="Disable unused features in theme I&rsquo;m using BitPal them so here is what I did: Appearance -&gt; Customize -&gt; BitPal Performance -&gt; Disable unused features in Icon Packs, Custom Post Types, Shortcodes sections Remove/Deactivate unused pages &amp; plugins Deactivate used plugins Install WP Rocket (license required) This will give us options to - File optimization: Minify &amp; combine css, js files - Media: Lazy loading - Enable OPcache - CDN"/>
+
+  <!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-124907735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+  <body>
+    
+  <h1>Wordpress performance tuning</h1>
+  <header>
+  
+  <div class="avatar">
+    <img class="avatarMask" src="https://bruce-lu.github.io//img/avatar.jpg">
+    <a href="https://bruce-lu.github.io/"><img src="https://bruce-lu.github.io//img/avatar-border.svg" }}></a>
+  </div>
+  
+  <h2><a class="author" href="https://bruce-lu.github.io/">Bruce Lu</a></h2>
+</header>
+
+  
+  
+  <p class="date">August 26, 2019</p>
+  
+  <div id="contentBody">
+    
+
+<h2 id="disable-unused-features-in-theme">Disable unused features in theme</h2>
+
+<p>I&rsquo;m using BitPal them so here is what I did:</p>
+
+<p>Appearance -&gt; Customize -&gt; BitPal Performance -&gt; Disable unused features in Icon Packs, Custom Post Types, Shortcodes sections</p>
+
+<h2 id="remove-deactivate-unused-pages-plugins">Remove/Deactivate unused pages &amp; plugins</h2>
+
+<ul>
+<li>Deactivate used plugins</li>
+</ul>
+
+<h2 id="install-wp-rocket-license-required">Install WP Rocket (license required)</h2>
+
+<p>This will give us options to
+- File optimization: Minify &amp; combine css, js files
+- Media: Lazy loading
+- Enable OPcache
+- CDN</p>
+
+<h2 id="tools">Tools</h2>
+
+<ul>
+<li><a href="https://developers.google.com/speed/pagespeed/insights/">Google page speed</a></li>
+<li><a href="https://gtmetrix.com/">https://gtmetrix.com/</a></li>
+<li>[Imagify plugin]</li>
+<li>[WP Rocket caching]</li>
+</ul>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://kinsta.com/blog/wordpress-caching-plugins/">7 Best WordPress Caching Plugins for 2019</a></li>
+<li><a href="https://blog.litespeedtech.com/2019/05/20/litespeed-cache-vs-wp-rocket/">LiteSpeed Cache vs. WP Rocket</a></li>
+<li><a href="https://wp-rocket.me/blog/memcached-what-is-it-how-to-use-it/">Memcached: What Is It and How to Use It on Your WordPress Site?</a></li>
+<li><a href="https://wp-rocket.me/blog/different-types-of-caching/">Site Cache vs Browser Cache vs Server Cache: What’s the Difference?</a></li>
+<li><a href="https://blog.wpjam.com/article/wordpress-performance/">WordPress 性能优化：为什么我的博客比你的快</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1344258">优化WordPress性能的高级指南</a></li>
+<li><a href="https://blog.csdn.net/wmq880204/article/details/70649749">深入浅出讲述提升 WordPress 性能的九大秘笈</a></li>
+<li><a href="https://zhangzifan.com/wordpress-website-performance-optimization.html">浅谈我是如何做的 WordPress 站点性能优化</a></li>
+</ul>
+
+  </div>
+  <footer>
+  <p>
+  &copy; 2019 Bruce Lu.
+  Powered by <a href="https://gohugo.io/">Hugo</a>
+  using the <a href="https://github.com/koirand/pulp/">pulp</a> theme.
+  </p>
+</footer>
+
+
+  </body>
+</html>

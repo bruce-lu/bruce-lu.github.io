@@ -28,3 +28,15 @@ yarn serve
 
 # Use "vue ui" to start GUI mgmt console. Very cool!
 ```
+
+## Basics
+
+- v-bind (shorthand is :)
+  Dynamically bind one or more attributes, or a component prop to an expression.
+  <img v-bind:src="imageSrc"> or <img :src="imageSrc">
+
+- v-on (@)
+  <button @click="doThis"></button>
+
+- v-slot (#)
+  

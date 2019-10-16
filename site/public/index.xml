@@ -5,10 +5,30 @@
     <link>https://bruce-lu.github.io/</link>
     <description>Recent content on Bruce Lu&#39;s pages</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 27 Aug 2019 08:28:09 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 Oct 2019 22:10:34 +0800</lastBuildDate>
     
 	<atom:link href="https://bruce-lu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ssh tunnel &amp; http proxy through socks</title>
+      <link>https://bruce-lu.github.io/blog/ssh-tunnel-http-proxy-socks/</link>
+      <pubDate>Tue, 15 Oct 2019 22:10:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/ssh-tunnel-http-proxy-socks/</guid>
+      <description>ssh tunnel  cmd ssh -C2qTnN -D 11111 -i ~/.ssh/ssh-rsa.ppk id@remote  C: Requests compression of all data 2: Forces ssh to try protocol version 2 only q: Quiet mode T: Disable pseudo-tty allocation n: Redirects stdin from /dev/null (actually, prevents reading from stdin) N: Do not execute a remote command (doesn&#39;t open the shell)  curl through http proxy  Using tunnel on terminal such as curl http/https  admin@~$cat .</description>
+    </item>
+    
+    <item>
+      <title>Security - Generating ssh key pair</title>
+      <link>https://bruce-lu.github.io/blog/security-ssh-key-pair-generation/</link>
+      <pubDate>Mon, 07 Oct 2019 08:41:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/security-ssh-key-pair-generation/</guid>
+      <description>Objective To access a remote server through ssh keys
+Using ssh-keygen tool ssh-keygen -t rsa -N &amp;ldquo;&amp;rdquo; -b 2048 -C &amp;ldquo;blue-cloud-kp&amp;rdquo; -f ./blue-cloud.pub
+Reference  Manage key pair  Conclusion The key pair could be used to access remote servers.</description>
+    </item>
     
     <item>
       <title>Ubuntu1804 by Canonical</title>
@@ -29,15 +49,24 @@
     </item>
     
     <item>
+      <title>Wordpress performance tuning</title>
+      <link>https://bruce-lu.github.io/blog/wordpress-performance-tuning/</link>
+      <pubDate>Mon, 26 Aug 2019 23:38:09 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/wordpress-performance-tuning/</guid>
+      <description>Disable unused features in theme I&amp;rsquo;m using BitPal them so here is what I did: Appearance -&amp;gt; Customize -&amp;gt; BitPal Performance -&amp;gt; Disable unused features in Icon Packs, Custom Post Types, Shortcodes sections Remove/Deactivate unused pages &amp;amp; plugins Deactivate used plugins Install WP Rocket (license required) This will give us options to - File optimization: Minify &amp;amp; combine css, js files - Media: Lazy loading - Enable OPcache - CDN</description>
+    </item>
+    
+    <item>
       <title>Get started with Vue</title>
-      <link>https://bruce-lu.github.io/blog/vue-start/</link>
+      <link>https://bruce-lu.github.io/blog/vue-dive/</link>
       <pubDate>Mon, 26 Aug 2019 23:13:34 +0800</pubDate>
       
-      <guid>https://bruce-lu.github.io/blog/vue-start/</guid>
-      <description> Installation  vue.js
+      <guid>https://bruce-lu.github.io/blog/vue-dive/</guid>
+      <description>Installation  vue.js
  Vue Devtools
  @vue/cli tool npm install -g @vue/cli // installed under /usr/local/lib/node_modules/@vue
-  Create a new Vue project vue create vue-demo # vue -h for help # preset: default (babel, eslint) # package manager to use when installing dependencies: Yarn cd vue-demo yarn serve # Use &amp;quot;vue ui&amp;quot; to start GUI mgmt console. Very cool!  </description>
+  Create a new Vue project vue create vue-demo # vue -h for help # preset: default (babel, eslint) # package manager to use when installing dependencies: Yarn cd vue-demo yarn serve # Use &amp;quot;vue ui&amp;quot; to start GUI mgmt console. Very cool!  Basics  v-bind (shorthand is :) Dynamically bind one or more attributes, or a component prop to an expression.</description>
     </item>
     
     <item>
@@ -88,8 +117,8 @@ Keywords  SSL, HTTPS, x509, Beanstalk, AWS  Environment  macOS in local AWS cons
       <pubDate>Mon, 22 Jul 2019 09:14:34 +0800</pubDate>
       
       <guid>https://bruce-lu.github.io/blog/open-stack-dive/</guid>
-      <description> Objective Dive into Openstack
-Keywords  KVM, Openstack, Virtualization, Nova, Glance  Environment  Ubuntu 16.04 on Virtualbox for macOS  KVM  Kernel-based Virtual Machine kvm.ko for CPU &amp;amp; RAM mgmt Linux kernel &amp;amp; Qemu for I/O virtualization e.g. Storage &amp;amp; Networking Libvirt for managing Hypervisor like KVM, VirtualBox, Xen; Openstack uses Libvirt at its bottom Libvirt componments: libvirtd as daemon, API, virsh as CLI Virt-manager: GUI tool  TODO </description>
+      <description>Objective Dive into Openstack
+Keywords  KVM, Openstack, Virtualization, Nova, Glance  Environment  Ubuntu 16.04 on Virtualbox for macOS  KVM  Kernel-based Virtual Machine kvm.ko for CPU &amp;amp; RAM mgmt Linux kernel &amp;amp; Qemu for I/O virtualization e.g. Storage &amp;amp; Networking Libvirt for managing Hypervisor like KVM, VirtualBox, Xen; Openstack uses Libvirt at its bottom Libvirt componments: libvirtd as daemon, API, virsh as CLI Virt-manager: GUI tool  KVM management  egrep -o &amp;lsquo;(vmx|svm)&amp;rsquo; /proc/cpuinfo service libvirt-bin status virt-manager virsh list // list virtual machines sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan sudo apt-get install xinit gdm kubuntu-desktop  vCPU  Every virtual CPU is a thread of process qemu-kvm vCPU can be overcommit, but need to be tested for performance  Virtual memory  Virtual Addres -&amp;gt; Physical Address on VM -&amp;gt; Machine Address on bare metal vMem can be overcommit, but need to be tested for performance  Stoage virtualization  Virtualization through Storage pool &amp;amp; volume Default storage pool: /var/lib/libvirt/images/ A file is basically a volume  Network virtualization VM0 (vnet0), VM1 (vnet1) &amp;mdash; br0 (Linux bridge) &amp;mdash; eth0 (Physical)</description>
     </item>
     
     <item>

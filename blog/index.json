@@ -1,5 +1,21 @@
 [
     {
+        "ref": "https://bruce-lu.github.io/blog/ssh-tunnel-http-proxy-socks/",
+        "title": "ssh tunnel \u0026 http proxy through socks",
+        "section": "blog",
+        "date" : "2019.10.15",
+        "body": " ssh tunnel  cmd ssh -C2qTnN -D 11111 -i ~/.ssh/ssh-rsa.ppk id@remote  C: Requests compression of all data 2: Forces ssh to try protocol version 2 only q: Quiet mode T: Disable pseudo-tty allocation n: Redirects stdin from /dev/null (actually, prevents reading from stdin) N: Do not execute a remote command (doesn't open the shell)  curl through http proxy  Using tunnel on terminal such as curl http/https  admin@~$cat .httpproxy export http_proxy=socks5://127.0.0.1:11111 export https_proxy=$http_proxy  Chrome  Start Chrome with proxy chrome \u0026ndash;proxy-server=\u0026ldquo;socks5://127.0.0.1:11111\u0026rdquo; \u0026ndash;host-resolver-rules=\u0026ldquo;MAP * 0.0.0.0 , EXCLUDE localhost\u0026rdquo;  Firefox and Safari  Similar to Chrome  Enjoy "
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/security-ssh-key-pair-generation/",
+        "title": "Security - Generating ssh key pair",
+        "section": "blog",
+        "date" : "2019.10.07",
+        "body": " Objective To access a remote server through ssh keys\nUsing ssh-keygen tool ssh-keygen -t rsa -N \u0026ldquo;\u0026rdquo; -b 2048 -C \u0026ldquo;blue-cloud-kp\u0026rdquo; -f ./blue-cloud.pub\nReference  Manage key pair  Conclusion The key pair could be used to access remote servers.\n"
+    }
+,
+    {
         "ref": "https://bruce-lu.github.io/blog/ubuntu1804_by_canonical/",
         "title": "Ubuntu1804 by Canonical",
         "section": "blog",
@@ -16,11 +32,19 @@
     }
 ,
     {
-        "ref": "https://bruce-lu.github.io/blog/vue-start/",
+        "ref": "https://bruce-lu.github.io/blog/wordpress-performance-tuning/",
+        "title": "Wordpress performance tuning",
+        "section": "blog",
+        "date" : "2019.08.26",
+        "body": " Disable unused features in theme I\u0026rsquo;m using BitPal them so here is what I did:\nAppearance -\u0026gt; Customize -\u0026gt; BitPal Performance -\u0026gt; Disable unused features in Icon Packs, Custom Post Types, Shortcodes sections\nRemove/Deactivate unused pages \u0026amp; plugins  Deactivate used plugins  Install WP Rocket (license required) This will give us options to - File optimization: Minify \u0026amp; combine css, js files - Media: Lazy loading - Enable OPcache - CDN\nTools  Google page speed https://gtmetrix.com/ [Imagify plugin] [WP Rocket caching]  Reference  7 Best WordPress Caching Plugins for 2019 LiteSpeed Cache vs. WP Rocket Memcached: What Is It and How to Use It on Your WordPress Site? Site Cache vs Browser Cache vs Server Cache: What’s the Difference? WordPress 性能优化：为什么我的博客比你的快 优化WordPress性能的高级指南 深入浅出讲述提升 WordPress 性能的九大秘笈 浅谈我是如何做的 WordPress 站点性能优化  "
+    }
+,
+    {
+        "ref": "https://bruce-lu.github.io/blog/vue-dive/",
         "title": "Get started with Vue",
         "section": "blog",
         "date" : "2019.08.26",
-        "body": " Installation  vue.js\n Vue Devtools\n @vue/cli tool npm install -g @vue/cli // installed under /usr/local/lib/node_modules/@vue\n  Create a new Vue project vue create vue-demo # vue -h for help # preset: default (babel, eslint) # package manager to use when installing dependencies: Yarn cd vue-demo yarn serve # Use \u0026quot;vue ui\u0026quot; to start GUI mgmt console. Very cool!  "
+        "body": " Installation  vue.js\n Vue Devtools\n @vue/cli tool npm install -g @vue/cli // installed under /usr/local/lib/node_modules/@vue\n  Create a new Vue project vue create vue-demo # vue -h for help # preset: default (babel, eslint) # package manager to use when installing dependencies: Yarn cd vue-demo yarn serve # Use \u0026quot;vue ui\u0026quot; to start GUI mgmt console. Very cool!  Basics  v-bind (shorthand is :) Dynamically bind one or more attributes, or a component prop to an expression. or  v-on (@) \n v-slot (#)\n  "
     }
 ,
     {
@@ -60,7 +84,7 @@
         "title": "Dive into Openstack",
         "section": "blog",
         "date" : "2019.07.22",
-        "body": " Objective Dive into Openstack\nKeywords  KVM, Openstack, Virtualization, Nova, Glance  Environment  Ubuntu 16.04 on Virtualbox for macOS  KVM  Kernel-based Virtual Machine kvm.ko for CPU \u0026amp; RAM mgmt Linux kernel \u0026amp; Qemu for I/O virtualization e.g. Storage \u0026amp; Networking Libvirt for managing Hypervisor like KVM, VirtualBox, Xen; Openstack uses Libvirt at its bottom Libvirt componments: libvirtd as daemon, API, virsh as CLI Virt-manager: GUI tool  TODO "
+        "body": " Objective Dive into Openstack\nKeywords  KVM, Openstack, Virtualization, Nova, Glance  Environment  Ubuntu 16.04 on Virtualbox for macOS  KVM  Kernel-based Virtual Machine kvm.ko for CPU \u0026amp; RAM mgmt Linux kernel \u0026amp; Qemu for I/O virtualization e.g. Storage \u0026amp; Networking Libvirt for managing Hypervisor like KVM, VirtualBox, Xen; Openstack uses Libvirt at its bottom Libvirt componments: libvirtd as daemon, API, virsh as CLI Virt-manager: GUI tool  KVM management  egrep -o \u0026lsquo;(vmx|svm)\u0026rsquo; /proc/cpuinfo service libvirt-bin status virt-manager virsh list // list virtual machines sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan sudo apt-get install xinit gdm kubuntu-desktop  vCPU  Every virtual CPU is a thread of process qemu-kvm vCPU can be overcommit, but need to be tested for performance  Virtual memory  Virtual Addres -\u0026gt; Physical Address on VM -\u0026gt; Machine Address on bare metal vMem can be overcommit, but need to be tested for performance  Stoage virtualization  Virtualization through Storage pool \u0026amp; volume Default storage pool: /var/lib/libvirt/images/ A file is basically a volume  Network virtualization VM0 (vnet0), VM1 (vnet1) \u0026mdash; br0 (Linux bridge) \u0026mdash; eth0 (Physical)\n Create bridge br0 and mount physical eth0 on br0 auto lo iface lo inet loopback  auto eth0 iface eth0 inet manual\nauto br0 iface br0 inet dhcp bridge_stp off bridge_waitport 0 bridge_fd 0 bridge_ports eth0\n brctl show ps -ef|grep dnsmasq // DHCP service, allocated IP could be found in config file: /var/lib/libvirt/dnsmasq/default.leases virsh list -all virsh domiflist VM1 Linux bridge Working on TCP/IP 2nd layer, as a hub or switch, to be connected by devices in the network virbr0 A default bridge created by KVM, to provide NAT services for vnet devices connected to the bridge\n VLAN Virtual Local Area Network\n Work on layer 2, meaning arp can not cross the border of LAN, IP on 3rd layer could be communicated using a router Switch with VLAN feature is required to implement VLAN. It can provide multiple LANs through its ports Two modes of port configuration: Access and Trunk   Tools  vmdiff // to compare files\n   "
     }
 ,
     {
