@@ -60,7 +60,7 @@ docker exec -it $container /bin/sh
 
 <meta itemprop="datePublished" content="2019-07-04T15:28:09&#43;08:00" />
 <meta itemprop="dateModified" content="2019-07-04T15:28:09&#43;08:00" />
-<meta itemprop="wordCount" content="331">
+<meta itemprop="wordCount" content="338">
 
 
 
@@ -244,6 +244,7 @@ docker rmi -f $(docker images &ndash;filter &ldquo;dangling=true&rdquo; -q &ndas
 
   $ docker ps
   $ docker ps -a
+  $ docker rm $(docker ps -a -q)
   $ docker rm $(docker ps -qa --no-trunc --filter &quot;status=exited&quot;)
 
   Resize disk space for docker vm

@@ -114,6 +114,7 @@ images: []
 
   $ docker ps
   $ docker ps -a
+  $ docker rm $(docker ps -a -q)
   $ docker rm $(docker ps -qa --no-trunc --filter "status=exited")
 
   Resize disk space for docker vm
