@@ -3,14 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://bruce-lu.github.io/blog/aws-elastic-beanstalk-practices/</loc>
+    <lastmod>2019-11-14T10:18:09+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://bruce-lu.github.io/blog/</loc>
-    <lastmod>2019-10-15T22:10:34+08:00</lastmod>
+    <lastmod>2019-11-14T10:18:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://bruce-lu.github.io/</loc>
-    <lastmod>2019-10-15T22:10:34+08:00</lastmod>
+    <lastmod>2019-11-14T10:18:09+08:00</lastmod>
     <priority>0</priority>
   </url>
   

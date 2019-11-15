@@ -5,10 +5,21 @@
     <link>https://bruce-lu.github.io/</link>
     <description>Recent content on Bruce Lu&#39;s pages</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 15 Oct 2019 22:10:34 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 14 Nov 2019 10:18:09 +0800</lastBuildDate>
     
 	<atom:link href="https://bruce-lu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AWS Elastic Beanstalk practices</title>
+      <link>https://bruce-lu.github.io/blog/aws-elastic-beanstalk-practices/</link>
+      <pubDate>Thu, 14 Nov 2019 10:18:09 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/aws-elastic-beanstalk-practices/</guid>
+      <description>Pre-reqs  aws-access-id &amp;amp; aws-secret-key are required   Log on AWS console and generate the key
+ Download and install EB CLI  https://docs.amazonaws.cn/console/elasticbeanstalk/eb-cli-install
+Get started with a simple PHP application on EB  Commands would be used  mkdir zaws-eb-p-blue cd zaws-eb-p-blue/ ls -ltr eb init -p PHP # or just eb init without -p, there would be more options ls echo &amp;quot;Hello World&amp;quot; &amp;gt; index.html eb create dev-env eb open   Commands output reference  admin@~/ws/zaws-eb-p-blue$eb init -p PHP Select a default region 1) us-east-1 : US East (N.</description>
+    </item>
     
     <item>
       <title>ssh tunnel &amp; http proxy through socks</title>
