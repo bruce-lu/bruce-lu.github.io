@@ -5,10 +5,168 @@
     <link>https://bruce-lu.github.io/</link>
     <description>Recent content on Bruce Lu&#39;s pages</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 05 Jul 2019 21:33:42 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 14 Nov 2019 10:18:09 +0800</lastBuildDate>
     
 	<atom:link href="https://bruce-lu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AWS Elastic Beanstalk practices</title>
+      <link>https://bruce-lu.github.io/blog/aws-elastic-beanstalk-practices/</link>
+      <pubDate>Thu, 14 Nov 2019 10:18:09 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/aws-elastic-beanstalk-practices/</guid>
+      <description>Pre-reqs  aws-access-id &amp;amp; aws-secret-key are required   Log on AWS console and generate the key
+ Download and install EB CLI  https://docs.amazonaws.cn/console/elasticbeanstalk/eb-cli-install
+Get started with a simple PHP application on EB  Commands would be used  mkdir zaws-eb-p-blue cd zaws-eb-p-blue/ ls -ltr eb init -p PHP # or just eb init without -p, there would be more options ls echo &amp;quot;Hello World&amp;quot; &amp;gt; index.html eb create dev-env eb open   Commands output reference  admin@~/ws/zaws-eb-p-blue$eb init -p PHP Select a default region 1) us-east-1 : US East (N.</description>
+    </item>
+    
+    <item>
+      <title>ssh tunnel &amp; http proxy through socks</title>
+      <link>https://bruce-lu.github.io/blog/ssh-tunnel-http-proxy-socks/</link>
+      <pubDate>Tue, 15 Oct 2019 22:10:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/ssh-tunnel-http-proxy-socks/</guid>
+      <description>ssh tunnel  cmd ssh -C2qTnN -D 11111 -i ~/.ssh/ssh-rsa.ppk id@remote  C: Requests compression of all data 2: Forces ssh to try protocol version 2 only q: Quiet mode T: Disable pseudo-tty allocation n: Redirects stdin from /dev/null (actually, prevents reading from stdin) N: Do not execute a remote command (doesn&#39;t open the shell)  curl through http proxy  Using tunnel on terminal such as curl http/https  admin@~$cat .</description>
+    </item>
+    
+    <item>
+      <title>Security - Generating ssh key pair</title>
+      <link>https://bruce-lu.github.io/blog/security-ssh-key-pair-generation/</link>
+      <pubDate>Mon, 07 Oct 2019 08:41:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/security-ssh-key-pair-generation/</guid>
+      <description>Objective To access a remote server through ssh keys
+Using ssh-keygen tool ssh-keygen -t rsa -N &amp;ldquo;&amp;rdquo; -b 2048 -C &amp;ldquo;blue-cloud-kp&amp;rdquo; -f ./blue-cloud.pub
+Reference  Manage key pair  Conclusion The key pair could be used to access remote servers.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu1804 by Canonical</title>
+      <link>https://bruce-lu.github.io/blog/ubuntu1804_by_canonical/</link>
+      <pubDate>Tue, 27 Aug 2019 08:28:09 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/ubuntu1804_by_canonical/</guid>
+      <description>Package mgmt  dpkg  # dkpg does not install dependencies automatically # See if apache2 is installed dpkg -l | grep apache2 # List all files installed for ufw dpkg -L ufw # Which package installed a file dpkg -S /etc/host.conf # Install a local .deb file sudo dpkg -i zip_3.0-4_i386.deb # Uninstalling a package sudo dpkg -r zip   apt - Ubuntu&amp;rsquo;s Advanced Packaging Tool (APT)  # apt [install | remove | update | upgrade] [$pkg1 $pkg2 .</description>
+    </item>
+    
+    <item>
+      <title>Docker-compose for Wordpress</title>
+      <link>https://bruce-lu.github.io/blog/wordpress-docker-compose/</link>
+      <pubDate>Mon, 26 Aug 2019 23:38:09 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/wordpress-docker-compose/</guid>
+      <description> Get theme bitpal.zip  Bitpal theme  docker-compose.yml for wordpress cat docker-compose.yml version: &#39;3.3&#39; services: db: image: mysql:5.7 volumes: - db_data:/var/lib/mysql restart: always environment: MYSQL_ROOT_PASSWORD: * MYSQL_DATABASE: * MYSQL_USER: * MYSQL_PASSWORD: * wordpress: depends_on: - db image: wordpress:latest volumes: - /ws/bitpal:/var/www/html/wp-content/themes/bitpal # BitPal theme install ports: - &amp;quot;10000:80&amp;quot; restart: always environment: WORDPRESS_DB_HOST: db:3306 WORDPRESS_DB_USER: * WORDPRESS_DB_PASSWORD: * WORDPRESS_DB_NAME: * volumes: db_data: {}  docker-compose up </description>
+    </item>
+    
+    <item>
+      <title>Wordpress performance tuning</title>
+      <link>https://bruce-lu.github.io/blog/wordpress-performance-tuning/</link>
+      <pubDate>Mon, 26 Aug 2019 23:38:09 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/wordpress-performance-tuning/</guid>
+      <description>Disable unused features in theme I&amp;rsquo;m using BitPal them so here is what I did: Appearance -&amp;gt; Customize -&amp;gt; BitPal Performance -&amp;gt; Disable unused features in Icon Packs, Custom Post Types, Shortcodes sections Remove/Deactivate unused pages &amp;amp; plugins Deactivate used plugins Install WP Rocket (license required) This will give us options to - File optimization: Minify &amp;amp; combine css, js files - Media: Lazy loading - Enable OPcache - CDN</description>
+    </item>
+    
+    <item>
+      <title>Get started with Vue</title>
+      <link>https://bruce-lu.github.io/blog/vue-dive/</link>
+      <pubDate>Mon, 26 Aug 2019 23:13:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/vue-dive/</guid>
+      <description>Installation  vue.js
+ Vue Devtools
+ @vue/cli tool npm install -g @vue/cli // installed under /usr/local/lib/node_modules/@vue
+  Create a new Vue project vue create vue-demo # vue -h for help # preset: default (babel, eslint) # package manager to use when installing dependencies: Yarn cd vue-demo yarn serve # Use &amp;quot;vue ui&amp;quot; to start GUI mgmt console. Very cool!  Basics  v-bind (shorthand is :) Dynamically bind one or more attributes, or a component prop to an expression.</description>
+    </item>
+    
+    <item>
+      <title>Learning resources</title>
+      <link>https://bruce-lu.github.io/blog/learning-resources/</link>
+      <pubDate>Wed, 31 Jul 2019 10:14:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/learning-resources/</guid>
+      <description>Objective Get good learning resources
+Keywords  learning, resource, course  Architecture Reference  Azure AWS Aliyun  Microsoft Azure  skylines-academy-llc courses Services comparison between Azure &amp;amp; AWS  UI  Vue
+ Vue2 + Bootstrap4 + Material design Bootstrap + Vue  Flutter
+  Flutter get started</description>
+    </item>
+    
+    <item>
+      <title>Microsoft Azure Notes</title>
+      <link>https://bruce-lu.github.io/blog/azure-notes/</link>
+      <pubDate>Mon, 29 Jul 2019 10:14:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/azure-notes/</guid>
+      <description>Determine workload requirement  Identifying requirements: Use cases, goals, scopes; Assumptions: Are we gonna use cloud native tools or traditional ones? Use existing licenses? Critical Success Factors: Need to be scalable to meet xyz workload, utilizing existing operation team, no new talent required? Plan for growth Manage cost  Complaince and security requirement  Data protection in EU: GDPR Healthcare: HIPPA Government: FedRAMP  SLA - Service Level Agreement  MTTR: Mean Time To Recovery.</description>
+    </item>
+    
+    <item>
+      <title>Kafka cluster</title>
+      <link>https://bruce-lu.github.io/blog/kafka-cluster/</link>
+      <pubDate>Wed, 24 Jul 2019 13:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/kafka-cluster/</guid>
+      <description> Objective Setup Kafka cluster on three nodes
+Environment  Servers  9.98.13.49 9.98.13.50 9.98.13.52
+TODO </description>
+    </item>
+    
+    <item>
+      <title>Using self-signed SSL certificate for AWS Elastic Beanstalk</title>
+      <link>https://bruce-lu.github.io/blog/using-self-signed-ssl-certificate-for-aws-beanstalk/</link>
+      <pubDate>Wed, 24 Jul 2019 10:14:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/using-self-signed-ssl-certificate-for-aws-beanstalk/</guid>
+      <description>Objective There are cases we need run a quick PoC with HTTPS enabled in AWS Elastic Beanstalk. In such cases, one of an efficient way is to use a self-signed certificate. Please note you can use AWS Certificate Manager to generate certificate if it&amp;rsquo;s enabled in your region. I&amp;rsquo;ll demostrate how to generate and use a self-signed certificate in AWS CLI here in this blog.
+Keywords  SSL, HTTPS, x509, Beanstalk, AWS  Environment  macOS in local AWS console in remote  Generating a new self-signed certificate  Generate a private key with length 2048  openssl genrsa 2048 &amp;gt; privatekey.</description>
+    </item>
+    
+    <item>
+      <title>Dive into Openstack</title>
+      <link>https://bruce-lu.github.io/blog/open-stack-dive/</link>
+      <pubDate>Mon, 22 Jul 2019 09:14:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/open-stack-dive/</guid>
+      <description>Objective Dive into Openstack
+Keywords  KVM, Openstack, Virtualization, Nova, Glance  Environment  Ubuntu 16.04 on Virtualbox for macOS  KVM  Kernel-based Virtual Machine kvm.ko for CPU &amp;amp; RAM mgmt Linux kernel &amp;amp; Qemu for I/O virtualization e.g. Storage &amp;amp; Networking Libvirt for managing Hypervisor like KVM, VirtualBox, Xen; Openstack uses Libvirt at its bottom Libvirt componments: libvirtd as daemon, API, virsh as CLI Virt-manager: GUI tool  KVM management  egrep -o &amp;lsquo;(vmx|svm)&amp;rsquo; /proc/cpuinfo service libvirt-bin status virt-manager virsh list // list virtual machines sudo apt-get install qemu-kvm qemu-system libvirt-bin virt-manager bridge-utils vlan sudo apt-get install xinit gdm kubuntu-desktop  vCPU  Every virtual CPU is a thread of process qemu-kvm vCPU can be overcommit, but need to be tested for performance  Virtual memory  Virtual Addres -&amp;gt; Physical Address on VM -&amp;gt; Machine Address on bare metal vMem can be overcommit, but need to be tested for performance  Stoage virtualization  Virtualization through Storage pool &amp;amp; volume Default storage pool: /var/lib/libvirt/images/ A file is basically a volume  Network virtualization VM0 (vnet0), VM1 (vnet1) &amp;mdash; br0 (Linux bridge) &amp;mdash; eth0 (Physical)</description>
+    </item>
+    
+    <item>
+      <title>MongoDB sharding</title>
+      <link>https://bruce-lu.github.io/blog/mongodb-sharding/</link>
+      <pubDate>Thu, 18 Jul 2019 13:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/mongodb-sharding/</guid>
+      <description> Objective Setup MongoDB sharding on three nodes
+Environment  Servers  9.98.13.49 9.98.13.50 9.98.13.52
+TODO </description>
+    </item>
+    
+    <item>
+      <title>Goroutine &amp; bufferred channel&#39;s quick performance taste: TPS from 28k to 16m</title>
+      <link>https://bruce-lu.github.io/blog/a-quick-taste-of-go-channel-performance/</link>
+      <pubDate>Sat, 13 Jul 2019 21:44:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/a-quick-taste-of-go-channel-performance/</guid>
+      <description>Objective To get TPS (Transaction Per Second) as high as possible by using goroutine &amp;amp; bufferred channel (CSP pattern)
+Environment  2.3 GHz Intel Core i5; 8 GB 2133 MHz LPDDR3 macOS Mojave 10.14.4 Go 1.12.6  Setup Go If you are new to Golang, for Go&amp;rsquo;s setup, please refer to my blog: Go - Build a web API
+Create a Go project mkdir -p ~/ws/golang/src/blue/demo cd ~/ws/golang/src/blue/demo vim demo.</description>
+    </item>
+    
+    <item>
+      <title>Automation with Ansible</title>
+      <link>https://bruce-lu.github.io/blog/automation-ansible/</link>
+      <pubDate>Fri, 05 Jul 2019 21:36:34 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/automation-ansible/</guid>
+      <description>Playbook Plays -&amp;gt; Tasks -&amp;gt; Modules -&amp;gt; Handlers
+Modules more than 450 modules provided by Ansible common modules: yum, ping
+How to  yum install ansible Ad-Hoc: ansible $inventory -m ping Playbook: ansible-playbook mybook.yml Ansible Tower: Options, Dry-run, -C mode ansible-doc ansible-galaxy ansible-config ansible-inventory ansible-pull ansible-vault ansible-console  Configuration /etc/ansible/ansible.cfg /etc/ansible/hosts /etc/ansible/roles/
+Inventory  Host 192.168.0.2 www.example.com www[01:50].example.com
+ Host var www.example.com k1=v1 k2=v2
+ Group [group name] www.example.com k1=v1 k2=v2 192.</description>
+    </item>
     
     <item>
       <title>Bruce&#39;s Cloud Native Skillset Map</title>
@@ -106,7 +264,7 @@ docker exec -it $container /bin/sh
       <pubDate>Thu, 04 Jul 2019 15:23:27 +0800</pubDate>
       
       <guid>https://bruce-lu.github.io/blog/kubernetes-cmds/</guid>
-      <description>Create/run  kubectl run busybox &amp;ndash;rm -it &amp;ndash;image=busybox /bin/sh kubectl run nginx &amp;ndash;image=nginx &amp;ndash;replicas=2 kubectl create -f a-file.yml kubectl run nginx &amp;ndash;image=nginx &amp;ndash;dry-run  Get info  kubectl -h or &amp;ndash;help kubectl $command &amp;ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &amp;ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&amp;lsquo;{.items[0].metadata.name}&amp;rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &amp;ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file.</description>
+      <description>Create/run  kubectl run busybox &amp;ndash;rm -it &amp;ndash;image=busybox /bin/sh kubectl run nginx &amp;ndash;image=nginx &amp;ndash;replicas=2 kubectl run nginx &amp;ndash;image=nginx &amp;ndash;dry-run kubectl create -f a-file.yml kubectl create deployment kubernetes-bootcamp &amp;ndash;image=gcr.io/google-samples/kubernetes-bootcamp:v1  Get info  kubectl -h or &amp;ndash;help kubectl $command &amp;ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &amp;ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&amp;lsquo;{.items[0].metadata.name}&amp;rsquo; kubectl get pods -o go-template &amp;ndash;template &amp;lsquo;{{range.items}}{{.metadata.status}}{{&amp;rdquo;\n&amp;rdquo;}}{{end}}&amp;rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName kubectl proxy and curl http://localhost:8001/version  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &amp;ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file.</description>
     </item>
     
     <item>
@@ -140,6 +298,16 @@ brew install hugo
 brew install git
   On Github  Log on Github Create a public repository named bruce-lu.github.io
 Where bruce-lu is my Github account name. I create a new repository bruce-lu.github.io on Github.</description>
+    </item>
+    
+    <item>
+      <title>Note of How to start a speech</title>
+      <link>https://bruce-lu.github.io/blog/how-to-start-a-speech/</link>
+      <pubDate>Fri, 24 May 2019 10:12:32 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/how-to-start-a-speech/</guid>
+      <description>Thanks to  How to start a speech  Keywords  speech  The 3rd way: With a question that maters to the audience The 2nd way: A fact that shockes (change your thinking) There is more people that is alive today than ever died Every 2 minutes, the energy reaching the earch from the sun is equivalent to the whole annual usage of humanity
+The best way: Tell stories from own life, talk about people behind the story  The same way we start a story to a child: Once upon a time.</description>
     </item>
     
     <item>

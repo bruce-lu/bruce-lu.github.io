@@ -24,26 +24,26 @@
   
 
   <meta property="og:title" content="Kubernetes Commands" />
-<meta property="og:description" content="Create/run  kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh kubectl run nginx &ndash;image=nginx &ndash;replicas=2 kubectl create -f a-file.yml kubectl run nginx &ndash;image=nginx &ndash;dry-run  Get info  kubectl -h or &ndash;help kubectl $command &ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&lsquo;{.items[0].metadata.name}&rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file." />
+<meta property="og:description" content="Create/run  kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh kubectl run nginx &ndash;image=nginx &ndash;replicas=2 kubectl run nginx &ndash;image=nginx &ndash;dry-run kubectl create -f a-file.yml kubectl create deployment kubernetes-bootcamp &ndash;image=gcr.io/google-samples/kubernetes-bootcamp:v1  Get info  kubectl -h or &ndash;help kubectl $command &ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&lsquo;{.items[0].metadata.name}&rsquo; kubectl get pods -o go-template &ndash;template &lsquo;{{range.items}}{{.metadata.status}}{{&rdquo;\n&rdquo;}}{{end}}&rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName kubectl proxy and curl http://localhost:8001/version  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://bruce-lu.github.io/blog/kubernetes-cmds/" />
 <meta property="article:published_time" content="2019-07-04T15:23:27&#43;08:00"/>
 <meta property="article:modified_time" content="2019-07-04T15:23:27&#43;08:00"/>
 
 <meta itemprop="name" content="Kubernetes Commands">
-<meta itemprop="description" content="Create/run  kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh kubectl run nginx &ndash;image=nginx &ndash;replicas=2 kubectl create -f a-file.yml kubectl run nginx &ndash;image=nginx &ndash;dry-run  Get info  kubectl -h or &ndash;help kubectl $command &ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&lsquo;{.items[0].metadata.name}&rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file.">
+<meta itemprop="description" content="Create/run  kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh kubectl run nginx &ndash;image=nginx &ndash;replicas=2 kubectl run nginx &ndash;image=nginx &ndash;dry-run kubectl create -f a-file.yml kubectl create deployment kubernetes-bootcamp &ndash;image=gcr.io/google-samples/kubernetes-bootcamp:v1  Get info  kubectl -h or &ndash;help kubectl $command &ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&lsquo;{.items[0].metadata.name}&rsquo; kubectl get pods -o go-template &ndash;template &lsquo;{{range.items}}{{.metadata.status}}{{&rdquo;\n&rdquo;}}{{end}}&rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName kubectl proxy and curl http://localhost:8001/version  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file.">
 
 
 <meta itemprop="datePublished" content="2019-07-04T15:23:27&#43;08:00" />
 <meta itemprop="dateModified" content="2019-07-04T15:23:27&#43;08:00" />
-<meta itemprop="wordCount" content="108">
+<meta itemprop="wordCount" content="125">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kubernetes Commands"/>
-<meta name="twitter:description" content="Create/run  kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh kubectl run nginx &ndash;image=nginx &ndash;replicas=2 kubectl create -f a-file.yml kubectl run nginx &ndash;image=nginx &ndash;dry-run  Get info  kubectl -h or &ndash;help kubectl $command &ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&lsquo;{.items[0].metadata.name}&rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file."/>
+<meta name="twitter:description" content="Create/run  kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh kubectl run nginx &ndash;image=nginx &ndash;replicas=2 kubectl run nginx &ndash;image=nginx &ndash;dry-run kubectl create -f a-file.yml kubectl create deployment kubernetes-bootcamp &ndash;image=gcr.io/google-samples/kubernetes-bootcamp:v1  Get info  kubectl -h or &ndash;help kubectl $command &ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&lsquo;{.items[0].metadata.name}&rsquo; kubectl get pods -o go-template &ndash;template &lsquo;{{range.items}}{{.metadata.status}}{{&rdquo;\n&rdquo;}}{{end}}&rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName kubectl proxy and curl http://localhost:8001/version  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file."/>
 
   <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -92,8 +92,9 @@ if (!doNotTrack) {
 <ul>
 <li>kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh</li>
 <li>kubectl run nginx &ndash;image=nginx &ndash;replicas=2</li>
-<li>kubectl create -f a-file.yml</li>
 <li>kubectl run nginx &ndash;image=nginx &ndash;dry-run</li>
+<li>kubectl create -f a-file.yml</li>
+<li>kubectl create deployment kubernetes-bootcamp &ndash;image=gcr.io/google-samples/kubernetes-bootcamp:v1</li>
 </ul>
 
 <h2 id="get-info">Get info</h2>
@@ -106,6 +107,7 @@ if (!doNotTrack) {
 <li>kubectl get pods -o wide &ndash;all-namespaces</li>
 <li>kubectl get po -o yaml</li>
 <li>kubectl get pod -l app=ratings -o jsonpath=&lsquo;{.items[0].metadata.name}&rsquo;</li>
+<li>kubectl get pods -o go-template &ndash;template &lsquo;{{range.items}}{{.metadata.status}}{{&rdquo;\n&rdquo;}}{{end}}&rsquo;</li>
 <li>kubectl get deployments</li>
 <li>kubectl get services</li>
 <li>kubectl get namespace</li>
@@ -113,6 +115,7 @@ if (!doNotTrack) {
 <li>kubectl get statefulsets</li>
 <li>kubectl describe resName</li>
 <li>kubectl explain resName</li>
+<li>kubectl proxy and curl <a href="http://localhost:8001/version">http://localhost:8001/version</a></li>
 </ul>
 
 <h2 id="trouble-shooting">Trouble shooting</h2>
