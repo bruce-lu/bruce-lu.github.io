@@ -9,8 +9,10 @@ images: []
 
 - kubectl run busybox --rm -it --image=busybox /bin/sh
 - kubectl run nginx --image=nginx --replicas=2
-- kubectl create -f a-file.yml
 - kubectl run nginx --image=nginx --dry-run
+- kubectl create -f a-file.yml
+- kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
+
 
 ## Get info
 
@@ -21,6 +23,7 @@ images: []
 - kubectl get pods -o wide --all-namespaces
 - kubectl get po -o yaml
 - kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}'
+- kubectl get pods -o go-template --template '{{range.items}}{{.metadata.status}}{{"\n"}}{{end}}'
 - kubectl get deployments
 - kubectl get services
 - kubectl get namespace
@@ -28,6 +31,8 @@ images: []
 - kubectl get statefulsets
 - kubectl describe resName
 - kubectl explain resName
+- kubectl proxy and curl http://localhost:8001/version
+
 
 ## Trouble shooting
 

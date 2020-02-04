@@ -100,6 +100,12 @@ eb deploy
 eb open
 ```
 
+- SSH to EB EC2 box
+
+``` Bash
+eb ssh
+```
+
 - Clean up everything
 
 ``` Bash
