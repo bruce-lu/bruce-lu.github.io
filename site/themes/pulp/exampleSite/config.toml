@@ -11,14 +11,14 @@ hasCJKLanguage = true
   series = "series"
 
 [params]
-    author = "Your Name"
+    author = "Bruce Lu"
     avatar = "avatar.jpg"
     favicon = "favicon.ico"
     description = """
         Please write anything here.
         Profiles, backgrounds, favorite things etc.
     """
-    publicationYear = "2019"
+    publicationYear = "2020"
     # listPageDateFormat = "January, 2006" # See https://gohugo.io/functions/format/
     # singlePageDateFormat = "January 2, 2006"
     # custom_css = ["/css/custom.css"]

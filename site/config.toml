@@ -21,7 +21,7 @@ googleAnalytics = "UA-124907735-1"
         in public and private cloud, working with global team & people with responsibility, diversity and respect.
         Please feel free to click the links below for more. 
     """
-    publicationYear = "2019"
+    publicationYear = "2020"
     # listPageDateFormat = "January, 2006" # See https://gohugo.io/functions/format/
     # singlePageDateFormat = "January 2, 2006"
     # custom_css = ["/css/custom.css"]
