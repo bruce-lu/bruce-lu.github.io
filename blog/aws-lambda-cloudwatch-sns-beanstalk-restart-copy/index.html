@@ -26,16 +26,16 @@
   <meta property="og:title" content="AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed" />
 <meta property="og:description" content="Goal  Restart Elastic Beanstalk app server automatically when needed In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server when there is no log activity occurred for a period of time. There is no such kind of built-in alarm-action feature in CloudWatch. My solution here is to demonstrate how to do this in Lambda, collaborating with other AWS services such as CloudWatch, SNS etc." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bruce-lu.github.io/blog/aws-lambda-cloudwatch-sns-beanstalk-restart/" />
-<meta property="article:published_time" content="2020-01-18T16:11:06&#43;08:00"/>
-<meta property="article:modified_time" content="2020-01-18T16:11:06&#43;08:00"/>
+<meta property="og:url" content="https://bruce-lu.github.io/blog/aws-lambda-cloudwatch-sns-beanstalk-restart-copy/" />
+<meta property="article:published_time" content="2020-02-10T14:08:22&#43;08:00"/>
+<meta property="article:modified_time" content="2020-02-10T14:08:22&#43;08:00"/>
 
 <meta itemprop="name" content="AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed">
 <meta itemprop="description" content="Goal  Restart Elastic Beanstalk app server automatically when needed In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server when there is no log activity occurred for a period of time. There is no such kind of built-in alarm-action feature in CloudWatch. My solution here is to demonstrate how to do this in Lambda, collaborating with other AWS services such as CloudWatch, SNS etc.">
 
 
-<meta itemprop="datePublished" content="2020-01-18T16:11:06&#43;08:00" />
-<meta itemprop="dateModified" content="2020-01-18T16:11:06&#43;08:00" />
+<meta itemprop="datePublished" content="2020-02-10T14:08:22&#43;08:00" />
+<meta itemprop="dateModified" content="2020-02-10T14:08:22&#43;08:00" />
 <meta itemprop="wordCount" content="383">
 
 
@@ -82,7 +82,7 @@ if (!doNotTrack) {
 
   
   
-  <p class="date">January 18, 2020</p>
+  <p class="date">February 10, 2020</p>
   
   <div id="contentBody">
     
@@ -155,36 +155,36 @@ CloudWatch -&gt; Alarms -&gt; Create Alarm -&gt; Select Metrics -&gt; Logs (my a
 </ul>
 
 <pre><code class="language-Python">
-  import json
-  import boto3
+import json
+import boto3
 
-  ebc = boto3.client('elasticbeanstalk')
+ebc = boto3.client('elasticbeanstalk')
 
-  def handler_restart_app_server(event, context):
-      response = ebc.restart_app_server(
-        EnvironmentId='your-eb-env-id',
-        EnvironmentName='your-eb-env-name'
-      )
-      print(response)
-      
-      return {
-            'statusCode': 200,
-            'body': response
-      }
-    
-  def handler_request_log_100_lines(event, context):
-      response = ebc.request_environment_info(
-      EnvironmentName='your-env-name',
-      #InfoType='tail'|'bundle'
-      InfoType='tail'
-      )
-      print('----&gt;')
-      print(response)
-      print('&lt;----')
-      return {
-          'statusCode': 200,
-          'body': json.dumps(response)
-      }
+def handler_restart_app_server(event, context):
+    response = ebc.restart_app_server(
+      EnvironmentId='your-eb-env-id',
+      EnvironmentName='your-eb-env-name'
+    )
+    print(response)
+    
+    return {
+          'statusCode': 200,
+          'body': response
+    }
+  
+def handler_request_log_100_lines(event, context):
+    response = ebc.request_environment_info(
+    EnvironmentName='your-env-name',
+    #InfoType='tail'|'bundle'
+    InfoType='tail'
+    )
+    print('----&gt;')
+    print(response)
+    print('&lt;----')
+    return {
+        'statusCode': 200,
+        'body': json.dumps(response)
+    }
 
 </code></pre>
 

@@ -1,6 +1,6 @@
 ---
 title: "AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed"
-date: 2020-01-18T16:11:06+08:00
+date: 2020-02-10T14:08:22+08:00
 draft: false
 ---
 
@@ -51,40 +51,40 @@ CloudWatch -> Alarms -> Create Alarm -> Select Metrics -> Logs (my app logs) -> 
   - Handler: index.handler_restart_app_server
   - index.py
 
-  ``` Python
+``` Python
 
-  import json
-  import boto3
+import json
+import boto3
 
-  ebc = boto3.client('elasticbeanstalk')
+ebc = boto3.client('elasticbeanstalk')
 
-  def handler_restart_app_server(event, context):
-      response = ebc.restart_app_server(
-        EnvironmentId='your-eb-env-id',
-        EnvironmentName='your-eb-env-name'
-      )
-      print(response)
-      
-      return {
-            'statusCode': 200,
-            'body': response
-      }
-    
-  def handler_request_log_100_lines(event, context):
-      response = ebc.request_environment_info(
-      EnvironmentName='your-env-name',
-      #InfoType='tail'|'bundle'
-      InfoType='tail'
-      )
-      print('---->')
-      print(response)
-      print('<----')
-      return {
-          'statusCode': 200,
-          'body': json.dumps(response)
-      }
+def handler_restart_app_server(event, context):
+    response = ebc.restart_app_server(
+      EnvironmentId='your-eb-env-id',
+      EnvironmentName='your-eb-env-name'
+    )
+    print(response)
+    
+    return {
+          'statusCode': 200,
+          'body': response
+    }
+  
+def handler_request_log_100_lines(event, context):
+    response = ebc.request_environment_info(
+    EnvironmentName='your-env-name',
+    #InfoType='tail'|'bundle'
+    InfoType='tail'
+    )
+    print('---->')
+    print(response)
+    print('<----')
+    return {
+        'statusCode': 200,
+        'body': json.dumps(response)
+    }
 
-  ```
+```
 
 ## Add Lambda Trigger
 
