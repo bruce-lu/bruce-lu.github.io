@@ -154,6 +154,7 @@ CloudWatch -&gt; Alarms -&gt; Create Alarm -&gt; Select Metrics -&gt; Logs (my a
 ``` Python
 import json
 import boto3</li>
+</ul></li>
 </ul>
 
 <p>ebc = boto3.client(&lsquo;elasticbeanstalk&rsquo;)</p>
@@ -204,7 +205,9 @@ def handler_request_log_100_lines(event, context):
 <p>We achived our goal to restart EB app server when no log activity reported by CloudWatch.</p>
 
 <ul>
-<li>What we&rsquo;ve done</li>
+<li>What we&rsquo;ve done
+
+<ul>
 <li>Created SNS topic to receive notification from CloudWatch Alarm</li>
 <li>Created Alarm in CloudWatch to monitor log metrics</li>
 <li>Created Lambda function to handle SNS notification event</li>
