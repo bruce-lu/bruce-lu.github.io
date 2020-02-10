@@ -50,7 +50,9 @@ CloudWatch -> Alarms -> Create Alarm -> Select Metrics -> Logs (my app logs) -> 
 - Function code
   - Handler: index.handler_restart_app_server
   - index.py
+
 ``` Python
+
 import json
 import boto3
 
@@ -81,6 +83,7 @@ def handler_request_log_100_lines(event, context):
         'statusCode': 200,
         'body': json.dumps(response)
     }
+
 ```
 
 ## Add Lambda Trigger

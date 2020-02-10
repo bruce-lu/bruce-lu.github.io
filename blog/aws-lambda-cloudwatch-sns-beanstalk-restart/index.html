@@ -36,7 +36,7 @@
 
 <meta itemprop="datePublished" content="2020-01-18T16:11:06&#43;08:00" />
 <meta itemprop="dateModified" content="2020-01-18T16:11:06&#43;08:00" />
-<meta itemprop="wordCount" content="386">
+<meta itemprop="wordCount" content="383">
 
 
 
@@ -150,41 +150,43 @@ CloudWatch -&gt; Alarms -&gt; Create Alarm -&gt; Select Metrics -&gt; Logs (my a
 
 <ul>
 <li>Handler: index.handler_restart_app_server</li>
-<li>index.py
-``` Python
-import json
-import boto3</li>
+<li>index.py</li>
 </ul></li>
 </ul>
 
-<p>ebc = boto3.client(&lsquo;elasticbeanstalk&rsquo;)</p>
+<pre><code class="language-Python">
+import json
+import boto3
 
-<p>def handler_restart_app_server(event, context):
+ebc = boto3.client('elasticbeanstalk')
+
+def handler_restart_app_server(event, context):
     response = ebc.restart_app_server(
-      EnvironmentId=&lsquo;your-eb-env-id&rsquo;,
-      EnvironmentName=&lsquo;your-eb-env-name&rsquo;
+      EnvironmentId='your-eb-env-id',
+      EnvironmentName='your-eb-env-name'
     )
     print(response)
     
     return {
-          &lsquo;statusCode&rsquo;: 200,
-          &lsquo;body&rsquo;: response
+          'statusCode': 200,
+          'body': response
     }
   
 def handler_request_log_100_lines(event, context):
     response = ebc.request_environment_info(
-    EnvironmentName=&lsquo;your-env-name&rsquo;,
-    #InfoType=&lsquo;tail&rsquo;|&lsquo;bundle&rsquo;
-    InfoType=&lsquo;tail&rsquo;
+    EnvironmentName='your-env-name',
+    #InfoType='tail'|'bundle'
+    InfoType='tail'
     )
-    print(&lsquo;&mdash;-&gt;&rsquo;)
+    print('----&gt;')
     print(response)
-    print(&rsquo;&lt;&mdash;-&lsquo;)
+    print('&lt;----')
     return {
-        &lsquo;statusCode&rsquo;: 200,
-        &lsquo;body&rsquo;: json.dumps(response)
+        'statusCode': 200,
+        'body': json.dumps(response)
     }
-```</p>
+
+</code></pre>
 
 <h2 id="add-lambda-trigger">Add Lambda Trigger</h2>
 
