@@ -8,7 +8,7 @@
     }
 ,
     {
-        "ref": "https://bruce-lu.github.io/blog/aws-lambda-cloudwatch-sns-beanstalk-restart/",
+        "ref": "https://bruce-lu.github.io/blog/aws-api-gateway-lambda/",
         "title": "AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed",
         "section": "blog",
         "date" : "2020.01.18",

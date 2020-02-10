@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>
+      
+          AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed - Bruce Lu&#39;s pages
+      
+  </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="map[]" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://bruce-lu.github.io/img/favicon.ico">
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.60c59e75c5046f0eded1491ec81bdadd4a68c3cb5d8aa97aeaa80d79260917d3.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  
+  
+
+  <meta property="og:title" content="AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed" />
+<meta property="og:description" content="Goal  Restart Elastic Beanstalk app server automatically when needed In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server when there is no log activity occurred for a period of time. There is no such kind of built-in alarm-action feature in CloudWatch. My solution here is to demonstrate how to do this in Lambda, collaborating with other AWS services such as CloudWatch, SNS etc." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bruce-lu.github.io/blog/aws-api-gateway-lambda/" />
+<meta property="article:published_time" content="2020-01-18T16:11:06&#43;08:00"/>
+<meta property="article:modified_time" content="2020-01-18T16:11:06&#43;08:00"/>
+
+<meta itemprop="name" content="AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed">
+<meta itemprop="description" content="Goal  Restart Elastic Beanstalk app server automatically when needed In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server when there is no log activity occurred for a period of time. There is no such kind of built-in alarm-action feature in CloudWatch. My solution here is to demonstrate how to do this in Lambda, collaborating with other AWS services such as CloudWatch, SNS etc.">
+
+
+<meta itemprop="datePublished" content="2020-01-18T16:11:06&#43;08:00" />
+<meta itemprop="dateModified" content="2020-01-18T16:11:06&#43;08:00" />
+<meta itemprop="wordCount" content="383">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed"/>
+<meta name="twitter:description" content="Goal  Restart Elastic Beanstalk app server automatically when needed In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server when there is no log activity occurred for a period of time. There is no such kind of built-in alarm-action feature in CloudWatch. My solution here is to demonstrate how to do this in Lambda, collaborating with other AWS services such as CloudWatch, SNS etc."/>
+
+  <!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-124907735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+  <body>
+    
+  <h1>AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed</h1>
+  <header>
+  
+  <div class="avatar">
+    <img class="avatarMask" src="https://bruce-lu.github.io//img/avatar.jpg">
+    <a href="https://bruce-lu.github.io/"><img src="https://bruce-lu.github.io//img/avatar-border.svg" }}></a>
+  </div>
+  
+  <h2><a class="author" href="https://bruce-lu.github.io/">Bruce Lu</a></h2>
+</header>
+
+  
+  
+  <p class="date">January 18, 2020</p>
+  
+  <div id="contentBody">
+    
+
+<h2 id="goal">Goal</h2>
+
+<ul>
+<li>Restart Elastic Beanstalk app server automatically when needed
+In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server
+when there is no log activity occurred for a period of time. There is no such kind of built-in alarm-action feature in CloudWatch.
+My solution here is to demonstrate how to do this in Lambda, collaborating with other AWS services such as CloudWatch, SNS etc..</li>
+</ul>
+
+<h2 id="pre-reqs">Pre-reqs</h2>
+
+<ul>
+<li>AWS account and proper permissions through IAM
+<br /></li>
+</ul>
+
+<h2 id="create-sns-to-receive-log-activities-alarm-notification">Create SNS to receive log activities alarm notification</h2>
+
+<ul>
+<li>Go to AWS Web Console
+Services -&gt; SNS -&gt; Create a new SNS and email subscription</li>
+</ul>
+
+<h2 id="create-cloudwatch-logging-alarm-based-on-log-activities">Create CloudWatch logging alarm based on log activities</h2>
+
+<ul>
+<li>Go to AWS Web Console
+CloudWatch -&gt; Alarms -&gt; Create Alarm -&gt; Select Metrics -&gt; Logs (my app logs) -&gt; IncomingBytes -&gt; Select
+
+<ul>
+<li>Metrics name: IncomingBytes</li>
+<li>LogGroupName: My app&rsquo;s loggroup</li>
+<li>Statistic: Sum</li>
+<li>Period: 15 minutes</li>
+<li>Threshold type: Static</li>
+<li>Whenever IncomingBytes is&hellip;: Lower</li>
+<li>than: 1</li>
+<li>Next</li>
+<li>Select SNS topic to notify(We just created)</li>
+<li>(Note: There is no EC2/Beanstal restart action for Logs metrics, so we&rsquo;d use Lambda later on)</li>
+<li>Next</li>
+<li>Give it a name and save</li>
+</ul></li>
+</ul>
+
+<h2 id="create-lambda-to-take-action-when-no-log-activity-reported-by-cloudwatch">Create Lambda to take action when no log activity reported by CloudWatch</h2>
+
+<ul>
+<li><p>Create Lambda</p>
+
+<ul>
+<li>Go to AWS Web Console</li>
+<li>Create function</li>
+<li>Author from scratch</li>
+<li>Function name: Give it a name</li>
+<li>Runtime: Python 3.8</li>
+<li>Permissions: Create a new role with basic Lambda permissions</li>
+</ul></li>
+
+<li><p>Function code</p>
+
+<ul>
+<li>Handler: index.handler_restart_app_server</li>
+<li>index.py</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-Python">
+  import json
+  import boto3
+
+  ebc = boto3.client('elasticbeanstalk')
+
+  def handler_restart_app_server(event, context):
+      response = ebc.restart_app_server(
+        EnvironmentId='your-eb-env-id',
+        EnvironmentName='your-eb-env-name'
+      )
+      print(response)
+      
+      return {
+            'statusCode': 200,
+            'body': response
+      }
+    
+  def handler_request_log_100_lines(event, context):
+      response = ebc.request_environment_info(
+      EnvironmentName='your-env-name',
+      #InfoType='tail'|'bundle'
+      InfoType='tail'
+      )
+      print('----&gt;')
+      print(response)
+      print('&lt;----')
+      return {
+          'statusCode': 200,
+          'body': json.dumps(response)
+      }
+
+</code></pre>
+
+<h2 id="add-lambda-trigger">Add Lambda Trigger</h2>
+
+<p>The purpose is to trigger our Lambda function whenever we got no log actitiy notification in our SNS topic</p>
+
+<ul>
+<li>Go to AWS Lambda function console</li>
+<li>Go to designer</li>
+<li>Add trigger: Select SNS topic we created</li>
+</ul>
+
+<h2 id="testing">Testing</h2>
+
+<p>Just watch for the notification from our topic. Every time we get notification the Elastic Beanstalk app server would be restarted</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>We achived our goal to restart EB app server when no log activity reported by CloudWatch.</p>
+
+<ul>
+<li>What we&rsquo;ve done
+
+<ul>
+<li>Created SNS topic to receive notification from CloudWatch Alarm</li>
+<li>Created Alarm in CloudWatch to monitor log metrics</li>
+<li>Created Lambda function to handle SNS notification event</li>
+</ul></li>
+</ul>
+
+  </div>
+  <footer>
+  <p>
+  &copy; 2019 Bruce Lu.
+  Powered by <a href="https://gohugo.io/">Hugo</a>
+  using the <a href="https://github.com/koirand/pulp/">pulp</a> theme.
+  </p>
+</footer>
+
+
+  </body>
+</html>
