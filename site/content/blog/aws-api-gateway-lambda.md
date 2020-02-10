@@ -1,7 +1,7 @@
 ---
 title: "AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed"
 date: 2020-01-18T16:11:06+08:00
-draft: false
+draft: true
 ---
 
 ## Goal

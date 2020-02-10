@@ -20,15 +20,6 @@
     </item>
     
     <item>
-      <title>AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed</title>
-      <link>https://bruce-lu.github.io/blog/aws-api-gateway-lambda/</link>
-      <pubDate>Sat, 18 Jan 2020 16:11:06 +0800</pubDate>
-      
-      <guid>https://bruce-lu.github.io/blog/aws-api-gateway-lambda/</guid>
-      <description>Goal  Restart Elastic Beanstalk app server automatically when needed In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server when there is no log activity occurred for a period of time. There is no such kind of built-in alarm-action feature in CloudWatch. My solution here is to demonstrate how to do this in Lambda, collaborating with other AWS services such as CloudWatch, SNS etc.</description>
-    </item>
-    
-    <item>
       <title>AWS Elastic Beanstalk practices</title>
       <link>https://bruce-lu.github.io/blog/aws-elastic-beanstalk-practices/</link>
       <pubDate>Thu, 14 Nov 2019 10:18:09 +0800</pubDate>
