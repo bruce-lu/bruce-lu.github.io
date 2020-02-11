@@ -20,6 +20,17 @@
     </item>
     
     <item>
+      <title>AWS API Gateway with Lambda Integration</title>
+      <link>https://bruce-lu.github.io/blog/aws-api-gateway-lambda/</link>
+      <pubDate>Wed, 05 Feb 2020 16:11:06 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/aws-api-gateway-lambda/</guid>
+      <description>Goal  Demonstrate how to integrate AWS Lambda with API Gateway  Pre-reqs  AWS account and proper permissions through IAM   Build a Lambda function  Log on AWS Web Console Services -&amp;gt; Lambda -&amp;gt; Create function
+ Function name: Lambda-API-Gateway-Demo Runtime: Node.js 12.x Permissions: Create a new role with basic Lambda permissions Click Create function button  Function code
+ Code entry type: Edit code inline (other options: Upload a .</description>
+    </item>
+    
+    <item>
       <title>AWS Elastic Beanstalk practices</title>
       <link>https://bruce-lu.github.io/blog/aws-elastic-beanstalk-practices/</link>
       <pubDate>Thu, 14 Nov 2019 10:18:09 +0800</pubDate>

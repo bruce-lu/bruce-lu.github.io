@@ -1,108 +1,99 @@
 ---
-title: "AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed"
-date: 2020-01-18T16:11:06+08:00
-draft: true
+title: "AWS API Gateway with Lambda Integration"
+date: 2020-02-05T16:11:06+08:00
+draft: false
 ---
 
 ## Goal
 
-- Restart Elastic Beanstalk app server automatically when needed
-In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server 
-when there is no log activity occurred for a period of time. There is no such kind of built-in alarm-action feature in CloudWatch.
-My solution here is to demonstrate how to do this in Lambda, collaborating with other AWS services such as CloudWatch, SNS etc..
+- Demonstrate how to integrate AWS Lambda with API Gateway
 
 ## Pre-reqs
 
 - AWS account and proper permissions through IAM
   
-## Create SNS to receive log activities alarm notification
+## Build a Lambda function
 
-- Go to AWS Web Console
-Services -> SNS -> Create a new SNS and email subscription
-
-## Create CloudWatch logging alarm based on log activities
-
-- Go to AWS Web Console
-CloudWatch -> Alarms -> Create Alarm -> Select Metrics -> Logs (my app logs) -> IncomingBytes -> Select
-  - Metrics name: IncomingBytes
-  - LogGroupName: My app's loggroup
-  - Statistic: Sum
-  - Period: 15 minutes
-  - Threshold type: Static
-  - Whenever IncomingBytes is...: Lower
-  - than: 1
-  - Next
-  - Select SNS topic to notify(We just created)
-  - (Note: There is no EC2/Beanstal restart action for Logs metrics, so we'd use Lambda later on)
-  - Next
-  - Give it a name and save
-
-## Create Lambda to take action when no log activity reported by CloudWatch
-
-- Create Lambda
-  - Go to AWS Web Console
-  - Create function
-  - Author from scratch
-  - Function name: Give it a name
-  - Runtime: Python 3.8
+- Log on AWS Web Console
+- Services -> Lambda -> Create function
+  - Function name: Lambda-API-Gateway-Demo
+  - Runtime: Node.js 12.x
   - Permissions: Create a new role with basic Lambda permissions
+  - Click Create function button
 
 - Function code
-  - Handler: index.handler_restart_app_server
-  - index.py
+  - Code entry type: Edit code inline (other options: Upload a .zip file; Upload from S3)
+  - Runtime: Node.js 12.x
+  - Handler: index.handler
+  - index.js
 
-  ``` Python
+  ``` javascript
 
-  import json
-  import boto3
-
-  ebc = boto3.client('elasticbeanstalk')
-
-  def handler_restart_app_server(event, context):
-      response = ebc.restart_app_server(
-        EnvironmentId='your-eb-env-id',
-        EnvironmentName='your-eb-env-name'
-      )
-      print(response)
-      
-      return {
-            'statusCode': 200,
-            'body': response
-      }
-    
-  def handler_request_log_100_lines(event, context):
-      response = ebc.request_environment_info(
-      EnvironmentName='your-env-name',
-      #InfoType='tail'|'bundle'
-      InfoType='tail'
-      )
-      print('---->')
-      print(response)
-      print('<----')
-      return {
-          'statusCode': 200,
-          'body': json.dumps(response)
-      }
+  exports.handler = async (event) => {
+    // TODO implement
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify('Hello from Lambda!'),
+    };
+    return response;
+  };
 
   ```
 
-## Add Lambda Trigger
-
-The purpose is to trigger our Lambda function whenever we got no log actitiy notification in our SNS topic
-
-- Go to AWS Lambda function console
-- Go to designer
-- Add trigger: Select SNS topic we created
-
 ## Testing
 
-Just watch for the notification from our topic. Every time we get notification the Elastic Beanstalk app server would be restarted
+- Configure test event
+  - Create new test event
+  - Event template: Hello World
+  - Event name: LambdaDemo
+  - Keep the rest as default
+  - Click Test button to test
+  - Log output
+
+  ``` JSON
+
+  {
+    "statusCode": 200,
+    "body": "\"Hello from Lambda!\""
+  }
+
+  ```
+
+  ``` Bash
+
+  START RequestId: 30020ce5-86be-47d1-ba61-ef08393f9dc7 Version: $LATEST
+  END RequestId: 30020ce5-86be-47d1-ba61-ef08393f9dc7
+  REPORT RequestId: 30020ce5-86be-47d1-ba61-ef08393f9dc7	Duration: 2.99 ms	Billed Duration: 100 ms	Memory Size: 128 MB	Max Memory Used: 64 MB	Init Duration: 423.93 ms
+
+  ```
+
+- Add trigger
+  - Go to Designer UI of the function
+  - Add trigger
+    - Trigger configuration: API Gateway (other options: AWS IoT, Application Load Balancer, CloudWatch Events, CloudWatch Logs, DynamoDB, Kinesis, S3, SNS, SQS)
+    - API: Create a new API
+    - Security: Open (for testing purpose, not for production)
+    - Click Add button
+  - API Gateway looks like:
+
+  ``` Bash
+
+  Lambda-API-Gateway-Demo-API
+  arn:aws-cn:execute-api:cn-northwest-1:005464510748:5uac1lg2va/*/*/Lambda-API-Gateway-Demo
+  API: api-gateway/5uac1lg2va/*/*/Lambda-API-Gateway-DemoAPI endpoint: https://5uac1lg2va.execute-api.cn-northwest-1.amazonaws.com.cn/default/Lambda-API-Gateway-Demo API name: Lambda-API-Gateway-Demo-API
+
+  ```
+
+- Validate the integration
+
+  - Open the link https://5uac1lg2va.execute-api.cn-northwest-1.amazonaws.com.cn/default/Lambda-API-Gateway-Demo on browser
+    - "Hello from Lambda!" would be displayed
 
 ## Conclusion
 
-We achived our goal to restart EB app server when no log activity reported by CloudWatch.
+We achieved our goal successfully: AWS Lambda integration with API Gateway
 
 - What we've done
-  - Created SNS topic to receive notification from CloudWatch Alarm
-  - Created Alarm in CloudWatch to monitor log metrics
-  - Created Lambda function to handle SNS notification event
+  - Created Lambda function
+  - Created API Gateway and added it as the Trigger of Lambda function
+  - Validation

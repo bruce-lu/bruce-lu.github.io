@@ -8,6 +8,14 @@
     }
 ,
     {
+        "ref": "https://bruce-lu.github.io/blog/aws-api-gateway-lambda/",
+        "title": "AWS API Gateway with Lambda Integration",
+        "section": "blog",
+        "date" : "2020.02.05",
+        "body": " Goal  Demonstrate how to integrate AWS Lambda with API Gateway  Pre-reqs  AWS account and proper permissions through IAM   Build a Lambda function  Log on AWS Web Console Services -\u0026gt; Lambda -\u0026gt; Create function\n Function name: Lambda-API-Gateway-Demo Runtime: Node.js 12.x Permissions: Create a new role with basic Lambda permissions Click Create function button  Function code\n Code entry type: Edit code inline (other options: Upload a .zip file; Upload from S3) Runtime: Node.js 12.x Handler: index.handler index.js   exports.handler = async (event) =\u0026gt; { // TODO implement const response = { statusCode: 200, body: JSON.stringify('Hello from Lambda!'), }; return response; };  Testing  Configure test event  Create new test event Event template: Hello World Event name: LambdaDemo Keep the rest as default Click Test button to test Log output   { \u0026quot;statusCode\u0026quot;: 200, \u0026quot;body\u0026quot;: \u0026quot;\\\u0026quot;Hello from Lambda!\\\u0026quot;\u0026quot; }  START RequestId: 30020ce5-86be-47d1-ba61-ef08393f9dc7 Version: $LATEST END RequestId: 30020ce5-86be-47d1-ba61-ef08393f9dc7 REPORT RequestId: 30020ce5-86be-47d1-ba61-ef08393f9dc7\tDuration: 2.99 ms\tBilled Duration: 100 ms\tMemory Size: 128 MB\tMax Memory Used: 64 MB\tInit Duration: 423.93 ms   Add trigger  Go to Designer UI of the function Add trigger Trigger configuration: API Gateway (other options: AWS IoT, Application Load Balancer, CloudWatch Events, CloudWatch Logs, DynamoDB, Kinesis, S3, SNS, SQS) API: Create a new API Security: Open (for testing purpose, not for production) Click Add button API Gateway looks like:   Lambda-API-Gateway-Demo-API arn:aws-cn:execute-api:cn-northwest-1:005464510748:5uac1lg2va/*/*/Lambda-API-Gateway-Demo API: api-gateway/5uac1lg2va/*/*/Lambda-API-Gateway-DemoAPI endpoint: https://5uac1lg2va.execute-api.cn-northwest-1.amazonaws.com.cn/default/Lambda-API-Gateway-Demo API name: Lambda-API-Gateway-Demo-API   Validate the integration\n Open the link https://5uac1lg2va.execute-api.cn-northwest-1.amazonaws.com.cn/default/Lambda-API-Gateway-Demo on browser \u0026ldquo;Hello from Lambda!\u0026rdquo; would be displayed   Conclusion We achieved our goal successfully: AWS Lambda integration with API Gateway\n What we\u0026rsquo;ve done  Created Lambda function Created API Gateway and added it as the Trigger of Lambda function Validation   "
+    }
+,
+    {
         "ref": "https://bruce-lu.github.io/blog/aws-elastic-beanstalk-practices/",
         "title": "AWS Elastic Beanstalk practices",
         "section": "blog",
