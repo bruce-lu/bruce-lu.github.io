@@ -50,6 +50,18 @@ images: []
 
     docker rm $container
 
+- Check container network from outside of the container (If container doesn't have networking tools installed)
+  - docker inspect -f '{{.State.Pid}}' serene_curran
+  - nsenter -t pId -n tcpdump -i any tcp port 8883 -w ds.dump
+  - nsenter -t pId -n lsof -i :8883
+  - nsenter -t pId -n netstat -neoap
+
+- Docker restart policy
+  - docker run -itd --restart always -p 9090:9090 antivirus
+  - others: unless-stopped, on-failure (based on exit code), no
+  - Max retries to restart if on failure
+    - e.g. --restart on-failure:5
+
 ## Image
 
 - basic actions

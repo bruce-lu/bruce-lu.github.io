@@ -60,7 +60,7 @@ docker exec -it $container /bin/sh
 
 <meta itemprop="datePublished" content="2019-07-04T15:28:09&#43;08:00" />
 <meta itemprop="dateModified" content="2019-07-04T15:28:09&#43;08:00" />
-<meta itemprop="wordCount" content="338">
+<meta itemprop="wordCount" content="412">
 
 
 
@@ -169,6 +169,24 @@ if (!doNotTrack) {
 <li><p>Remove a container</p>
 
 <p>docker rm $container</p></li>
+
+<li><p>Check container network from outside of the container (If container doesn&rsquo;t have networking tools installed)</p>
+
+<ul>
+<li>docker inspect -f &lsquo;{{.State.Pid}}&rsquo; serene_curran</li>
+<li>nsenter -t pId -n tcpdump -i any tcp port 8883 -w ds.dump</li>
+<li>nsenter -t pId -n lsof -i :8883</li>
+<li>nsenter -t pId -n netstat -neoap</li>
+</ul></li>
+
+<li><p>Docker restart policy</p>
+
+<ul>
+<li>docker run -itd &ndash;restart always -p 9090:9090 antivirus</li>
+<li>others: unless-stopped, on-failure (based on exit code), no</li>
+<li>Max retries to restart if on failure</li>
+<li>e.g. &ndash;restart on-failure:5</li>
+</ul></li>
 </ul>
 
 <h2 id="image">Image</h2>
