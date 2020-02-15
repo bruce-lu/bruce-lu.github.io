@@ -5,10 +5,19 @@
     <link>https://bruce-lu.github.io/</link>
     <description>Recent content on Bruce Lu&#39;s pages</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 10 Feb 2020 14:08:22 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 10 Feb 2020 15:07:54 +0800</lastBuildDate>
     
 	<atom:link href="https://bruce-lu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A very simple but powerful CI tool</title>
+      <link>https://bruce-lu.github.io/blog/dev-ops-simple-powerful/</link>
+      <pubDate>Mon, 10 Feb 2020 15:07:54 +0800</pubDate>
+      
+      <guid>https://bruce-lu.github.io/blog/dev-ops-simple-powerful/</guid>
+      <description>Goal  Build a very simple &amp;amp; light weight but powerful tool to do CI for a project, no CI/CD tool like Jenkins required. Make sure my client always able to see the changes on UAT server  Background  I have a very tight schedule, yes 2 days, to build a web application. I&amp;rsquo;d like to show the progress to our client as frequently as possible, like every 5-10 minutes.</description>
+    </item>
     
     <item>
       <title>AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed</title>

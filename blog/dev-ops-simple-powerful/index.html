@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>
+      
+          A very simple but powerful CI tool - Bruce Lu&#39;s pages
+      
+  </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="map[]" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://bruce-lu.github.io/img/favicon.ico">
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.60c59e75c5046f0eded1491ec81bdadd4a68c3cb5d8aa97aeaa80d79260917d3.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  
+  
+
+  <meta property="og:title" content="A very simple but powerful CI tool" />
+<meta property="og:description" content="Goal  Build a very simple &amp; light weight but powerful tool to do CI for a project, no CI/CD tool like Jenkins required. Make sure my client always able to see the changes on UAT server  Background  I have a very tight schedule, yes 2 days, to build a web application. I&rsquo;d like to show the progress to our client as frequently as possible, like every 5-10 minutes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bruce-lu.github.io/blog/dev-ops-simple-powerful/" />
+<meta property="article:published_time" content="2020-02-10T15:07:54&#43;08:00"/>
+<meta property="article:modified_time" content="2020-02-10T15:07:54&#43;08:00"/>
+
+<meta itemprop="name" content="A very simple but powerful CI tool">
+<meta itemprop="description" content="Goal  Build a very simple &amp; light weight but powerful tool to do CI for a project, no CI/CD tool like Jenkins required. Make sure my client always able to see the changes on UAT server  Background  I have a very tight schedule, yes 2 days, to build a web application. I&rsquo;d like to show the progress to our client as frequently as possible, like every 5-10 minutes.">
+
+
+<meta itemprop="datePublished" content="2020-02-10T15:07:54&#43;08:00" />
+<meta itemprop="dateModified" content="2020-02-10T15:07:54&#43;08:00" />
+<meta itemprop="wordCount" content="359">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A very simple but powerful CI tool"/>
+<meta name="twitter:description" content="Goal  Build a very simple &amp; light weight but powerful tool to do CI for a project, no CI/CD tool like Jenkins required. Make sure my client always able to see the changes on UAT server  Background  I have a very tight schedule, yes 2 days, to build a web application. I&rsquo;d like to show the progress to our client as frequently as possible, like every 5-10 minutes."/>
+
+  <!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-124907735-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</head>
+
+  <body>
+    
+  <h1>A very simple but powerful CI tool</h1>
+  <header>
+  
+  <div class="avatar">
+    <img class="avatarMask" src="https://bruce-lu.github.io//img/avatar.jpg">
+    <a href="https://bruce-lu.github.io/"><img src="https://bruce-lu.github.io//img/avatar-border.svg" }}></a>
+  </div>
+  
+  <h2><a class="author" href="https://bruce-lu.github.io/">Bruce Lu</a></h2>
+</header>
+
+  
+  
+  <p class="date">February 10, 2020</p>
+  
+  <div id="contentBody">
+    
+
+<h2 id="goal">Goal</h2>
+
+<ul>
+<li>Build a very simple &amp; light weight but powerful tool to do CI for a project, no CI/CD tool like Jenkins required. Make sure my client always able to see the changes on UAT server</li>
+</ul>
+
+<h2 id="background">Background</h2>
+
+<ul>
+<li>I have a very tight schedule, yes 2 days, to build a web application. I&rsquo;d like to show the progress to our client as frequently as possible, like every 5-10 minutes. To save our effort, I didn&rsquo;t install/configure any CI tool. Yes, the quickest way is to build a very simple but working one.</li>
+</ul>
+
+<h2 id="app-s-dockerfile">App&rsquo;s Dockerfile</h2>
+
+<pre><code class="language-Bash">
+FROM node:latest
+RUN echo &quot;Asia/Shanghai&quot; &gt; /etc/timezone
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+EXPOSE 9090
+ADD ./package.json /usr/src/app/package.json
+RUN npm install
+ADD ./web/package.json /usr/src/app/web/package.json
+RUN cd /usr/src/app/web/ &amp;&amp; npm install
+ADD . /usr/src/app
+RUN cd /usr/src/app/web/ &amp;&amp; npm run build
+CMD [ &quot;node&quot; &quot;index.js&quot;]
+
+</code></pre>
+
+<h2 id="the-tool">The tool</h2>
+
+<pre><code class="language-Bash">
+#!/bin/bash
+#
+# ci-tool.sh // Suggest to put the script into Git project bin folder.
+# A simple App CI tool
+# Last update: 2/1/20
+# @Author Bruce Lu
+
+export TZ=Asia/Shanghai
+
+WS=~/ws
+APP=$WS/antivirus
+#ACT_LOG=$WS/log/activities.log
+
+cd $APP
+#git_pull=$(git pull)
+
+echo &quot;`date` - Pulling code..&quot;
+if [ `git pull | tee -a | wc -l` -eq 1 ]; then
+	# No code changes, exit..
+	exit 0
+fi
+
+echo &quot;`date` - Build and run new docker container..&quot;
+
+cur_container_id=`docker ps -q`
+docker build -t antivirus . &amp;&amp; docker stop $cur_container_id &amp;&amp; docker rm $cur_container_id &amp;&amp; docker run -itd --restart unless-stopped -p 9090:9090 -e TZ=Asia/Shanghai antivirus
+
+#docker build -t antivirus . &amp;&amp; docker stop `docker ps -q` &amp;&amp; docker run -itd --rm -p 9090:9090 antivirus
+# On live: docker run -itd --restart always -p 9090:9090 antivirus
+
+echo &quot;`date` - $?, container: `docker ps -q`&quot;
+
+echo &quot;`date` - Cleaning up dangling images..&quot;
+docker rmi $(docker images -f &quot;dangling=true&quot; -q)
+
+echo &quot;`date` - Done&quot;
+
+cd -
+
+exit 0
+admin@~/ws/antivirus/bin$cat build-docker.sh
+#!/bin/bash
+
+cd .. &amp;&amp; docker build -t antivirus .
+cd -
+
+</code></pre>
+
+<h2 id="make-it-a-cron-job-on-uat-server">Make it a cron job on UAT server</h2>
+
+<pre><code class="language-Bash">
+# Every 10 minutes
+*/10 * * * * /path/to/ci-tool.sh &gt;&gt; /path/to/log 2&gt;&amp;1
+
+</code></pre>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<ul>
+<li>I just focus on coding and commit/push the code to Github, no worries about the UAT server because it&rsquo;d be automatically built and deployed.</li>
+</ul>
+
+  </div>
+  <footer>
+  <p>
+  &copy; 2020 Bruce Lu.
+  Powered by <a href="https://gohugo.io/">Hugo</a>
+  using the <a href="https://github.com/koirand/pulp/">pulp</a> theme.
+  </p>
+</footer>
+
+
+  </body>
+</html>
