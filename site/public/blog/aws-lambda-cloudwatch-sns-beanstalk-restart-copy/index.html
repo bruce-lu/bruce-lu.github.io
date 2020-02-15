@@ -36,7 +36,7 @@
 
 <meta itemprop="datePublished" content="2020-02-10T14:08:22&#43;08:00" />
 <meta itemprop="dateModified" content="2020-02-10T14:08:22&#43;08:00" />
-<meta itemprop="wordCount" content="383">
+<meta itemprop="wordCount" content="402">
 
 
 
@@ -169,7 +169,7 @@ def handler_restart_app_server(event, context):
     
     return {
           'statusCode': 200,
-          'body': response
+          'body': json.dumps(response)
     }
   
 def handler_request_log_100_lines(event, context):
@@ -185,6 +185,19 @@ def handler_request_log_100_lines(event, context):
         'statusCode': 200,
         'body': json.dumps(response)
     }
+
+def handler_describe_environment_health(event, context):
+    response = ebc.describe_environment_health(
+      EnvironmentId='your-env-Id',
+      EnvironmentName='your-env-name',
+      AttributeNames=[
+       'Status',
+     ])
+    #print(response)
+    return {
+          &quot;statusCode&quot;: 200,
+          &quot;body&quot;: json.dumps(response)
+    }
 
 </code></pre>
 
