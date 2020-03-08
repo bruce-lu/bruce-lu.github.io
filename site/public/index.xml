@@ -249,12 +249,12 @@ export PATH=$PATH:/usr/local/go/bin   Source  . ~/.bash_profile   Reference  Cre
     </item>
     
     <item>
-      <title>Coding with Node.js</title>
+      <title>Promise, async and await</title>
       <link>https://bruce-lu.github.io/blog/coding-nodejs-async-await/</link>
       <pubDate>Thu, 04 Jul 2019 15:55:42 +0800</pubDate>
       
       <guid>https://bruce-lu.github.io/blog/coding-nodejs-async-await/</guid>
-      <description> Async/await async function f() { try { let response = await fetch(&#39;/no-user-here&#39;); let user = await response.json(); } catch(err) { // catches errors both in fetch and response.json alert(err); } } f(); // reference: https://javascript.info/async-await // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function  </description>
+      <description>Promise, async and await async function f() { try { let response = await fetch(&#39;/no-user-here&#39;); let user = await response.json(); } catch(err) { // catches errors both in fetch and response.json alert(err); } } f(); // reference: https://javascript.info/async-await // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function  A full html for demo and testing &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt; &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&amp;gt; &amp;lt;title&amp;gt;Demo of async await promise&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; Demo of async await promise &amp;lt;script lang=&amp;quot;javascript&amp;quot;&amp;gt; /* ## Promise The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.</description>
     </item>
     
     <item>
