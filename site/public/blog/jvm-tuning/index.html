@@ -17,33 +17,32 @@
   
   
   
-  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.60c59e75c5046f0eded1491ec81bdadd4a68c3cb5d8aa97aeaa80d79260917d3.css">
+  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.658d6d6b74f1690b9919f17a04765dd9d4c57b29efded85728be2bacbe8b4bb1.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   
   
 
   <meta property="og:title" content="JVM tuning" />
-<meta property="og:description" content="Tags jvm tuning jstat jhat jmap gc  Env  Spring Cloud Greenwich Spring Boot 2.1.5 Java HotSpot&trade; 64-Bit Server VM (build 25.181-b13, mixed mode) STS (Spring Tool Suite) 4.1.1 MackBook Pro Mojave  Objective  Minimize Full GC, down to 0 if possible  Prerequisites  Build a jar  mvn -B -DskipTests clean package  Baseline - default jvm settings  Run  java -jar discovery-center-0.0.1-SNAPSHOT.jar   jstat -gc  S0C S1C S0U S1U EC EU OC OU MC MU CCSC CCSU YGC YGCT FGC FGCT GCT 7168." />
+<meta property="og:description" content="Tags jvm tuning jstat jhat jmap gc Env  Spring Cloud Greenwich Spring Boot 2.1.5 Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode) STS (Spring Tool Suite) 4.1.1 MackBook Pro Mojave  Objective  Minimize Full GC, down to 0 if possible  Prerequisites   Build a jar
+mvn -B -DskipTests clean package   Baseline - default jvm settings   Run
+java -jar discovery-center-0.0.1-SNAPSHOT.jar   jstat -gc" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bruce-lu.github.io/blog/jvm-tuning/" />
-<meta property="article:published_time" content="2019-07-04T21:46:34&#43;08:00"/>
-<meta property="article:modified_time" content="2019-07-04T21:46:34&#43;08:00"/>
+<meta property="og:url" content="https://bruce-lu.github.io/blog/jvm-tuning/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2019-07-04T21:46:34+08:00" />
+<meta property="article:modified_time" content="2019-07-04T21:46:34+08:00" />
 
 <meta itemprop="name" content="JVM tuning">
-<meta itemprop="description" content="Tags jvm tuning jstat jhat jmap gc  Env  Spring Cloud Greenwich Spring Boot 2.1.5 Java HotSpot&trade; 64-Bit Server VM (build 25.181-b13, mixed mode) STS (Spring Tool Suite) 4.1.1 MackBook Pro Mojave  Objective  Minimize Full GC, down to 0 if possible  Prerequisites  Build a jar  mvn -B -DskipTests clean package  Baseline - default jvm settings  Run  java -jar discovery-center-0.0.1-SNAPSHOT.jar   jstat -gc  S0C S1C S0U S1U EC EU OC OU MC MU CCSC CCSU YGC YGCT FGC FGCT GCT 7168.">
-
-
-<meta itemprop="datePublished" content="2019-07-04T21:46:34&#43;08:00" />
-<meta itemprop="dateModified" content="2019-07-04T21:46:34&#43;08:00" />
+<meta itemprop="description" content="Tags jvm tuning jstat jhat jmap gc Env  Spring Cloud Greenwich Spring Boot 2.1.5 Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode) STS (Spring Tool Suite) 4.1.1 MackBook Pro Mojave  Objective  Minimize Full GC, down to 0 if possible  Prerequisites   Build a jar
+mvn -B -DskipTests clean package   Baseline - default jvm settings   Run
+java -jar discovery-center-0.0.1-SNAPSHOT.jar   jstat -gc"><meta itemprop="datePublished" content="2019-07-04T21:46:34+08:00" />
+<meta itemprop="dateModified" content="2019-07-04T21:46:34+08:00" />
 <meta itemprop="wordCount" content="236">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JVM tuning"/>
-<meta name="twitter:description" content="Tags jvm tuning jstat jhat jmap gc  Env  Spring Cloud Greenwich Spring Boot 2.1.5 Java HotSpot&trade; 64-Bit Server VM (build 25.181-b13, mixed mode) STS (Spring Tool Suite) 4.1.1 MackBook Pro Mojave  Objective  Minimize Full GC, down to 0 if possible  Prerequisites  Build a jar  mvn -B -DskipTests clean package  Baseline - default jvm settings  Run  java -jar discovery-center-0.0.1-SNAPSHOT.jar   jstat -gc  S0C S1C S0U S1U EC EU OC OU MC MU CCSC CCSU YGC YGCT FGC FGCT GCT 7168."/>
+<meta name="twitter:description" content="Tags jvm tuning jstat jhat jmap gc Env  Spring Cloud Greenwich Spring Boot 2.1.5 Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode) STS (Spring Tool Suite) 4.1.1 MackBook Pro Mojave  Objective  Minimize Full GC, down to 0 if possible  Prerequisites   Build a jar
+mvn -B -DskipTests clean package   Baseline - default jvm settings   Run
+java -jar discovery-center-0.0.1-SNAPSHOT.jar   jstat -gc"/>
 
   <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -85,126 +84,89 @@ if (!doNotTrack) {
   <p class="date">July 4, 2019</p>
   
   <div id="contentBody">
-    
-
-<h2 id="tags">Tags</h2>
-
+    <h2 id="tags">Tags</h2>
 <pre><code>jvm tuning jstat jhat jmap gc
 </code></pre>
-
 <h2 id="env">Env</h2>
-
 <ul>
 <li>Spring Cloud Greenwich</li>
 <li>Spring Boot 2.1.5</li>
-<li>Java HotSpot&trade; 64-Bit Server VM (build 25.181-b13, mixed mode)</li>
+<li>Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)</li>
 <li>STS (Spring Tool Suite) 4.1.1</li>
 <li>MackBook Pro Mojave</li>
 </ul>
-
 <h2 id="objective">Objective</h2>
-
 <ul>
 <li>Minimize Full GC, down to 0 if possible</li>
 </ul>
-
 <h2 id="prerequisites">Prerequisites</h2>
-
 <ul>
-<li>Build a jar</li>
+<li>
+<p>Build a jar</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">mvn -B -DskipTests clean package
+</code></pre></div></li>
 </ul>
-
-<pre><code class="language-Bash">  mvn -B -DskipTests clean package
-</code></pre>
-
-<h2 id="baseline-default-jvm-settings">Baseline - default jvm settings</h2>
-
+<h2 id="baseline---default-jvm-settings">Baseline - default jvm settings</h2>
 <ul>
-<li>Run</li>
+<li>
+<p>Run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">java -jar discovery-center-0.0.1-SNAPSHOT.jar
+</code></pre></div></li>
+<li>
+<p>jstat -gc</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT
+7168.0 8192.0 7160.1  0.0   494080.0 332080.5  82944.0    15609.6   46760.0 <span style="color:#ae81ff">4</span>    4845.5 6312.0 5953.5     <span style="color:#ae81ff">12</span>    0.063   <span style="color:#ae81ff">2</span>      0.118    0.181
+</code></pre></div></li>
+<li>
+<p>Timing</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">5.814 <span style="color:#f92672">=</span> 2019-06-25 22:32:57.974 - 2019-06-25 22:33:03.788
+</code></pre></div></li>
 </ul>
-
-<pre><code class="language-Bash">  java -jar discovery-center-0.0.1-SNAPSHOT.jar
-</code></pre>
-
-<ul>
-<li>jstat -gc</li>
-</ul>
-
-<pre><code class="language-Bash">  S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT
-  7168.0 8192.0 7160.1  0.0   494080.0 332080.5  82944.0    15609.6   46760.0 4    4845.5 6312.0 5953.5     12    0.063   2      0.118    0.181
-</code></pre>
-
-<ul>
-<li>Timing
-<br /></li>
-</ul>
-
-<pre><code class="language-Bash">  5.814 = 2019-06-25 22:32:57.974 - 2019-06-25 22:33:03.788
-</code></pre>
-
 <h2 id="1st-try-still-1-fgc">1st try: still 1 FGC</h2>
-
 <ul>
-<li>Run</li>
+<li>
+<p>Run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">
+java -jar -Xms768m -Xmx768m -Xmn700m  -XX:SurvivorRatio<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span> -XX:+PrintGCDetails  -XX:MetaspaceSize<span style="color:#f92672">=</span>50M discovery-center-0.0.1-SNAPSHOT.jar
+</code></pre></div></li>
+<li>
+<p>jstat</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT
+59392.0 59392.0  0.0    0.0   598016.0 264071.9  69632.0    23958.9   51200.0 48840.8 7040.0 6531.4      <span style="color:#ae81ff">4</span>    0.122   <span style="color:#ae81ff">1</span>      0.192    0.313
+</code></pre></div></li>
+<li>
+<p>Timing</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">5.542 <span style="color:#f92672">=</span> 2019-06-25 22:46:48.423 - 2019-06-25 22:46:53.965
+</code></pre></div></li>
 </ul>
-
-<pre><code class="language-Bash">
-  java -jar -Xms768m -Xmx768m -Xmn700m  -XX:SurvivorRatio=10 -XX:+PrintGCDetails  -XX:MetaspaceSize=50M discovery-center-0.0.1-SNAPSHOT.jar
-</code></pre>
-
-<ul>
-<li>jstat</li>
-</ul>
-
-<pre><code class="language-Bash">  S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT
-  59392.0 59392.0  0.0    0.0   598016.0 264071.9  69632.0    23958.9   51200.0 48840.8 7040.0 6531.4      4    0.122   1      0.192    0.313
-</code></pre>
-
-<ul>
-<li>Timing</li>
-</ul>
-
-<pre><code class="language-Bash">  5.542 = 2019-06-25 22:46:48.423 - 2019-06-25 22:46:53.965
-</code></pre>
-
 <h2 id="2nd-try-0-full-gc">2nd try: 0 Full GC</h2>
-
 <ul>
-<li>Run</li>
+<li>
+<p>Run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">java -jar -Xms768m -Xmx768m -Xmn700m  -XX:SurvivorRatio<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span> -XX:+PrintGCDetails  -XX:MetaspaceSize<span style="color:#f92672">=</span>80M discovery-center-0.0.1-SNAPSHOT.jar
+</code></pre></div></li>
+<li>
+<p>jstat</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT
+59392.0 59392.0  0.0   24209.6 598016.0 204594.4  69632.0     104.0    51584.0 49021.5 7040.0 6555.6      <span style="color:#ae81ff">3</span>    0.127   <span style="color:#ae81ff">0</span>      0.000    0.127
+</code></pre></div></li>
+<li>
+<p>Timing</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">5.166 <span style="color:#f92672">=</span> 2019-06-25 22:57:28.061 - 2019-06-25 22:57:33.227
+</code></pre></div></li>
 </ul>
-
-<pre><code class="language-Bash">  java -jar -Xms768m -Xmx768m -Xmn700m  -XX:SurvivorRatio=10 -XX:+PrintGCDetails  -XX:MetaspaceSize=80M discovery-center-0.0.1-SNAPSHOT.jar
-</code></pre>
-
-<ul>
-<li>jstat</li>
-</ul>
-
-<pre><code class="language-Bash">  S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT
-  59392.0 59392.0  0.0   24209.6 598016.0 204594.4  69632.0     104.0    51584.0 49021.5 7040.0 6555.6      3    0.127   0      0.000    0.127
-</code></pre>
-
-<ul>
-<li>Timing</li>
-</ul>
-
-<pre><code class="language-Bash">  5.166 = 2019-06-25 22:57:28.061 - 2019-06-25 22:57:33.227
-</code></pre>
-
 <h2 id="heap-dump">Heap dump</h2>
-
 <ul>
-<li>cmds</li>
-</ul>
-
+<li>
+<p>cmds</p>
 <p>jmap -dump:format=b,file=discovery-center.dump $java-pid
-  jhat -port 8888 discovery-center.dump</p>
-
-<ul>
-<li>GUI Tools</li>
-</ul>
-
+jhat -port 8888 discovery-center.dump</p>
+</li>
+<li>
+<p>GUI Tools</p>
 <p>Eclipse MAT, jconsole, jvisualvm, visualvm</p>
+</li>
+</ul>
 
   </div>
   <footer>

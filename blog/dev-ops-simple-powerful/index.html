@@ -17,7 +17,7 @@
   
   
   
-  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.60c59e75c5046f0eded1491ec81bdadd4a68c3cb5d8aa97aeaa80d79260917d3.css">
+  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.658d6d6b74f1690b9919f17a04765dd9d4c57b29efded85728be2bacbe8b4bb1.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   
@@ -26,22 +26,15 @@
   <meta property="og:title" content="A very simple but powerful CI tool" />
 <meta property="og:description" content="Goal  Build a very simple &amp; light weight but powerful tool to do CI for a project, no CI/CD tool like Jenkins required. Make sure my client always able to see the changes on UAT server  Background  I have a very tight schedule, yes 2 days, to build a web application. I&rsquo;d like to show the progress to our client as frequently as possible, like every 5-10 minutes." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bruce-lu.github.io/blog/dev-ops-simple-powerful/" />
-<meta property="article:published_time" content="2020-02-10T15:07:54&#43;08:00"/>
-<meta property="article:modified_time" content="2020-02-10T15:07:54&#43;08:00"/>
+<meta property="og:url" content="https://bruce-lu.github.io/blog/dev-ops-simple-powerful/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-02-10T15:07:54+08:00" />
+<meta property="article:modified_time" content="2020-02-10T15:07:54+08:00" />
 
 <meta itemprop="name" content="A very simple but powerful CI tool">
-<meta itemprop="description" content="Goal  Build a very simple &amp; light weight but powerful tool to do CI for a project, no CI/CD tool like Jenkins required. Make sure my client always able to see the changes on UAT server  Background  I have a very tight schedule, yes 2 days, to build a web application. I&rsquo;d like to show the progress to our client as frequently as possible, like every 5-10 minutes.">
-
-
-<meta itemprop="datePublished" content="2020-02-10T15:07:54&#43;08:00" />
-<meta itemprop="dateModified" content="2020-02-10T15:07:54&#43;08:00" />
+<meta itemprop="description" content="Goal  Build a very simple &amp; light weight but powerful tool to do CI for a project, no CI/CD tool like Jenkins required. Make sure my client always able to see the changes on UAT server  Background  I have a very tight schedule, yes 2 days, to build a web application. I&rsquo;d like to show the progress to our client as frequently as possible, like every 5-10 minutes."><meta itemprop="datePublished" content="2020-02-10T15:07:54+08:00" />
+<meta itemprop="dateModified" content="2020-02-10T15:07:54+08:00" />
 <meta itemprop="wordCount" content="359">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A very simple but powerful CI tool"/>
 <meta name="twitter:description" content="Goal  Build a very simple &amp; light weight but powerful tool to do CI for a project, no CI/CD tool like Jenkins required. Make sure my client always able to see the changes on UAT server  Background  I have a very tight schedule, yes 2 days, to build a web application. I&rsquo;d like to show the progress to our client as frequently as possible, like every 5-10 minutes."/>
 
@@ -85,99 +78,83 @@ if (!doNotTrack) {
   <p class="date">February 10, 2020</p>
   
   <div id="contentBody">
-    
-
-<h2 id="goal">Goal</h2>
-
+    <h2 id="goal">Goal</h2>
 <ul>
 <li>Build a very simple &amp; light weight but powerful tool to do CI for a project, no CI/CD tool like Jenkins required. Make sure my client always able to see the changes on UAT server</li>
 </ul>
-
 <h2 id="background">Background</h2>
-
 <ul>
 <li>I have a very tight schedule, yes 2 days, to build a web application. I&rsquo;d like to show the progress to our client as frequently as possible, like every 5-10 minutes. To save our effort, I didn&rsquo;t install/configure any CI tool. Yes, the quickest way is to build a very simple but working one.</li>
 </ul>
-
-<h2 id="app-s-dockerfile">App&rsquo;s Dockerfile</h2>
-
-<pre><code class="language-Bash">
+<h2 id="apps-dockerfile">App&rsquo;s Dockerfile</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">
 FROM node:latest
-RUN echo &quot;Asia/Shanghai&quot; &gt; /etc/timezone
+RUN echo <span style="color:#e6db74">&#34;Asia/Shanghai&#34;</span> &gt; /etc/timezone
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-EXPOSE 9090
+EXPOSE <span style="color:#ae81ff">9090</span>
 ADD ./package.json /usr/src/app/package.json
 RUN npm install
 ADD ./web/package.json /usr/src/app/web/package.json
-RUN cd /usr/src/app/web/ &amp;&amp; npm install
+RUN cd /usr/src/app/web/ <span style="color:#f92672">&amp;&amp;</span> npm install
 ADD . /usr/src/app
-RUN cd /usr/src/app/web/ &amp;&amp; npm run build
-CMD [ &quot;node&quot; &quot;index.js&quot;]
+RUN cd /usr/src/app/web/ <span style="color:#f92672">&amp;&amp;</span> npm run build
+CMD <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;node&#34;</span> <span style="color:#e6db74">&#34;index.js&#34;</span><span style="color:#f92672">]</span>
 
-</code></pre>
+</code></pre></div><h2 id="the-tool">The tool</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">
+<span style="color:#75715e">#!/bin/bash</span>
+<span style="color:#75715e">#</span>
+<span style="color:#75715e"># ci-tool.sh // Suggest to put the script into Git project bin folder.</span>
+<span style="color:#75715e"># A simple App CI tool</span>
+<span style="color:#75715e"># Last update: 2/1/20</span>
+<span style="color:#75715e"># @Author Bruce Lu</span>
 
-<h2 id="the-tool">The tool</h2>
+export TZ<span style="color:#f92672">=</span>Asia/Shanghai
 
-<pre><code class="language-Bash">
-#!/bin/bash
-#
-# ci-tool.sh // Suggest to put the script into Git project bin folder.
-# A simple App CI tool
-# Last update: 2/1/20
-# @Author Bruce Lu
-
-export TZ=Asia/Shanghai
-
-WS=~/ws
-APP=$WS/antivirus
-#ACT_LOG=$WS/log/activities.log
+WS<span style="color:#f92672">=</span>~/ws
+APP<span style="color:#f92672">=</span>$WS/antivirus
+<span style="color:#75715e">#ACT_LOG=$WS/log/activities.log</span>
 
 cd $APP
-#git_pull=$(git pull)
+<span style="color:#75715e">#git_pull=$(git pull)</span>
 
-echo &quot;`date` - Pulling code..&quot;
-if [ `git pull | tee -a | wc -l` -eq 1 ]; then
-	# No code changes, exit..
-	exit 0
-fi
+echo <span style="color:#e6db74">&#34;`date` - Pulling code..&#34;</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">`</span>git pull | tee -a | wc -l<span style="color:#e6db74">`</span> -eq <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+	<span style="color:#75715e"># No code changes, exit..</span>
+	exit <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">fi</span>
 
-echo &quot;`date` - Build and run new docker container..&quot;
+echo <span style="color:#e6db74">&#34;`date` - Build and run new docker container..&#34;</span>
 
-cur_container_id=`docker ps -q`
-docker build -t antivirus . &amp;&amp; docker stop $cur_container_id &amp;&amp; docker rm $cur_container_id &amp;&amp; docker run -itd --restart unless-stopped -p 9090:9090 -e TZ=Asia/Shanghai antivirus
+cur_container_id<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>docker ps -q<span style="color:#e6db74">`</span>
+docker build -t antivirus . <span style="color:#f92672">&amp;&amp;</span> docker stop $cur_container_id <span style="color:#f92672">&amp;&amp;</span> docker rm $cur_container_id <span style="color:#f92672">&amp;&amp;</span> docker run -itd --restart unless-stopped -p 9090:9090 -e TZ<span style="color:#f92672">=</span>Asia/Shanghai antivirus
 
-#docker build -t antivirus . &amp;&amp; docker stop `docker ps -q` &amp;&amp; docker run -itd --rm -p 9090:9090 antivirus
-# On live: docker run -itd --restart always -p 9090:9090 antivirus
+<span style="color:#75715e">#docker build -t antivirus . &amp;&amp; docker stop `docker ps -q` &amp;&amp; docker run -itd --rm -p 9090:9090 antivirus</span>
+<span style="color:#75715e"># On live: docker run -itd --restart always -p 9090:9090 antivirus</span>
 
-echo &quot;`date` - $?, container: `docker ps -q`&quot;
+echo <span style="color:#e6db74">&#34;`date` - </span>$?<span style="color:#e6db74">, container: `docker ps -q`&#34;</span>
 
-echo &quot;`date` - Cleaning up dangling images..&quot;
-docker rmi $(docker images -f &quot;dangling=true&quot; -q)
+echo <span style="color:#e6db74">&#34;`date` - Cleaning up dangling images..&#34;</span>
+docker rmi <span style="color:#66d9ef">$(</span>docker images -f <span style="color:#e6db74">&#34;dangling=true&#34;</span> -q<span style="color:#66d9ef">)</span>
 
-echo &quot;`date` - Done&quot;
+echo <span style="color:#e6db74">&#34;`date` - Done&#34;</span>
 
 cd -
 
-exit 0
+exit <span style="color:#ae81ff">0</span>
 admin@~/ws/antivirus/bin$cat build-docker.sh
-#!/bin/bash
+<span style="color:#75715e">#!/bin/bash</span>
 
-cd .. &amp;&amp; docker build -t antivirus .
+cd .. <span style="color:#f92672">&amp;&amp;</span> docker build -t antivirus .
 cd -
 
-</code></pre>
+</code></pre></div><h2 id="make-it-a-cron-job-on-uat-server">Make it a cron job on UAT server</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">
+<span style="color:#75715e"># Every 10 minutes</span>
+*/10 * * * * /path/to/ci-tool.sh &gt;&gt; /path/to/log 2&gt;&amp;<span style="color:#ae81ff">1</span>
 
-<h2 id="make-it-a-cron-job-on-uat-server">Make it a cron job on UAT server</h2>
-
-<pre><code class="language-Bash">
-# Every 10 minutes
-*/10 * * * * /path/to/ci-tool.sh &gt;&gt; /path/to/log 2&gt;&amp;1
-
-</code></pre>
-
-<h2 id="conclusion">Conclusion</h2>
-
+</code></pre></div><h2 id="conclusion">Conclusion</h2>
 <ul>
 <li>I just focus on coding and commit/push the code to Github, no worries about the UAT server because it&rsquo;d be automatically built and deployed.</li>
 </ul>

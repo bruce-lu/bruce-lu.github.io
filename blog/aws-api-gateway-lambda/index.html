@@ -17,38 +17,34 @@
   
   
   
-  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.60c59e75c5046f0eded1491ec81bdadd4a68c3cb5d8aa97aeaa80d79260917d3.css">
+  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.658d6d6b74f1690b9919f17a04765dd9d4c57b29efded85728be2bacbe8b4bb1.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   
   
 
   <meta property="og:title" content="AWS API Gateway with Lambda Integration" />
-<meta property="og:description" content="Goal  Demonstrate how to integrate AWS Lambda with API Gateway  Pre-reqs  AWS account and proper permissions through IAM   Build a Lambda function  Log on AWS Web Console Services -&gt; Lambda -&gt; Create function
- Function name: Lambda-API-Gateway-Demo Runtime: Node.js 12.x Permissions: Create a new role with basic Lambda permissions Click Create function button  Function code
+<meta property="og:description" content="Goal  Demonstrate how to integrate AWS Lambda with API Gateway  Pre-reqs  AWS account and proper permissions through IAM  Build a Lambda function   Log on AWS Web Console
+  Services -&gt; Lambda -&gt; Create function
+ Function name: Lambda-API-Gateway-Demo Runtime: Node.js 12.x Permissions: Create a new role with basic Lambda permissions Click Create function button    Function code
  Code entry type: Edit code inline (other options: Upload a ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bruce-lu.github.io/blog/aws-api-gateway-lambda/" />
-<meta property="article:published_time" content="2020-02-05T16:11:06&#43;08:00"/>
-<meta property="article:modified_time" content="2020-02-05T16:11:06&#43;08:00"/>
+<meta property="og:url" content="https://bruce-lu.github.io/blog/aws-api-gateway-lambda/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-02-05T16:11:06+08:00" />
+<meta property="article:modified_time" content="2020-02-05T16:11:06+08:00" />
 
 <meta itemprop="name" content="AWS API Gateway with Lambda Integration">
-<meta itemprop="description" content="Goal  Demonstrate how to integrate AWS Lambda with API Gateway  Pre-reqs  AWS account and proper permissions through IAM   Build a Lambda function  Log on AWS Web Console Services -&gt; Lambda -&gt; Create function
- Function name: Lambda-API-Gateway-Demo Runtime: Node.js 12.x Permissions: Create a new role with basic Lambda permissions Click Create function button  Function code
- Code entry type: Edit code inline (other options: Upload a .">
-
-
-<meta itemprop="datePublished" content="2020-02-05T16:11:06&#43;08:00" />
-<meta itemprop="dateModified" content="2020-02-05T16:11:06&#43;08:00" />
+<meta itemprop="description" content="Goal  Demonstrate how to integrate AWS Lambda with API Gateway  Pre-reqs  AWS account and proper permissions through IAM  Build a Lambda function   Log on AWS Web Console
+  Services -&gt; Lambda -&gt; Create function
+ Function name: Lambda-API-Gateway-Demo Runtime: Node.js 12.x Permissions: Create a new role with basic Lambda permissions Click Create function button    Function code
+ Code entry type: Edit code inline (other options: Upload a ."><meta itemprop="datePublished" content="2020-02-05T16:11:06+08:00" />
+<meta itemprop="dateModified" content="2020-02-05T16:11:06+08:00" />
 <meta itemprop="wordCount" content="270">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AWS API Gateway with Lambda Integration"/>
-<meta name="twitter:description" content="Goal  Demonstrate how to integrate AWS Lambda with API Gateway  Pre-reqs  AWS account and proper permissions through IAM   Build a Lambda function  Log on AWS Web Console Services -&gt; Lambda -&gt; Create function
- Function name: Lambda-API-Gateway-Demo Runtime: Node.js 12.x Permissions: Create a new role with basic Lambda permissions Click Create function button  Function code
+<meta name="twitter:description" content="Goal  Demonstrate how to integrate AWS Lambda with API Gateway  Pre-reqs  AWS account and proper permissions through IAM  Build a Lambda function   Log on AWS Web Console
+  Services -&gt; Lambda -&gt; Create function
+ Function name: Lambda-API-Gateway-Demo Runtime: Node.js 12.x Permissions: Create a new role with basic Lambda permissions Click Create function button    Function code
  Code entry type: Edit code inline (other options: Upload a ."/>
 
   <!--[if lte IE 9]>
@@ -91,62 +87,52 @@ if (!doNotTrack) {
   <p class="date">February 5, 2020</p>
   
   <div id="contentBody">
-    
-
-<h2 id="goal">Goal</h2>
-
+    <h2 id="goal">Goal</h2>
 <ul>
 <li>Demonstrate how to integrate AWS Lambda with API Gateway</li>
 </ul>
-
 <h2 id="pre-reqs">Pre-reqs</h2>
-
 <ul>
-<li>AWS account and proper permissions through IAM
-<br /></li>
+<li>AWS account and proper permissions through IAM</li>
 </ul>
-
 <h2 id="build-a-lambda-function">Build a Lambda function</h2>
-
 <ul>
-<li>Log on AWS Web Console</li>
-
-<li><p>Services -&gt; Lambda -&gt; Create function</p>
-
+<li>
+<p>Log on AWS Web Console</p>
+</li>
+<li>
+<p>Services -&gt; Lambda -&gt; Create function</p>
 <ul>
 <li>Function name: Lambda-API-Gateway-Demo</li>
 <li>Runtime: Node.js 12.x</li>
 <li>Permissions: Create a new role with basic Lambda permissions</li>
 <li>Click Create function button</li>
-</ul></li>
-
-<li><p>Function code</p>
-
+</ul>
+</li>
+<li>
+<p>Function code</p>
 <ul>
 <li>Code entry type: Edit code inline (other options: Upload a .zip file; Upload from S3)</li>
 <li>Runtime: Node.js 12.x</li>
 <li>Handler: index.handler</li>
 <li>index.js</li>
-</ul></li>
 </ul>
-
-<pre><code class="language-javascript">
-  exports.handler = async (event) =&gt; {
-    // TODO implement
-    const response = {
-        statusCode: 200,
-        body: JSON.stringify('Hello from Lambda!'),
-    };
-    return response;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">
+<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">handler</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">event</span>) =&gt; {
+  <span style="color:#75715e">// TODO implement
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">statusCode</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">200</span>,
+      <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#e6db74">&#39;Hello from Lambda!&#39;</span>),
   };
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">response</span>;
+};
 
-</code></pre>
-
+</code></pre></div></li>
+</ul>
 <h2 id="testing">Testing</h2>
-
 <ul>
-<li>Configure test event
-
+<li>
+<p>Configure test event</p>
 <ul>
 <li>Create new test event</li>
 <li>Event template: Hello World</li>
@@ -154,66 +140,60 @@ if (!doNotTrack) {
 <li>Keep the rest as default</li>
 <li>Click Test button to test</li>
 <li>Log output</li>
-</ul></li>
 </ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JSON" data-lang="JSON">
+{
+  <span style="color:#f92672">&#34;statusCode&#34;</span>: <span style="color:#ae81ff">200</span>,
+  <span style="color:#f92672">&#34;body&#34;</span>: <span style="color:#e6db74">&#34;\&#34;Hello from Lambda!\&#34;&#34;</span>
+}
 
-<pre><code class="language-JSON">
-  {
-    &quot;statusCode&quot;: 200,
-    &quot;body&quot;: &quot;\&quot;Hello from Lambda!\&quot;&quot;
-  }
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">
+START RequestId: 30020ce5-86be-47d1-ba61-ef08393f9dc7 Version: $LATEST
+END RequestId: 30020ce5-86be-47d1-ba61-ef08393f9dc7
+REPORT RequestId: 30020ce5-86be-47d1-ba61-ef08393f9dc7	Duration: 2.99 ms	Billed Duration: <span style="color:#ae81ff">100</span> ms	Memory Size: <span style="color:#ae81ff">128</span> MB	Max Memory Used: <span style="color:#ae81ff">64</span> MB	Init Duration: 423.93 ms
 
-</code></pre>
-
-<pre><code class="language-Bash">
-  START RequestId: 30020ce5-86be-47d1-ba61-ef08393f9dc7 Version: $LATEST
-  END RequestId: 30020ce5-86be-47d1-ba61-ef08393f9dc7
-  REPORT RequestId: 30020ce5-86be-47d1-ba61-ef08393f9dc7	Duration: 2.99 ms	Billed Duration: 100 ms	Memory Size: 128 MB	Max Memory Used: 64 MB	Init Duration: 423.93 ms
-
-</code></pre>
-
-<ul>
-<li>Add trigger
-
+</code></pre></div></li>
+<li>
+<p>Add trigger</p>
 <ul>
 <li>Go to Designer UI of the function</li>
-<li>Add trigger</li>
+<li>Add trigger
+<ul>
 <li>Trigger configuration: API Gateway (other options: AWS IoT, Application Load Balancer, CloudWatch Events, CloudWatch Logs, DynamoDB, Kinesis, S3, SNS, SQS)</li>
 <li>API: Create a new API</li>
 <li>Security: Open (for testing purpose, not for production)</li>
 <li>Click Add button</li>
+</ul>
+</li>
 <li>API Gateway looks like:</li>
-</ul></li>
 </ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">
+Lambda-API-Gateway-Demo-API
+arn:aws-cn:execute-api:cn-northwest-1:005464510748:5uac1lg2va/*/*/Lambda-API-Gateway-Demo
+API: api-gateway/5uac1lg2va/*/*/Lambda-API-Gateway-DemoAPI endpoint: https://5uac1lg2va.execute-api.cn-northwest-1.amazonaws.com.cn/default/Lambda-API-Gateway-Demo API name: Lambda-API-Gateway-Demo-API
 
-<pre><code class="language-Bash">
-  Lambda-API-Gateway-Demo-API
-  arn:aws-cn:execute-api:cn-northwest-1:005464510748:5uac1lg2va/*/*/Lambda-API-Gateway-Demo
-  API: api-gateway/5uac1lg2va/*/*/Lambda-API-Gateway-DemoAPI endpoint: https://5uac1lg2va.execute-api.cn-northwest-1.amazonaws.com.cn/default/Lambda-API-Gateway-Demo API name: Lambda-API-Gateway-Demo-API
-
-</code></pre>
-
+</code></pre></div></li>
+<li>
+<p>Validate the integration</p>
 <ul>
-<li><p>Validate the integration</p>
-
+<li>Open the link <a href="https://5uac1lg2va.execute-api.cn-northwest-1.amazonaws.com.cn/default/Lambda-API-Gateway-Demo">https://5uac1lg2va.execute-api.cn-northwest-1.amazonaws.com.cn/default/Lambda-API-Gateway-Demo</a> on browser
 <ul>
-<li>Open the link <a href="https://5uac1lg2va.execute-api.cn-northwest-1.amazonaws.com.cn/default/Lambda-API-Gateway-Demo">https://5uac1lg2va.execute-api.cn-northwest-1.amazonaws.com.cn/default/Lambda-API-Gateway-Demo</a> on browser</li>
 <li>&ldquo;Hello from Lambda!&rdquo; would be displayed</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="conclusion">Conclusion</h2>
-
 <p>We achieved our goal successfully: AWS Lambda integration with API Gateway</p>
-
 <ul>
 <li>What we&rsquo;ve done
-
 <ul>
 <li>Created Lambda function</li>
 <li>Created API Gateway and added it as the Trigger of Lambda function</li>
 <li>Validation</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
   </div>

@@ -17,33 +17,26 @@
   
   
   
-  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.60c59e75c5046f0eded1491ec81bdadd4a68c3cb5d8aa97aeaa80d79260917d3.css">
+  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.658d6d6b74f1690b9919f17a04765dd9d4c57b29efded85728be2bacbe8b4bb1.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   
   
 
   <meta property="og:title" content="Kubernetes Commands" />
-<meta property="og:description" content="Create/run  kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh kubectl run nginx &ndash;image=nginx &ndash;replicas=2 kubectl run nginx &ndash;image=nginx &ndash;dry-run kubectl create -f a-file.yml kubectl create deployment kubernetes-bootcamp &ndash;image=gcr.io/google-samples/kubernetes-bootcamp:v1  Get info  kubectl -h or &ndash;help kubectl $command &ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&lsquo;{.items[0].metadata.name}&rsquo; kubectl get pods -o go-template &ndash;template &lsquo;{{range.items}}{{.metadata.status}}{{&rdquo;\n&rdquo;}}{{end}}&rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName kubectl proxy and curl http://localhost:8001/version  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file." />
+<meta property="og:description" content="Create/run  kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh kubectl run nginx &ndash;image=nginx &ndash;replicas=2 kubectl run nginx &ndash;image=nginx &ndash;dry-run kubectl create -f a-file.yml kubectl create deployment kubernetes-bootcamp &ndash;image=gcr.io/google-samples/kubernetes-bootcamp:v1  Get info  kubectl -h or &ndash;help kubectl $command &ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&#39;{.items[0].metadata.name}&#39; kubectl get pods -o go-template &ndash;template &lsquo;{{range.items}}{{.metadata.status}}{{&quot;\n&quot;}}{{end}}&rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName kubectl proxy and curl http://localhost:8001/version  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bruce-lu.github.io/blog/kubernetes-cmds/" />
-<meta property="article:published_time" content="2019-07-04T15:23:27&#43;08:00"/>
-<meta property="article:modified_time" content="2019-07-04T15:23:27&#43;08:00"/>
+<meta property="og:url" content="https://bruce-lu.github.io/blog/kubernetes-cmds/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2019-07-04T15:23:27+08:00" />
+<meta property="article:modified_time" content="2019-07-04T15:23:27+08:00" />
 
 <meta itemprop="name" content="Kubernetes Commands">
-<meta itemprop="description" content="Create/run  kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh kubectl run nginx &ndash;image=nginx &ndash;replicas=2 kubectl run nginx &ndash;image=nginx &ndash;dry-run kubectl create -f a-file.yml kubectl create deployment kubernetes-bootcamp &ndash;image=gcr.io/google-samples/kubernetes-bootcamp:v1  Get info  kubectl -h or &ndash;help kubectl $command &ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&lsquo;{.items[0].metadata.name}&rsquo; kubectl get pods -o go-template &ndash;template &lsquo;{{range.items}}{{.metadata.status}}{{&rdquo;\n&rdquo;}}{{end}}&rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName kubectl proxy and curl http://localhost:8001/version  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file.">
-
-
-<meta itemprop="datePublished" content="2019-07-04T15:23:27&#43;08:00" />
-<meta itemprop="dateModified" content="2019-07-04T15:23:27&#43;08:00" />
+<meta itemprop="description" content="Create/run  kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh kubectl run nginx &ndash;image=nginx &ndash;replicas=2 kubectl run nginx &ndash;image=nginx &ndash;dry-run kubectl create -f a-file.yml kubectl create deployment kubernetes-bootcamp &ndash;image=gcr.io/google-samples/kubernetes-bootcamp:v1  Get info  kubectl -h or &ndash;help kubectl $command &ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&#39;{.items[0].metadata.name}&#39; kubectl get pods -o go-template &ndash;template &lsquo;{{range.items}}{{.metadata.status}}{{&quot;\n&quot;}}{{end}}&rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName kubectl proxy and curl http://localhost:8001/version  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file."><meta itemprop="datePublished" content="2019-07-04T15:23:27+08:00" />
+<meta itemprop="dateModified" content="2019-07-04T15:23:27+08:00" />
 <meta itemprop="wordCount" content="125">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kubernetes Commands"/>
-<meta name="twitter:description" content="Create/run  kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh kubectl run nginx &ndash;image=nginx &ndash;replicas=2 kubectl run nginx &ndash;image=nginx &ndash;dry-run kubectl create -f a-file.yml kubectl create deployment kubernetes-bootcamp &ndash;image=gcr.io/google-samples/kubernetes-bootcamp:v1  Get info  kubectl -h or &ndash;help kubectl $command &ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&lsquo;{.items[0].metadata.name}&rsquo; kubectl get pods -o go-template &ndash;template &lsquo;{{range.items}}{{.metadata.status}}{{&rdquo;\n&rdquo;}}{{end}}&rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName kubectl proxy and curl http://localhost:8001/version  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file."/>
+<meta name="twitter:description" content="Create/run  kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh kubectl run nginx &ndash;image=nginx &ndash;replicas=2 kubectl run nginx &ndash;image=nginx &ndash;dry-run kubectl create -f a-file.yml kubectl create deployment kubernetes-bootcamp &ndash;image=gcr.io/google-samples/kubernetes-bootcamp:v1  Get info  kubectl -h or &ndash;help kubectl $command &ndash;help kubectl cluster-info kubectl get nodes kubectl get pods -o wide &ndash;all-namespaces kubectl get po -o yaml kubectl get pod -l app=ratings -o jsonpath=&#39;{.items[0].metadata.name}&#39; kubectl get pods -o go-template &ndash;template &lsquo;{{range.items}}{{.metadata.status}}{{&quot;\n&quot;}}{{end}}&rsquo; kubectl get deployments kubectl get services kubectl get namespace kubectl get pv kubectl get statefulsets kubectl describe resName kubectl explain resName kubectl proxy and curl http://localhost:8001/version  Trouble shooting  kubectl logs -p $pod -c $container kubectl logs &ndash;since=1h nginx kubectl exec -it myPodName -c containerNameInMyPod /bin/sh  Apply changes  kubectl apply -f a-file."/>
 
   <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -85,10 +78,7 @@ if (!doNotTrack) {
   <p class="date">July 4, 2019</p>
   
   <div id="contentBody">
-    
-
-<h2 id="create-run">Create/run</h2>
-
+    <h2 id="createrun">Create/run</h2>
 <ul>
 <li>kubectl run busybox &ndash;rm -it &ndash;image=busybox /bin/sh</li>
 <li>kubectl run nginx &ndash;image=nginx &ndash;replicas=2</li>
@@ -96,9 +86,7 @@ if (!doNotTrack) {
 <li>kubectl create -f a-file.yml</li>
 <li>kubectl create deployment kubernetes-bootcamp &ndash;image=gcr.io/google-samples/kubernetes-bootcamp:v1</li>
 </ul>
-
 <h2 id="get-info">Get info</h2>
-
 <ul>
 <li>kubectl -h or &ndash;help</li>
 <li>kubectl $command &ndash;help</li>
@@ -106,8 +94,8 @@ if (!doNotTrack) {
 <li>kubectl get nodes</li>
 <li>kubectl get pods -o wide &ndash;all-namespaces</li>
 <li>kubectl get po -o yaml</li>
-<li>kubectl get pod -l app=ratings -o jsonpath=&lsquo;{.items[0].metadata.name}&rsquo;</li>
-<li>kubectl get pods -o go-template &ndash;template &lsquo;{{range.items}}{{.metadata.status}}{{&rdquo;\n&rdquo;}}{{end}}&rsquo;</li>
+<li>kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}'</li>
+<li>kubectl get pods -o go-template &ndash;template &lsquo;{{range.items}}{{.metadata.status}}{{&quot;\n&quot;}}{{end}}&rsquo;</li>
 <li>kubectl get deployments</li>
 <li>kubectl get services</li>
 <li>kubectl get namespace</li>
@@ -115,19 +103,15 @@ if (!doNotTrack) {
 <li>kubectl get statefulsets</li>
 <li>kubectl describe resName</li>
 <li>kubectl explain resName</li>
-<li>kubectl proxy and curl <a href="http://localhost:8001/version">http://localhost:8001/version</a></li>
+<li>kubectl proxy and curl http://localhost:8001/version</li>
 </ul>
-
 <h2 id="trouble-shooting">Trouble shooting</h2>
-
 <ul>
 <li>kubectl logs -p $pod -c $container</li>
 <li>kubectl logs &ndash;since=1h nginx</li>
 <li>kubectl exec -it myPodName -c containerNameInMyPod /bin/sh</li>
 </ul>
-
 <h2 id="apply-changes">Apply changes</h2>
-
 <ul>
 <li>kubectl apply -f a-file.yml</li>
 <li>kubectl delete -f a-file.yml</li>

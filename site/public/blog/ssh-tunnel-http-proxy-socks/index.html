@@ -17,33 +17,26 @@
   
   
   
-  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.60c59e75c5046f0eded1491ec81bdadd4a68c3cb5d8aa97aeaa80d79260917d3.css">
+  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.658d6d6b74f1690b9919f17a04765dd9d4c57b29efded85728be2bacbe8b4bb1.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   
   
 
   <meta property="og:title" content="ssh tunnel &amp; http proxy through socks" />
-<meta property="og:description" content="ssh tunnel  cmd ssh -C2qTnN -D 11111 -i ~/.ssh/ssh-rsa.ppk id@remote  C: Requests compression of all data 2: Forces ssh to try protocol version 2 only q: Quiet mode T: Disable pseudo-tty allocation n: Redirects stdin from /dev/null (actually, prevents reading from stdin) N: Do not execute a remote command (doesn&#39;t open the shell)  curl through http proxy  Using tunnel on terminal such as curl http/https  admin@~$cat ." />
+<meta property="og:description" content="ssh tunnel  cmd ssh -C2qTnN -D 11111 -i ~/.ssh/ssh-rsa.ppk id@remote  C: Requests compression of all data 2: Forces ssh to try protocol version 2 only q: Quiet mode T: Disable pseudo-tty allocation n: Redirects stdin from /dev/null (actually, prevents reading from stdin) N: Do not execute a remote command (doesn&#39;t open the shell) curl through http proxy  Using tunnel on terminal such as curl http/https  admin@~$cat ." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bruce-lu.github.io/blog/ssh-tunnel-http-proxy-socks/" />
-<meta property="article:published_time" content="2019-10-15T22:10:34&#43;08:00"/>
-<meta property="article:modified_time" content="2019-10-15T22:10:34&#43;08:00"/>
+<meta property="og:url" content="https://bruce-lu.github.io/blog/ssh-tunnel-http-proxy-socks/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2019-10-15T22:10:34+08:00" />
+<meta property="article:modified_time" content="2019-10-15T22:10:34+08:00" />
 
 <meta itemprop="name" content="ssh tunnel &amp; http proxy through socks">
-<meta itemprop="description" content="ssh tunnel  cmd ssh -C2qTnN -D 11111 -i ~/.ssh/ssh-rsa.ppk id@remote  C: Requests compression of all data 2: Forces ssh to try protocol version 2 only q: Quiet mode T: Disable pseudo-tty allocation n: Redirects stdin from /dev/null (actually, prevents reading from stdin) N: Do not execute a remote command (doesn&#39;t open the shell)  curl through http proxy  Using tunnel on terminal such as curl http/https  admin@~$cat .">
-
-
-<meta itemprop="datePublished" content="2019-10-15T22:10:34&#43;08:00" />
-<meta itemprop="dateModified" content="2019-10-15T22:10:34&#43;08:00" />
+<meta itemprop="description" content="ssh tunnel  cmd ssh -C2qTnN -D 11111 -i ~/.ssh/ssh-rsa.ppk id@remote  C: Requests compression of all data 2: Forces ssh to try protocol version 2 only q: Quiet mode T: Disable pseudo-tty allocation n: Redirects stdin from /dev/null (actually, prevents reading from stdin) N: Do not execute a remote command (doesn&#39;t open the shell) curl through http proxy  Using tunnel on terminal such as curl http/https  admin@~$cat ."><meta itemprop="datePublished" content="2019-10-15T22:10:34+08:00" />
+<meta itemprop="dateModified" content="2019-10-15T22:10:34+08:00" />
 <meta itemprop="wordCount" content="91">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ssh tunnel &amp; http proxy through socks"/>
-<meta name="twitter:description" content="ssh tunnel  cmd ssh -C2qTnN -D 11111 -i ~/.ssh/ssh-rsa.ppk id@remote  C: Requests compression of all data 2: Forces ssh to try protocol version 2 only q: Quiet mode T: Disable pseudo-tty allocation n: Redirects stdin from /dev/null (actually, prevents reading from stdin) N: Do not execute a remote command (doesn&#39;t open the shell)  curl through http proxy  Using tunnel on terminal such as curl http/https  admin@~$cat ."/>
+<meta name="twitter:description" content="ssh tunnel  cmd ssh -C2qTnN -D 11111 -i ~/.ssh/ssh-rsa.ppk id@remote  C: Requests compression of all data 2: Forces ssh to try protocol version 2 only q: Quiet mode T: Disable pseudo-tty allocation n: Redirects stdin from /dev/null (actually, prevents reading from stdin) N: Do not execute a remote command (doesn&#39;t open the shell) curl through http proxy  Using tunnel on terminal such as curl http/https  admin@~$cat ."/>
 
   <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -85,47 +78,33 @@ if (!doNotTrack) {
   <p class="date">October 15, 2019</p>
   
   <div id="contentBody">
-    
-
-<h2 id="ssh-tunnel">ssh tunnel</h2>
-
+    <h2 id="ssh-tunnel">ssh tunnel</h2>
 <ul>
 <li>cmd
 ssh -C2qTnN -D 11111 -i ~/.ssh/ssh-rsa.ppk id@remote</li>
 </ul>
-
-<pre><code class="language-Bash">    C: Requests compression of all data
-    2: Forces ssh to try protocol version 2 only
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">    C: Requests compression of all data
+    2: Forces ssh to try protocol version <span style="color:#ae81ff">2</span> only
     q: Quiet mode
     T: Disable pseudo-tty allocation
-    n: Redirects stdin from /dev/null (actually, prevents reading from stdin)
-    N: Do not execute a remote command (doesn't open the shell)
-</code></pre>
-
-<h2 id="curl-through-http-proxy">curl through http proxy</h2>
-
+    n: Redirects stdin from /dev/null <span style="color:#f92672">(</span>actually, prevents reading from stdin<span style="color:#f92672">)</span>
+    N: Do not execute a remote command <span style="color:#f92672">(</span>doesn<span style="color:#960050;background-color:#1e0010">&#39;</span>t open the shell<span style="color:#f92672">)</span>
+</code></pre></div><h2 id="curl-through-http-proxy">curl through http proxy</h2>
 <ul>
 <li>Using tunnel on terminal such as curl http/https</li>
 </ul>
-
-<pre><code class="language-Bash">  admin@~$cat .httpproxy
-  export http_proxy=socks5://127.0.0.1:11111
-  export https_proxy=$http_proxy
-</code></pre>
-
-<h2 id="chrome">Chrome</h2>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Bash" data-lang="Bash">  admin@~$cat .httpproxy
+  export http_proxy<span style="color:#f92672">=</span>socks5://127.0.0.1:11111
+  export https_proxy<span style="color:#f92672">=</span>$http_proxy
+</code></pre></div><h2 id="chrome">Chrome</h2>
 <ul>
 <li>Start Chrome with proxy
 chrome &ndash;proxy-server=&ldquo;socks5://127.0.0.1:11111&rdquo; &ndash;host-resolver-rules=&ldquo;MAP * 0.0.0.0 , EXCLUDE localhost&rdquo;</li>
 </ul>
-
 <h2 id="firefox-and-safari">Firefox and Safari</h2>
-
 <ul>
 <li>Similar to Chrome</li>
 </ul>
-
 <h2 id="enjoy">Enjoy</h2>
 
   </div>

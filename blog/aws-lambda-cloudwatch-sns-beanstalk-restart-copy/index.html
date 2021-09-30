@@ -17,7 +17,7 @@
   
   
   
-  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.60c59e75c5046f0eded1491ec81bdadd4a68c3cb5d8aa97aeaa80d79260917d3.css">
+  <link rel="stylesheet" href="https://bruce-lu.github.io/style.min.658d6d6b74f1690b9919f17a04765dd9d4c57b29efded85728be2bacbe8b4bb1.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   
@@ -26,22 +26,15 @@
   <meta property="og:title" content="AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed" />
 <meta property="og:description" content="Goal  Restart Elastic Beanstalk app server automatically when needed In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server when there is no log activity occurred for a period of time. There is no such kind of built-in alarm-action feature in CloudWatch. My solution here is to demonstrate how to do this in Lambda, collaborating with other AWS services such as CloudWatch, SNS etc." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bruce-lu.github.io/blog/aws-lambda-cloudwatch-sns-beanstalk-restart-copy/" />
-<meta property="article:published_time" content="2020-02-10T14:08:22&#43;08:00"/>
-<meta property="article:modified_time" content="2020-02-10T14:08:22&#43;08:00"/>
+<meta property="og:url" content="https://bruce-lu.github.io/blog/aws-lambda-cloudwatch-sns-beanstalk-restart-copy/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-02-10T14:08:22+08:00" />
+<meta property="article:modified_time" content="2020-02-10T14:08:22+08:00" />
 
 <meta itemprop="name" content="AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed">
-<meta itemprop="description" content="Goal  Restart Elastic Beanstalk app server automatically when needed In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server when there is no log activity occurred for a period of time. There is no such kind of built-in alarm-action feature in CloudWatch. My solution here is to demonstrate how to do this in Lambda, collaborating with other AWS services such as CloudWatch, SNS etc.">
-
-
-<meta itemprop="datePublished" content="2020-02-10T14:08:22&#43;08:00" />
-<meta itemprop="dateModified" content="2020-02-10T14:08:22&#43;08:00" />
+<meta itemprop="description" content="Goal  Restart Elastic Beanstalk app server automatically when needed In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server when there is no log activity occurred for a period of time. There is no such kind of built-in alarm-action feature in CloudWatch. My solution here is to demonstrate how to do this in Lambda, collaborating with other AWS services such as CloudWatch, SNS etc."><meta itemprop="datePublished" content="2020-02-10T14:08:22+08:00" />
+<meta itemprop="dateModified" content="2020-02-10T14:08:22+08:00" />
 <meta itemprop="wordCount" content="402">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AWS Lambda together with CloudWatch and SNS to restart Beanstalk app server as needed"/>
 <meta name="twitter:description" content="Goal  Restart Elastic Beanstalk app server automatically when needed In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server when there is no log activity occurred for a period of time. There is no such kind of built-in alarm-action feature in CloudWatch. My solution here is to demonstrate how to do this in Lambda, collaborating with other AWS services such as CloudWatch, SNS etc."/>
 
@@ -85,37 +78,26 @@ if (!doNotTrack) {
   <p class="date">February 10, 2020</p>
   
   <div id="contentBody">
-    
-
-<h2 id="goal">Goal</h2>
-
+    <h2 id="goal">Goal</h2>
 <ul>
 <li>Restart Elastic Beanstalk app server automatically when needed
-In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server
+In one of my IoT applications built with Elastic Beanstalk, we wanted to restart the beanstalk app server 
 when there is no log activity occurred for a period of time. There is no such kind of built-in alarm-action feature in CloudWatch.
 My solution here is to demonstrate how to do this in Lambda, collaborating with other AWS services such as CloudWatch, SNS etc..</li>
 </ul>
-
 <h2 id="pre-reqs">Pre-reqs</h2>
-
 <ul>
-<li>AWS account and proper permissions through IAM
-<br /></li>
+<li>AWS account and proper permissions through IAM</li>
 </ul>
-
 <h2 id="create-sns-to-receive-log-activities-alarm-notification">Create SNS to receive log activities alarm notification</h2>
-
 <ul>
 <li>Go to AWS Web Console
 Services -&gt; SNS -&gt; Create a new SNS and email subscription</li>
 </ul>
-
 <h2 id="create-cloudwatch-logging-alarm-based-on-log-activities">Create CloudWatch logging alarm based on log activities</h2>
-
 <ul>
 <li>Go to AWS Web Console
 CloudWatch -&gt; Alarms -&gt; Create Alarm -&gt; Select Metrics -&gt; Logs (my app logs) -&gt; IncomingBytes -&gt; Select
-
 <ul>
 <li>Metrics name: IncomingBytes</li>
 <li>LogGroupName: My app&rsquo;s loggroup</li>
@@ -129,14 +111,13 @@ CloudWatch -&gt; Alarms -&gt; Create Alarm -&gt; Select Metrics -&gt; Logs (my a
 <li>(Note: There is no EC2/Beanstal restart action for Logs metrics, so we&rsquo;d use Lambda later on)</li>
 <li>Next</li>
 <li>Give it a name and save</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h2 id="create-lambda-to-take-action-when-no-log-activity-reported-by-cloudwatch">Create Lambda to take action when no log activity reported by CloudWatch</h2>
-
 <ul>
-<li><p>Create Lambda</p>
-
+<li>
+<p>Create Lambda</p>
 <ul>
 <li>Go to AWS Web Console</li>
 <li>Create function</li>
@@ -144,89 +125,80 @@ CloudWatch -&gt; Alarms -&gt; Create Alarm -&gt; Select Metrics -&gt; Logs (my a
 <li>Function name: Give it a name</li>
 <li>Runtime: Python 3.8</li>
 <li>Permissions: Create a new role with basic Lambda permissions</li>
-</ul></li>
-
-<li><p>Function code</p>
-
+</ul>
+</li>
+<li>
+<p>Function code</p>
 <ul>
 <li>Handler: index.handler_restart_app_server</li>
 <li>index.py</li>
-</ul></li>
 </ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">
+<span style="color:#f92672">import</span> json
+<span style="color:#f92672">import</span> boto3
 
-<pre><code class="language-Python">
-import json
-import boto3
+ebc <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;elasticbeanstalk&#39;</span>)
 
-ebc = boto3.client('elasticbeanstalk')
-
-def handler_restart_app_server(event, context):
-    response = ebc.restart_app_server(
-      EnvironmentId='your-eb-env-id',
-      EnvironmentName='your-eb-env-name'
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handler_restart_app_server</span>(event, context):
+    response <span style="color:#f92672">=</span> ebc<span style="color:#f92672">.</span>restart_app_server(
+      EnvironmentId<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;your-eb-env-id&#39;</span>,
+      EnvironmentName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;your-eb-env-name&#39;</span>
     )
     print(response)
     
-    return {
-          'statusCode': 200,
-          'body': json.dumps(response)
+    <span style="color:#66d9ef">return</span> {
+          <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">200</span>,
+          <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps(response)
     }
   
-def handler_request_log_100_lines(event, context):
-    response = ebc.request_environment_info(
-    EnvironmentName='your-env-name',
-    #InfoType='tail'|'bundle'
-    InfoType='tail'
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handler_request_log_100_lines</span>(event, context):
+    response <span style="color:#f92672">=</span> ebc<span style="color:#f92672">.</span>request_environment_info(
+    EnvironmentName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;your-env-name&#39;</span>,
+    <span style="color:#75715e">#InfoType=&#39;tail&#39;|&#39;bundle&#39;</span>
+    InfoType<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;tail&#39;</span>
     )
-    print('----&gt;')
+    print(<span style="color:#e6db74">&#39;----&gt;&#39;</span>)
     print(response)
-    print('&lt;----')
-    return {
-        'statusCode': 200,
-        'body': json.dumps(response)
+    print(<span style="color:#e6db74">&#39;&lt;----&#39;</span>)
+    <span style="color:#66d9ef">return</span> {
+        <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">200</span>,
+        <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps(response)
     }
 
-def handler_describe_environment_health(event, context):
-    response = ebc.describe_environment_health(
-      EnvironmentId='your-env-Id',
-      EnvironmentName='your-env-name',
-      AttributeNames=[
-       'Status',
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handler_describe_environment_health</span>(event, context):
+    response <span style="color:#f92672">=</span> ebc<span style="color:#f92672">.</span>describe_environment_health(
+      EnvironmentId<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;your-env-Id&#39;</span>,
+      EnvironmentName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;your-env-name&#39;</span>,
+      AttributeNames<span style="color:#f92672">=</span>[
+       <span style="color:#e6db74">&#39;Status&#39;</span>,
      ])
-    #print(response)
-    return {
-          &quot;statusCode&quot;: 200,
-          &quot;body&quot;: json.dumps(response)
+    <span style="color:#75715e">#print(response)</span>
+    <span style="color:#66d9ef">return</span> {
+          <span style="color:#e6db74">&#34;statusCode&#34;</span>: <span style="color:#ae81ff">200</span>,
+          <span style="color:#e6db74">&#34;body&#34;</span>: json<span style="color:#f92672">.</span>dumps(response)
     }
 
-</code></pre>
-
-<h2 id="add-lambda-trigger">Add Lambda Trigger</h2>
-
+</code></pre></div><h2 id="add-lambda-trigger">Add Lambda Trigger</h2>
 <p>The purpose is to trigger our Lambda function whenever we got no log actitiy notification in our SNS topic</p>
-
 <ul>
 <li>Go to AWS Lambda function console</li>
 <li>Go to designer</li>
 <li>Add trigger: Select SNS topic we created</li>
 </ul>
-
 <h2 id="testing">Testing</h2>
-
 <p>Just watch for the notification from our topic. Every time we get notification the Elastic Beanstalk app server would be restarted</p>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>We achived our goal to restart EB app server when no log activity reported by CloudWatch.</p>
-
 <ul>
 <li>What we&rsquo;ve done
-
 <ul>
 <li>Created SNS topic to receive notification from CloudWatch Alarm</li>
 <li>Created Alarm in CloudWatch to monitor log metrics</li>
 <li>Created Lambda function to handle SNS notification event</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 
   </div>
